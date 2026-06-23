@@ -1,0 +1,368 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio | Matwise World</title>
+<link rel="icon" type="image/png" href="images/LOGO.png">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--accent:#0CC0DF;--accent-dark:#0aa3bf;--black:#0a0a0a;--white:#fafafa;--font-display:'Cormorant Garamond',serif;--font-body:'DM Sans',sans-serif;--ease-out:cubic-bezier(0.16,1,0.3,1)}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:var(--font-body);background:var(--black);color:var(--white);overflow-x:hidden;font-weight:300;line-height:1.6}
+img{display:block;width:100%;height:100%;object-fit:cover}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.35rem 2rem;display:flex;align-items:flex-start;justify-content:space-between;transition:background 0.4s,padding 0.4s;background:rgba(8,8,8,0.18);backdrop-filter:blur(8px)}
+nav.scrolled{background:rgba(10,10,10,0.94);backdrop-filter:blur(14px);padding:1rem 2rem;border-bottom:1px solid rgba(255,255,255,0.06)}
+.nav-brand{display:inline-flex;align-items:center;gap:0.85rem;color:var(--white);text-decoration:none}
+.brand-mark{background:var(--accent);padding:0.35rem 0.55rem;border-radius:4px;display:flex;align-items:center;justify-content:center;box-shadow:0 12px 28px rgba(12,192,223,0.18)}
+.brand-mark img{width:auto;height:44px;object-fit:contain;display:block}
+.brand-copy{display:flex;flex-direction:column;justify-content:center}
+.brand-copy strong{font-size:0.88rem;letter-spacing:0.1em;text-transform:uppercase;font-weight:500;color:var(--white);line-height:1.1}
+.brand-copy span{font-size:0.48rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.48);margin-top:0.35rem;line-height:1.4}
+.nav-links{display:flex;gap:2rem;list-style:none;align-items:center;padding-top:0.7rem}
+.nav-links a{font-size:0.74rem;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.68);text-decoration:none;transition:color 0.2s;font-weight:500}
+.nav-links a:hover,.nav-links a.active{color:var(--accent)}
+.nav-cta{background:var(--accent);color:var(--black)!important;padding:0.85rem 1.45rem;border-radius:2px;font-weight:500!important}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;z-index:200;background:none;border:none}
+.hamburger span{width:24px;height:1.5px;background:var(--white);transition:all 0.3s;display:block}
+.hamburger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+.mobile-menu{display:none;position:fixed;inset:0;background:var(--black);z-index:99;flex-direction:column;align-items:center;justify-content:center;gap:2.5rem}
+.mobile-menu.open{display:flex}
+.mobile-menu a{font-family:var(--font-display);font-size:2.2rem;color:var(--white);text-decoration:none;font-weight:300}
+.page-hero{position:relative;min-height:78vh;padding:9.5rem 2rem 3.5rem;display:flex;align-items:flex-end;overflow:hidden;background:#0c0c0c}
+.page-hero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(90deg,rgba(0,0,0,0.82) 0%,rgba(0,0,0,0.58) 45%,rgba(0,0,0,0.34) 100%),url('images/Portfolio Hero.png');background-size:cover;background-position:center}
+.page-hero::after{content:'';position:absolute;inset:auto 0 0 0;height:62%;background:linear-gradient(to top,rgba(7,7,7,0.95),transparent)}
+.page-hero>*{position:relative;z-index:1}
+.hero-shell{width:100%;max-width:1180px}
+.hero-footer{display:flex;flex-direction:column;align-items:flex-start;gap:2rem}
+.hero-copy{max-width:540px}
+.hero-copy .section-label{margin-bottom:1rem}
+.hero-copy .section-title{font-size:clamp(3.2rem,6vw,4.9rem);line-height:0.94}
+.hero-copy .section-title em{display:inline-block;margin-left:0.15rem}
+.hero-sub{max-width:430px;margin-top:1rem;color:rgba(255,255,255,0.76);font-size:1rem;line-height:1.75}
+section{padding:6rem 4rem}
+.section-label{font-size:0.72rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--accent);margin-bottom:0.75rem;display:block}
+.section-title{font-family:var(--font-display);font-size:clamp(2.2rem,4vw,3.5rem);font-weight:300;line-height:1.15}
+.section-title em{font-style:italic;color:var(--accent)}
+.portfolio-header{display:none}
+.filter-bar{display:flex;gap:0.6rem;flex-wrap:wrap;align-items:center}
+.filter-btn{background:rgba(8,8,8,0.58);border:1px solid rgba(255,255,255,0.16);color:rgba(255,255,255,0.78);padding:0.82rem 1.35rem;font-size:0.75rem;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;border-radius:2px;font-family:var(--font-body);transition:all 0.2s}
+.filter-btn:hover,.filter-btn.active{background:var(--accent);border-color:var(--accent);color:var(--black);font-weight:500}
+.gallery-grid{columns:4 220px;column-gap:6px}
+.gallery-item{overflow:hidden;position:relative;cursor:pointer;border-radius:1px;break-inside:avoid;margin-bottom:6px}
+.gallery-img{width:100%;height:auto;object-fit:contain;transition:opacity 0.4s,transform 0.4s}
+.gallery-label{position:absolute;left:1rem;bottom:1rem;font-size:0.72rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);opacity:0;transform:translateY(8px);transition:transform 0.3s,opacity 0.3s}
+.gallery-item:hover .gallery-img{opacity:0.92;transform:scale(1.01)}
+.gallery-item:hover .gallery-label{opacity:1;transform:translateY(0)}
+.gallery-item[data-cat].hidden{display:none}
+.gallery-meta{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-top:2rem;padding:1.2rem 1.3rem;border:1px solid rgba(255,255,255,0.08);background:rgba(255,255,255,0.02)}
+.gallery-summary{font-size:0.84rem;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.52)}
+.pagination-panel{display:flex;align-items:center;gap:0.8rem;flex-wrap:wrap;justify-content:flex-end}
+#pageNumbers{display:flex;align-items:center;gap:0.5rem;flex-wrap:wrap}
+.page-btn{min-width:42px;height:42px;border:1px solid rgba(255,255,255,0.14);background:transparent;color:rgba(255,255,255,0.72);font-family:var(--font-body);font-size:0.82rem;letter-spacing:0.08em;cursor:pointer;transition:all 0.2s;border-radius:2px}
+.page-btn:hover,.page-btn.active{background:var(--accent);border-color:var(--accent);color:var(--black);font-weight:500}
+.page-btn:disabled{opacity:0.35;cursor:not-allowed}
+.page-note{font-size:0.76rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.42)}
+.lightbox{position:fixed;inset:0;background:rgba(5,5,5,0.95);z-index:999;display:none;align-items:center;justify-content:center;backdrop-filter:blur(8px)}
+.lightbox.open{display:flex}
+.lightbox-inner{position:relative;max-width:90vw;max-height:90vh}
+.lightbox-inner img{max-width:90vw;max-height:85vh;object-fit:contain;border-radius:2px}
+.lightbox-close{position:absolute;top:-2.5rem;right:0;background:none;border:none;color:rgba(255,255,255,0.7);font-size:1.5rem;cursor:pointer}
+.lightbox-close:hover{color:var(--accent)}
+.cta-band{background:#0d0d0d;border-top:1px solid rgba(255,255,255,0.06);border-bottom:1px solid rgba(255,255,255,0.06);text-align:center}
+.section-line{width:48px;height:1px;background:var(--accent);margin:1.5rem auto 2rem}
+.cta-band p{max-width:620px;margin:0 auto 1.5rem;color:rgba(255,255,255,0.56)}
+.btn-primary{display:inline-block;background:var(--accent);color:var(--black);padding:0.9rem 2rem;text-decoration:none;font-size:0.82rem;letter-spacing:0.1em;text-transform:uppercase;font-weight:500;border-radius:2px}
+footer{background:#070707;padding:4rem 4rem 2rem;border-top:1px solid rgba(255,255,255,0.06)}
+.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:3rem;margin-bottom:3rem}
+.footer-brand p{font-size:0.87rem;color:rgba(255,255,255,0.4);line-height:1.7;margin-top:1rem;max-width:260px}
+.footer-brand .footer-logo{display:inline-flex;align-items:center;justify-content:center}
+.footer-brand .footer-logo img{width:auto;height:52px;object-fit:contain}
+.footer-heading{font-size:0.7rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-bottom:1.2rem}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:0.7rem}
+.footer-links a{font-size:0.88rem;color:rgba(255,255,255,0.5);text-decoration:none;transition:color 0.2s}
+.footer-links a:hover{color:var(--accent)}
+.footer-bottom{display:flex;align-items:center;justify-content:space-between;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.05);flex-wrap:wrap;gap:1rem}
+.footer-bottom p{font-size:0.8rem;color:rgba(255,255,255,0.25)}
+.footer-bottom a{color:var(--accent);text-decoration:none}
+.wa-float{position:fixed;bottom:2rem;right:2rem;z-index:98;width:54px;height:54px;background:#25d366;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;box-shadow:0 4px 20px rgba(37,211,102,0.35)}
+.wa-float svg{width:28px;height:28px;fill:#fff}
+.fade-in{opacity:0;transform:translateY(30px);transition:opacity 0.7s var(--ease-out),transform 0.7s var(--ease-out)}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+@media(max-width:1024px){
+  nav{padding:1.25rem 2rem}
+  nav.scrolled{padding:1rem 2rem}
+  section{padding:5rem 2rem}
+  .page-hero{padding:8.5rem 2rem 3rem;min-height:66vh}
+  .footer-grid{grid-template-columns:1fr 1fr}
+  .gallery-grid{columns:3 200px}
+}
+@media(max-width:768px){
+  .nav-links{display:none}
+  .hamburger{display:flex}
+  nav{padding:0.8rem 1.25rem}
+  nav.scrolled{padding:0.7rem 1.25rem}
+  .brand-mark{padding:0.25rem 0.45rem}
+  .brand-mark img{height:32px}
+  .brand-copy strong{font-size:0.74rem}
+  .brand-copy span{font-size:0.42rem}
+  section{padding:4rem 1.5rem}
+  .page-hero{padding:7.5rem 1.5rem 2.25rem;min-height:62vh}
+  .hero-footer{align-items:flex-start;gap:1.4rem}
+  .hero-copy{max-width:100%}
+  .hero-copy .section-title{font-size:clamp(2.9rem,12vw,4rem)}
+  .hero-sub{font-size:0.95rem;max-width:100%}
+  .gallery-grid{columns:2 150px}
+  .gallery-meta{align-items:flex-start}
+  .pagination-panel{justify-content:flex-start}
+  .footer-grid{grid-template-columns:1fr}
+  .footer-bottom{flex-direction:column;text-align:center}
+}
+</style>
+</head>
+<body>
+<nav id="nav">
+  <a href="index.html" class="nav-brand" aria-label="Matwise World home">
+    <span class="brand-mark"><img src="images/LOGO.png" alt="Matwise World"></span>
+    <span class="brand-copy">
+      <strong>Mat Wise World</strong>
+      <span>Capture. Connect. Create. Get Wiser.</span>
+    </span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="portfolio.html" class="active">Portfolio</a></li>
+    <li><a href="contact.html" class="nav-cta">Contact Us</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html">Home</a>
+  <a href="services.html">Services</a>
+  <a href="portfolio.html">Portfolio</a>
+  <a href="contact.html">Contact Us</a>
+</div>
+
+<section class="page-hero">
+  <div class="hero-shell fade-in">
+    <div class="hero-footer">
+      <div class="hero-copy">
+        <span class="section-label">Featured Work</span>
+        <h1 class="section-title">The <em>Portfolio</em></h1>
+        <p class="hero-sub">Capturing genuine moments, real emotions and timeless memories that tell your story beautifully.</p>
+      </div>
+      <div class="filter-bar">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="weddings">Weddings</button>
+        <button class="filter-btn" data-filter="grad-birthday">Graduations & Birthdays</button>
+        <button class="filter-btn" data-filter="family-baby">Family & Baby Showers</button>
+        <button class="filter-btn" data-filter="sports">Sport Photography</button>
+        <button class="filter-btn" data-filter="matric">Matric Dance</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="portfolio">
+  <div class="gallery-grid" id="galleryGrid">
+    <div class="gallery-item" data-cat="weddings"><img class="gallery-img" src="images/0.jpeg" alt="Wedding"><span class="gallery-label">Weddings</span></div>
+    <div class="gallery-item" data-cat="grad-birthday"><img class="gallery-img" src="images/1.jpeg" alt="Graduation celebration"><span class="gallery-label">Graduations & Birthdays</span></div>
+    <div class="gallery-item" data-cat="sports"><img class="gallery-img" src="images/2.jpeg" alt="Sport photography"><span class="gallery-label">Sport Photography</span></div>
+    <div class="gallery-item" data-cat="family-baby"><img class="gallery-img" src="images/3.jpeg" alt="Family shoot"><span class="gallery-label">Family & Baby Showers</span></div>
+    <div class="gallery-item" data-cat="matric"><img class="gallery-img" src="images/4.jpeg" alt="Matric Dance"><span class="gallery-label">Matric Dance</span></div>
+    <div class="gallery-item" data-cat="sports"><img class="gallery-img" src="images/5.jpeg" alt="Sport photography"><span class="gallery-label">Sport Photography</span></div>
+    <div class="gallery-item" data-cat="weddings"><img class="gallery-img" src="images/6.jpeg" alt="Wedding"><span class="gallery-label">Weddings</span></div>
+    <div class="gallery-item" data-cat="grad-birthday"><img class="gallery-img" src="images/7.jpeg" alt="Graduation portrait"><span class="gallery-label">Graduations & Birthdays</span></div>
+    <div class="gallery-item" data-cat="matric"><img class="gallery-img" src="images/8.jpeg" alt="Matric Dance"><span class="gallery-label">Matric Dance</span></div>
+    <div class="gallery-item" data-cat="family-baby"><img class="gallery-img" src="images/9.jpeg" alt="Baby shower event"><span class="gallery-label">Family & Baby Showers</span></div>
+    <div class="gallery-item" data-cat="weddings"><img class="gallery-img" src="images/1%20(2).jpeg" alt="Wedding"><span class="gallery-label">Weddings</span></div>
+    <div class="gallery-item" data-cat="grad-birthday"><img class="gallery-img" src="images/1%20(3).jpeg" alt="Birthday dinner portrait"><span class="gallery-label">Graduations & Birthdays</span></div>
+    <div class="gallery-item" data-cat="matric"><img class="gallery-img" src="images/1%20(4).jpeg" alt="Matric Dance"><span class="gallery-label">Matric Dance</span></div>
+    <div class="gallery-item" data-cat="family-baby"><img class="gallery-img" src="images/11.jpeg" alt="Family celebration"><span class="gallery-label">Family & Baby Showers</span></div>
+    <div class="gallery-item" data-cat="sports"><img class="gallery-img" src="images/11%20(2).jpeg" alt="Sport photography"><span class="gallery-label">Sport Photography</span></div>
+  </div>
+  <div class="gallery-meta">
+    <div class="gallery-summary" id="gallerySummary">Showing 1-15 of 15 images</div>
+    <div class="pagination-panel">
+      <button class="page-btn" id="prevPage" type="button" aria-label="Previous gallery page">Prev</button>
+      <div id="pageNumbers"></div>
+      <button class="page-btn" id="nextPage" type="button" aria-label="Next gallery page">Next</button>
+      <div class="page-note" id="pageNote">0</div>
+    </div>
+  </div>
+</section>
+
+<div class="lightbox" id="lightbox">
+  <div class="lightbox-inner">
+    <button class="lightbox-close" id="lightboxClose">âœ•</button>
+    <img id="lightboxImg" src="" alt="Gallery image">
+  </div>
+</div>
+
+<section class="cta-band">
+  <span class="section-label">Ready To Book</span>
+  <h2 class="section-title">Love What You <em>See?</em></h2>
+  <div class="section-line"></div>
+  <p>Reach out for availability, custom coverage, or a package that matches your event.</p>
+  <a href="contact.html" class="btn-primary">Contact Us</a>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="index.html" class="footer-logo" aria-label="Matwise World home"><img src="images/LOGO.png" alt="Matwise World"></a>
+      <p>Matwise World captures life's most meaningful moments with professional photography and practical digital support.</p>
+    </div>
+    <div>
+      <div class="footer-heading">Navigation</div>
+      <ul class="footer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-heading">Connect</div>
+      <ul class="footer-links">
+        <li><a href="https://wa.me/27762349149" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
+        <li><a href="https://www.instagram.com/matwiseworld?igsh=MXVyZWg2dm54ZG0xbg==" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+        <li><a href="https://www.facebook.com/share/1J7bzkqypg/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+        <li><a href="mailto:MATWISE@GMAIL.COM">Email Us</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Matwise World. All rights reserved.</p>
+    <p>Designed and developed by <a href="https://hadiniholdings.co.za" target="_blank" rel="noopener noreferrer">Hadini Holdings</a>.</p>
+  </div>
+</footer>
+
+<a href="https://wa.me/27762349149?text=Hello%2C%20I%20would%20like%20to%20book%20a%20photoshoot." class="wa-float" target="_blank" title="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>60)});
+const hamburger=document.getElementById('hamburger');
+const mobileMenu=document.getElementById('mobileMenu');
+hamburger.addEventListener('click',()=>{
+  hamburger.classList.toggle('open');
+  mobileMenu.classList.toggle('open');
+  document.body.style.overflow=mobileMenu.classList.contains('open')?'hidden':'';
+});
+const observer=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')});
+},{threshold:0.1,rootMargin:'0px 0px -50px 0px'});
+document.querySelectorAll('.fade-in').forEach(el=>observer.observe(el));
+const filterBtns=document.querySelectorAll('.filter-btn');
+const galleryItems=[...document.querySelectorAll('.gallery-item')];
+const pageNumbers=document.getElementById('pageNumbers');
+const gallerySummary=document.getElementById('gallerySummary');
+const pageNote=document.getElementById('pageNote');
+const prevPage=document.getElementById('prevPage');
+const nextPage=document.getElementById('nextPage');
+const pageSize=20;
+let activeFilter='all';
+let currentPage=1;
+
+function getFilteredItems(){
+  return galleryItems.filter(item=>activeFilter==='all'||item.dataset.cat===activeFilter);
+}
+
+function renderPagination(totalPages){
+  pageNumbers.innerHTML='';
+  for(let i=1;i<=totalPages;i++){
+    const btn=document.createElement('button');
+    btn.type='button';
+    btn.className=`page-btn${i===currentPage?' active':''}`;
+    btn.textContent=String(i).padStart(2,'0');
+    btn.setAttribute('aria-label',`Go to gallery page ${i}`);
+    btn.addEventListener('click',()=>{
+      currentPage=i;
+      renderGallery();
+    });
+    pageNumbers.appendChild(btn);
+  }
+  prevPage.disabled=currentPage===1;
+  nextPage.disabled=currentPage===totalPages;
+  const extraPages=Math.max(0,totalPages-currentPage);
+  pageNote.textContent=`${extraPages} more showcase page${extraPages===1?'':'s'}`;
+}
+
+function renderGallery(){
+  const filteredItems=getFilteredItems();
+  const totalItems=filteredItems.length;
+  const totalPages=Math.max(1,Math.ceil(totalItems/pageSize));
+  if(currentPage>totalPages) currentPage=totalPages;
+  const startIndex=(currentPage-1)*pageSize;
+  const endIndex=Math.min(startIndex+pageSize,totalItems);
+
+  galleryItems.forEach(item=>item.classList.add('hidden'));
+  filteredItems.slice(startIndex,endIndex).forEach(item=>item.classList.remove('hidden'));
+
+  if(totalItems===0){
+    gallerySummary.textContent='No images found in this category yet';
+  }else{
+    gallerySummary.textContent=`Showing ${startIndex+1}-${endIndex} of ${totalItems} images`;
+  }
+  renderPagination(totalPages);
+}
+
+filterBtns.forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    filterBtns.forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    activeFilter=btn.dataset.filter;
+    currentPage=1;
+    renderGallery();
+  });
+});
+
+prevPage.addEventListener('click',()=>{
+  if(currentPage>1){
+    currentPage-=1;
+    renderGallery();
+  }
+});
+
+nextPage.addEventListener('click',()=>{
+  const totalPages=Math.max(1,Math.ceil(getFilteredItems().length/pageSize));
+  if(currentPage<totalPages){
+    currentPage+=1;
+    renderGallery();
+  }
+});
+
+const lightbox=document.getElementById('lightbox');
+const lightboxImg=document.getElementById('lightboxImg');
+galleryItems.forEach(item=>{
+  item.addEventListener('click',()=>{
+    if(item.classList.contains('hidden')) return;
+    lightboxImg.src=item.querySelector('img').src;
+    lightbox.classList.add('open');
+    document.body.style.overflow='hidden';
+  });
+});
+document.getElementById('lightboxClose').addEventListener('click',closeLightbox);
+lightbox.addEventListener('click',e=>{if(e.target===lightbox)closeLightbox()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLightbox()});
+function closeLightbox(){
+  lightbox.classList.remove('open');
+  document.body.style.overflow='';
+}
+renderGallery();
+</script>
+</body>
+</html>
+
+
+
+

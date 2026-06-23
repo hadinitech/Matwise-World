@@ -1,0 +1,337 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us | Matwise World</title>
+<link rel="icon" type="image/png" href="images/LOGO.png">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--accent:#0CC0DF;--accent-dark:#0aa3bf;--black:#0a0a0a;--white:#fafafa;--gray-400:#999;--font-display:'Cormorant Garamond',serif;--font-body:'DM Sans',sans-serif;--ease-out:cubic-bezier(0.16,1,0.3,1)}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:var(--font-body);background:var(--black);color:var(--white);overflow-x:hidden;font-weight:300;line-height:1.6}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.35rem 2rem;display:flex;align-items:flex-start;justify-content:space-between;transition:background 0.4s,padding 0.4s;background:rgba(8,8,8,0.18);backdrop-filter:blur(8px)}
+nav.scrolled{background:rgba(10,10,10,0.94);backdrop-filter:blur(14px);padding:1rem 2rem;border-bottom:1px solid rgba(255,255,255,0.06)}
+.nav-brand{display:inline-flex;align-items:center;gap:0.85rem;color:var(--white);text-decoration:none}
+.brand-mark{background:var(--accent);padding:0.35rem 0.55rem;border-radius:4px;display:flex;align-items:center;justify-content:center;box-shadow:0 12px 28px rgba(12,192,223,0.18)}
+.brand-mark img{width:auto;height:44px;object-fit:contain;display:block}
+.brand-copy{display:flex;flex-direction:column;justify-content:center}
+.brand-copy strong{font-size:0.88rem;letter-spacing:0.1em;text-transform:uppercase;font-weight:500;color:var(--white);line-height:1.1}
+.brand-copy span{font-size:0.48rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.48);margin-top:0.35rem;line-height:1.4}
+.nav-links{display:flex;gap:2rem;list-style:none;align-items:center;padding-top:0.7rem}
+.nav-links a{font-size:0.74rem;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.68);text-decoration:none;transition:color 0.2s;font-weight:500}
+.nav-links a:hover,.nav-links a.active{color:var(--accent)}
+.nav-cta{background:var(--accent);color:var(--black)!important;padding:0.85rem 1.45rem;border-radius:2px;font-weight:500!important}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;z-index:200;background:none;border:none}
+.hamburger span{width:24px;height:1.5px;background:var(--white);transition:all 0.3s;display:block}
+.hamburger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+.mobile-menu{display:none;position:fixed;inset:0;background:var(--black);z-index:99;flex-direction:column;align-items:center;justify-content:center;gap:2.5rem}
+.mobile-menu.open{display:flex}
+.mobile-menu a{font-family:var(--font-display);font-size:2.2rem;color:var(--white);text-decoration:none;font-weight:300}
+.page-hero{position:relative;min-height:58vh;padding:10rem 4rem 4rem;display:grid;grid-template-columns:minmax(0,1fr) minmax(320px,0.9fr);gap:3rem;align-items:end;background:#0b0b0b;overflow:hidden}
+.page-hero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(90deg,rgba(0,0,0,0.84) 0%,rgba(0,0,0,0.62) 48%,rgba(0,0,0,0.42) 100%),url('images/11.jpeg');background-size:cover;background-position:center}
+.page-hero::after{content:'';position:absolute;inset:0;background-image:repeating-linear-gradient(0deg,transparent,transparent 79px,rgba(255,255,255,0.025) 80px),repeating-linear-gradient(90deg,transparent,transparent 79px,rgba(255,255,255,0.025) 80px);opacity:0.45}
+.page-hero>*{position:relative;z-index:1}
+.hero-badge{display:inline-block;font-size:0.72rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);margin-bottom:1.5rem;border:1px solid rgba(12,192,223,0.3);padding:0.4rem 1rem;border-radius:2px}
+.hero-title{font-family:var(--font-display);font-size:clamp(3rem,6vw,5.1rem);font-weight:300;line-height:1.05;margin-bottom:1.25rem}
+.hero-title em{font-style:italic;color:var(--accent)}
+.hero-sub{font-size:1rem;color:rgba(255,255,255,0.62);max-width:470px;line-height:1.8}
+.hero-aside{background:rgba(0,0,0,0.38);border:1px solid rgba(255,255,255,0.1);padding:2rem;backdrop-filter:blur(8px)}
+.hero-aside h2{font-family:var(--font-display);font-size:1.7rem;font-weight:300;margin-bottom:0.75rem}
+.hero-aside p{color:rgba(255,255,255,0.55)}
+section{padding:6rem 4rem}
+.section-label{font-size:0.72rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--accent);margin-bottom:0.75rem;display:block}
+.section-title{font-family:var(--font-display);font-size:clamp(2.2rem,4vw,3.5rem);font-weight:300;line-height:1.15}
+.section-title em{font-style:italic;color:var(--accent)}
+.section-line{width:48px;height:1px;background:var(--accent);margin:1.5rem 0 2rem}
+#contact{background:#0d0d0d;display:grid;grid-template-columns:1fr 1.4fr;gap:5rem;align-items:start}
+.contact-info p{color:rgba(255,255,255,0.55);font-size:0.95rem;line-height:1.8;margin-bottom:2.5rem}
+.contact-detail{display:flex;align-items:center;gap:1rem;margin-bottom:1.2rem}
+.contact-icon{width:40px;height:40px;border:1px solid rgba(255,255,255,0.1);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--accent);flex-shrink:0}
+.contact-icon svg,.social-link svg{width:18px;height:18px;stroke:currentColor;stroke-width:1.7;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.contact-detail-text small{font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--gray-400);display:block;margin-bottom:0.15rem}
+.contact-detail-text a,.contact-detail-text span{color:var(--white);text-decoration:none;font-size:0.9rem;transition:color 0.2s}
+.contact-detail-text a:hover{color:var(--accent)}
+.social-row{display:flex;gap:1rem;margin-top:2.5rem}
+.social-link{width:38px;height:38px;border:1px solid rgba(255,255,255,0.12);border-radius:2px;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.5);text-decoration:none;transition:all 0.2s}
+.social-link:hover{border-color:var(--accent);color:var(--accent)}
+.booking-form{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);padding:2.5rem;border-radius:2px}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.form-group{margin-bottom:1rem}
+.form-group.full{grid-column:1/-1}
+.form-group label{display:block;font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.45);margin-bottom:0.5rem}
+.form-group input,.form-group select,.form-group textarea{width:100%;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:2px;padding:0.8rem 1rem;color:var(--white);font-family:var(--font-body);font-size:0.9rem;transition:border-color 0.2s;outline:none;font-weight:300}
+.form-group select{cursor:pointer}
+.form-group select option{background:#111;color:var(--white)}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--accent)}
+.form-group textarea{resize:vertical;min-height:100px}
+.form-submit{width:100%;background:var(--accent);color:var(--black);border:none;padding:1rem;font-size:0.82rem;letter-spacing:0.12em;text-transform:uppercase;font-weight:500;cursor:pointer;border-radius:2px;font-family:var(--font-body);transition:all 0.25s;margin-top:0.5rem}
+.form-submit:hover{background:var(--accent-dark);transform:translateY(-1px)}
+footer{background:#070707;padding:4rem 4rem 2rem;border-top:1px solid rgba(255,255,255,0.06)}
+.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:3rem;margin-bottom:3rem}
+.footer-brand p{font-size:0.87rem;color:rgba(255,255,255,0.4);line-height:1.7;margin-top:1rem;max-width:260px}
+.footer-brand .footer-logo{display:inline-flex;align-items:center;justify-content:center}
+.footer-brand .footer-logo img{width:auto;height:52px;object-fit:contain}
+.footer-heading{font-size:0.7rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-bottom:1.2rem}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:0.7rem}
+.footer-links a{font-size:0.88rem;color:rgba(255,255,255,0.5);text-decoration:none;transition:color 0.2s}
+.footer-links a:hover{color:var(--accent)}
+.footer-bottom{display:flex;align-items:center;justify-content:space-between;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.05);flex-wrap:wrap;gap:1rem}
+.footer-bottom p{font-size:0.8rem;color:rgba(255,255,255,0.25)}
+.footer-bottom a{color:var(--accent);text-decoration:none}
+.wa-float{position:fixed;bottom:2rem;right:2rem;z-index:98;width:54px;height:54px;background:#25d366;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;box-shadow:0 4px 20px rgba(37,211,102,0.35)}
+.wa-float svg{width:28px;height:28px;fill:#fff}
+.fade-in{opacity:0;transform:translateY(30px);transition:opacity 0.7s var(--ease-out),transform 0.7s var(--ease-out)}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+.fade-in-delay-1{transition-delay:0.1s}
+@media(max-width:1024px){
+  nav{padding:1.25rem 2rem}
+  nav.scrolled{padding:1rem 2rem}
+  section{padding:5rem 2rem}
+  .page-hero{padding:9rem 2rem 4rem;grid-template-columns:1fr}
+  #contact{grid-template-columns:1fr;gap:3rem}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:2rem}
+}
+@media(max-width:768px){
+  .nav-links{display:none}
+  .hamburger{display:flex}
+  nav{padding:0.8rem 1.25rem}
+  nav.scrolled{padding:0.7rem 1.25rem}
+  .brand-mark{padding:0.25rem 0.45rem}
+  .brand-mark img{height:32px}
+  .brand-copy strong{font-size:0.74rem}
+  .brand-copy span{font-size:0.42rem}
+  section{padding:4rem 1.5rem}
+  .page-hero{padding:8rem 1.5rem 3.5rem}
+  .form-grid{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr}
+  .footer-bottom{flex-direction:column;text-align:center}
+}
+</style>
+</head>
+<body>
+<nav id="nav">
+  <a href="index.html" class="nav-brand" aria-label="Matwise World home">
+    <span class="brand-mark"><img src="images/LOGO.png" alt="Matwise World"></span>
+    <span class="brand-copy">
+      <strong>Mat Wise World</strong>
+      <span>Capture. Connect. Create. Get Wiser.</span>
+    </span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="portfolio.html">Portfolio</a></li>
+    <li><a href="contact.html" class="nav-cta active">Contact Us</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html">Home</a>
+  <a href="services.html">Services</a>
+  <a href="portfolio.html">Portfolio</a>
+  <a href="contact.html">Contact Us</a>
+</div>
+
+<section class="page-hero">
+  <div class="fade-in">
+    <span class="hero-badge">Contact Us</span>
+    <h1 class="hero-title">Letâ€™s Start<br>Something <em>Meaningful</em></h1>
+    <p class="hero-sub">Reach out for bookings, quotations, collaborations, or questions about any Mat Wise service.</p>
+  </div>
+  <div class="hero-aside fade-in fade-in-delay-1">
+    <h2>Fastest response</h2>
+    <p>For the quickest reply, send your details through the form below and we will open a prepared WhatsApp message for you.</p>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="contact-info fade-in">
+    <span class="section-label">Get In Touch</span>
+    <h2 class="section-title">Weâ€™d Love To<br><em>Hear From You</em></h2>
+    <div class="section-line"></div>
+    <p>Ready to book your session, ask for a custom quote, or get help with one of our digital services? Reach out and letâ€™s plan the right solution for you.</p>
+    <div class="contact-detail">
+      <div class="contact-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M7 2h10a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Z"/><path d="M11 18h2"/></svg>
+      </div>
+      <div class="contact-detail-text">
+        <small>WhatsApp & Phone</small>
+        <a href="https://wa.me/27762349149">076 234 9149</a>
+      </div>
+    </div>
+    <div class="contact-detail">
+      <div class="contact-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M4 6h16v12H4Z"/><path d="m4 7 8 6 8-6"/></svg>
+      </div>
+      <div class="contact-detail-text">
+        <small>Email</small>
+        <a href="mailto:MATWISE@GMAIL.COM">MATWISEWORLD@GMAIL.COM</a>
+      </div>
+    </div>
+    <div class="contact-detail">
+      <div class="contact-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M12 21s7-5.2 7-12a7 7 0 0 0-14 0c0 6.8 7 12 7 12Z"/><path d="M12 11.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z"/></svg>
+      </div>
+      <div class="contact-detail-text">
+        <small>Location</small>
+        <span>Gauteng, South Africa</span>
+      </div>
+    </div>
+    <div class="social-row">
+      <a href="https://www.instagram.com/matwiseworld?igsh=MXVyZWg2dm54ZG0xbg==" class="social-link" title="Instagram" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="4"/><path d="M9 12a3 3 0 1 0 6 0 3 3 0 0 0-6 0Z"/><path d="M17.5 6.5h.01"/></svg>
+      </a>
+      <a href="https://www.facebook.com/share/1J7bzkqypg/?mibextid=wwXIfr" class="social-link" title="Facebook" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24"><path d="M14 8h2V4h-2a5 5 0 0 0-5 5v3H7v4h2v4h4v-4h3l1-4h-4V9a1 1 0 0 1 1-1Z"/></svg>
+      </a>
+    </div>
+  </div>
+  <div class="booking-form fade-in fade-in-delay-1">
+    <div class="form-grid">
+      <div class="form-group">
+        <label>Full Name</label>
+        <input type="text" id="fname" placeholder="Your full name">
+      </div>
+      <div class="form-group">
+        <label>Phone Number</label>
+        <input type="tel" id="fphone" placeholder="076 234 9149">
+      </div>
+      <div class="form-group">
+        <label>Event Type</label>
+        <select id="fevent">
+          <option value="">Select a service</option>
+          <option>Company Registration and Profile</option>
+          <option>Graphic Design and Printing</option>
+          <option>Assignments and Tutoring</option>
+          <option>All Online Application</option>
+          <option>Website Development</option>
+          <option>Graduations & Birthday Celebrations</option>
+          <option>Family Shoots & Baby Showers</option>
+          <option>Sport Photography</option>
+          <option>Matric Dance</option>
+          <option>Weddings</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Event Date</label>
+        <input type="date" id="fdate">
+      </div>
+      <div class="form-group">
+        <label>Location</label>
+        <input type="text" id="flocation" placeholder="City or venue">
+      </div>
+      <div class="form-group">
+        <label>Package Interested In</label>
+        <select id="fpkg">
+          <option value="">Select a package</option>
+          <option>Graduation Package</option>
+          <option>Wedding Package</option>
+          <option>Matric Dance Package</option>
+          <option>Sports Package</option>
+          <option>Custom / Not sure yet</option>
+        </select>
+      </div>
+      <div class="form-group full">
+        <label>Message</label>
+        <textarea id="fmessage" placeholder="Tell us more about your event, special requests, or any questions you have..."></textarea>
+      </div>
+    </div>
+    <button class="form-submit" onclick="submitToWhatsApp()">Send via WhatsApp â†’</button>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="index.html" class="footer-logo" aria-label="Matwise World home"><img src="images/LOGO.png" alt="Matwise World"></a>
+      <p>Matwise World captures life's most meaningful moments with professional photography and practical digital support.</p>
+    </div>
+    <div>
+      <div class="footer-heading">Navigation</div>
+      <ul class="footer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-heading">Connect</div>
+      <ul class="footer-links">
+        <li><a href="https://wa.me/27762349149" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
+        <li><a href="https://www.instagram.com/matwiseworld?igsh=MXVyZWg2dm54ZG0xbg==" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+        <li><a href="https://www.facebook.com/share/1J7bzkqypg/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+        <li><a href="mailto:MATWISE@GMAIL.COM">Email Us</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Matwise World. All rights reserved.</p>
+    <p>Designed and developed by <a href="https://hadiniholdings.co.za" target="_blank" rel="noopener noreferrer">Hadini Holdings</a>.</p>
+  </div>
+</footer>
+
+<a href="https://wa.me/27762349149?text=Hello%2C%20I%20would%20like%20to%20enquire%20about%20your%20services." class="wa-float" target="_blank" title="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>60)});
+const hamburger=document.getElementById('hamburger');
+const mobileMenu=document.getElementById('mobileMenu');
+hamburger.addEventListener('click',()=>{
+  hamburger.classList.toggle('open');
+  mobileMenu.classList.toggle('open');
+  document.body.style.overflow=mobileMenu.classList.contains('open')?'hidden':'';
+});
+const observer=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')});
+},{threshold:0.1,rootMargin:'0px 0px -50px 0px'});
+document.querySelectorAll('.fade-in').forEach(el=>observer.observe(el));
+const params=new URLSearchParams(window.location.search);
+const pkg=params.get('package');
+if(pkg){
+  const sel=document.getElementById('fpkg');
+  for(let i=0;i<sel.options.length;i++){
+    if(sel.options[i].text===pkg){sel.selectedIndex=i;break}
+  }
+}
+function submitToWhatsApp(){
+  const name=document.getElementById('fname').value.trim();
+  const phone=document.getElementById('fphone').value.trim();
+  const event=document.getElementById('fevent').value;
+  const date=document.getElementById('fdate').value;
+  const location=document.getElementById('flocation').value.trim();
+  const pkg=document.getElementById('fpkg').value;
+  const msg=document.getElementById('fmessage').value.trim();
+  if(!name||!phone||!event){
+    alert('Please fill in your name, phone number, and service.');
+    return;
+  }
+  const wa_num='27762349149';
+  const text=`Hello, I would like to enquire about your services.
+
+Name: ${name}
+Phone: ${phone}
+Service: ${event}
+Date: ${date||'To be confirmed'}
+Location: ${location||'To be confirmed'}
+Package: ${pkg||'Not selected yet'}
+Message: ${msg||'No additional message'}`;
+  window.open(`https://wa.me/${wa_num}?text=${encodeURIComponent(text)}`,'_blank');
+}
+</script>
+</body>
+</html>
+
+
+
+
