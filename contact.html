@@ -73,8 +73,8 @@ section{padding:6rem 4rem}
 footer{background:#070707;padding:4rem 4rem 2rem;border-top:1px solid rgba(255,255,255,0.06)}
 .footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:3rem;margin-bottom:3rem}
 .footer-brand p{font-size:0.87rem;color:rgba(255,255,255,0.4);line-height:1.7;margin-top:1rem;max-width:260px}
-.footer-brand .footer-logo{display:inline-flex;align-items:center;justify-content:center}
-.footer-brand .footer-logo img{width:auto;height:52px;object-fit:contain}
+.footer-brand .footer-logo{display:inline-flex;align-items:center;justify-content:center;background:var(--accent);padding:0.45rem 0.7rem;border-radius:4px;box-shadow:0 12px 28px rgba(12,192,223,0.18)}
+.footer-brand .footer-logo img{width:auto;height:52px;object-fit:contain;display:block}
 .footer-heading{font-size:0.7rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-bottom:1.2rem}
 .footer-links{list-style:none;display:flex;flex-direction:column;gap:0.7rem}
 .footer-links a{font-size:0.88rem;color:rgba(255,255,255,0.5);text-decoration:none;transition:color 0.2s}
@@ -82,6 +82,7 @@ footer{background:#070707;padding:4rem 4rem 2rem;border-top:1px solid rgba(255,2
 .footer-bottom{display:flex;align-items:center;justify-content:space-between;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.05);flex-wrap:wrap;gap:1rem}
 .footer-bottom p{font-size:0.8rem;color:rgba(255,255,255,0.25)}
 .footer-bottom a{color:var(--accent);text-decoration:none}
+.contact-detail-text a,.contact-detail-text span,.footer-brand p,.footer-bottom p{overflow-wrap:anywhere}
 .wa-float{position:fixed;bottom:2rem;right:2rem;z-index:98;width:54px;height:54px;background:#25d366;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;box-shadow:0 4px 20px rgba(37,211,102,0.35)}
 .wa-float svg{width:28px;height:28px;fill:#fff}
 .fade-in{opacity:0;transform:translateY(30px);transition:opacity 0.7s var(--ease-out),transform 0.7s var(--ease-out)}
@@ -109,6 +110,13 @@ footer{background:#070707;padding:4rem 4rem 2rem;border-top:1px solid rgba(255,2
   .form-grid{grid-template-columns:1fr}
   .footer-grid{grid-template-columns:1fr}
   .footer-bottom{flex-direction:column;text-align:center}
+}
+@media(max-width:480px){
+  html{font-size:15px}
+  .page-hero{padding:7rem 1rem 3rem}
+  section{padding:3.5rem 1rem}
+  .hero-aside{padding:1.5rem}
+  .booking-form{padding:1.5rem}
 }
 </style>
 </head>
@@ -141,7 +149,7 @@ footer{background:#070707;padding:4rem 4rem 2rem;border-top:1px solid rgba(255,2
 <section class="page-hero">
   <div class="fade-in">
     <span class="hero-badge">Contact Us</span>
-    <h1 class="hero-title">Letâ€™s Start<br>Something <em>Meaningful</em></h1>
+    <h1 class="hero-title">Let&apos;s Start<br>Something <em>Meaningful</em></h1>
     <p class="hero-sub">Reach out for bookings, quotations, collaborations, or questions about any Mat Wise service.</p>
   </div>
   <div class="hero-aside fade-in fade-in-delay-1">
@@ -153,9 +161,9 @@ footer{background:#070707;padding:4rem 4rem 2rem;border-top:1px solid rgba(255,2
 <section id="contact">
   <div class="contact-info fade-in">
     <span class="section-label">Get In Touch</span>
-    <h2 class="section-title">Weâ€™d Love To<br><em>Hear From You</em></h2>
+    <h2 class="section-title">We&apos;d Love To<br><em>Hear From You</em></h2>
     <div class="section-line"></div>
-    <p>Ready to book your session, ask for a custom quote, or get help with one of our digital services? Reach out and letâ€™s plan the right solution for you.</p>
+    <p>Ready to book your session, ask for a custom quote, or get help with one of our digital services? Reach out and let&apos;s plan the right solution for you.</p>
     <div class="contact-detail">
       <div class="contact-icon" aria-hidden="true">
         <svg viewBox="0 0 24 24"><path d="M7 2h10a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Z"/><path d="M11 18h2"/></svg>
@@ -171,7 +179,7 @@ footer{background:#070707;padding:4rem 4rem 2rem;border-top:1px solid rgba(255,2
       </div>
       <div class="contact-detail-text">
         <small>Email</small>
-        <a href="mailto:MATWISE@GMAIL.COM">MATWISEWORLD@GMAIL.COM</a>
+        <a href="mailto:MATWISEWORLD@GMAIL.COM">MATWISEWORLD@GMAIL.COM</a>
       </div>
     </div>
     <div class="contact-detail">
@@ -243,7 +251,7 @@ footer{background:#070707;padding:4rem 4rem 2rem;border-top:1px solid rgba(255,2
         <textarea id="fmessage" placeholder="Tell us more about your event, special requests, or any questions you have..."></textarea>
       </div>
     </div>
-    <button class="form-submit" onclick="submitToWhatsApp()">Send via WhatsApp â†’</button>
+    <button class="form-submit" onclick="submitToWhatsApp()">Send via WhatsApp &rarr;</button>
   </div>
 </section>
 
@@ -268,7 +276,7 @@ footer{background:#070707;padding:4rem 4rem 2rem;border-top:1px solid rgba(255,2
         <li><a href="https://wa.me/27762349149" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
         <li><a href="https://www.instagram.com/matwiseworld?igsh=MXVyZWg2dm54ZG0xbg==" target="_blank" rel="noopener noreferrer">Instagram</a></li>
         <li><a href="https://www.facebook.com/share/1J7bzkqypg/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">Facebook</a></li>
-        <li><a href="mailto:MATWISE@GMAIL.COM">Email Us</a></li>
+        <li><a href="mailto:MATWISEWORLD@GMAIL.COM">Email Us</a></li>
       </ul>
     </div>
   </div>

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Matwise World Photography</title>
+<title>Matwise World</title>
 <link rel="icon" type="image/png" href="images/LOGO.png">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
@@ -35,8 +35,8 @@ nav.scrolled{background:rgba(10,10,10,0.94);backdrop-filter:blur(14px);padding:1
 .brand-copy{display:flex;flex-direction:column;justify-content:center}
 .brand-copy strong{font-size:0.88rem;letter-spacing:0.1em;text-transform:uppercase;font-weight:500;color:var(--white);line-height:1.1}
 .brand-copy span{font-size:0.48rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.48);margin-top:0.35rem;line-height:1.4}
-.footer-brand .footer-logo{display:inline-flex;align-items:center;justify-content:center}
-.footer-brand .footer-logo img{width:auto;height:52px;object-fit:contain}
+.footer-brand .footer-logo{display:inline-flex;align-items:center;justify-content:center;background:var(--accent);padding:0.45rem 0.7rem;border-radius:4px;box-shadow:0 12px 28px rgba(12,192,223,0.18)}
+.footer-brand .footer-logo img{width:auto;height:52px;object-fit:contain;display:block}
 .nav-links{display:flex;gap:2rem;list-style:none;align-items:center;padding-top:0.7rem}
 .nav-links a{font-size:0.74rem;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.68);text-decoration:none;transition:color 0.2s;font-weight:500}
 .nav-links a:hover{color:var(--accent)}
@@ -70,7 +70,7 @@ nav.scrolled{background:rgba(10,10,10,0.94);backdrop-filter:blur(14px);padding:1
 .btn-primary:hover{background:transparent;color:var(--accent);transform:translateY(-2px)}
 .btn-outline{background:transparent;color:var(--white);padding:0.9rem 2rem;text-decoration:none;font-size:0.82rem;letter-spacing:0.1em;text-transform:uppercase;font-weight:400;border:1px solid rgba(255,255,255,0.3);border-radius:2px;transition:all 0.25s var(--ease-out)}
 .btn-outline:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px)}
-.hero-scroll{position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:0.5rem;color:rgba(255,255,255,0.4);font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase}
+.hero-scroll{position:absolute;bottom:1rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:0.5rem;color:rgba(255,255,255,0.4);font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase}
 .scroll-line{width:1px;height:50px;background:linear-gradient(to bottom,var(--accent),transparent);animation:scrollPulse 2s ease-in-out infinite}
 @keyframes scrollPulse{0%,100%{opacity:0.3;transform:scaleY(0.8)}50%{opacity:1;transform:scaleY(1)}}
 
@@ -115,6 +115,18 @@ section{padding:7rem 4rem}
 .service-card:hover .service-icon{opacity:1}
 .service-card h3{font-family:var(--font-display);font-size:1.25rem;font-weight:400;margin-bottom:0.5rem;color:var(--white);letter-spacing:0.01em}
 .service-card p{font-size:0.83rem;color:rgba(255,255,255,0.45);line-height:1.6}
+
+/* MAGAZINE FEATURES */
+#magazine-features{background:#101010}
+.magazine-shell{display:grid;grid-template-columns:minmax(280px,0.95fr) minmax(0,1.05fr);gap:3rem;align-items:start}
+.magazine-copy p{max-width:480px;color:rgba(255,255,255,0.58);font-size:0.96rem;line-height:1.85}
+.magazine-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
+.magazine-card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);padding:1rem}
+.magazine-image{aspect-ratio:4/5;overflow:hidden;background:#0a0a0a}
+.magazine-image img{width:100%;height:100%;object-fit:cover;transition:transform 0.45s var(--ease-out)}
+.magazine-card:hover .magazine-image img{transform:scale(1.02)}
+.magazine-card h3{font-family:var(--font-display);font-size:1.35rem;font-weight:400;margin-top:1rem;color:var(--white)}
+.magazine-card p{margin-top:0.45rem;color:rgba(255,255,255,0.5);font-size:0.86rem;line-height:1.7}
 
 /* PORTFOLIO */
 #portfolio{background:#0d0d0d}
@@ -199,6 +211,7 @@ footer{background:#070707;padding:4rem 4rem 2rem;border-top:1px solid rgba(255,2
 .footer-bottom{display:flex;align-items:center;justify-content:space-between;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.05);flex-wrap:wrap;gap:1rem}
 .footer-bottom p{font-size:0.8rem;color:rgba(255,255,255,0.25)}
 .footer-bottom a{color:var(--accent);text-decoration:none}
+.footer-brand p,.footer-bottom p{overflow-wrap:anywhere}
 
 /* FLOATING WA */
 .wa-float{position:fixed;bottom:2rem;right:2rem;z-index:98;width:54px;height:54px;background:#25d366;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;box-shadow:0 4px 20px rgba(37,211,102,0.35);transition:transform 0.3s,box-shadow 0.3s;animation:waPulse 3s ease-in-out infinite}
@@ -213,6 +226,8 @@ footer{background:#070707;padding:4rem 4rem 2rem;border-top:1px solid rgba(255,2
   section{padding:5rem 2rem}
   #about{grid-template-columns:1fr;gap:3rem}
   .about-img-wrap{max-height:400px}
+  .magazine-shell{grid-template-columns:1fr;gap:2rem}
+  .magazine-copy p{max-width:100%}
   #contact{grid-template-columns:1fr;gap:3rem}
   .footer-grid{grid-template-columns:1fr 1fr;gap:2rem}
   .gallery-grid{columns:3 200px}
@@ -233,6 +248,9 @@ footer{background:#070707;padding:4rem 4rem 2rem;border-top:1px solid rgba(255,2
   .hero-btns{justify-content:center}
   section{padding:4rem 1.5rem}
   .gallery-grid{columns:2 150px}
+  .magazine-grid{grid-template-columns:1fr}
+  .magazine-copy{text-align:center}
+  .magazine-copy .section-line{margin-left:auto;margin-right:auto}
   .form-grid{grid-template-columns:1fr}
   .footer-grid{grid-template-columns:1fr}
   .footer-bottom{flex-direction:column;text-align:center}
@@ -245,10 +263,15 @@ footer{background:#070707;padding:4rem 4rem 2rem;border-top:1px solid rgba(255,2
   .service-category-head h3{font-size:1.7rem}
 }
 @media(max-width:480px){
+  html{font-size:15px}
   .hero-btns{flex-direction:column;width:100%}
   .btn-primary,.btn-outline{text-align:center}
+  .hero-content{padding:2.5rem 1rem 0}
+  .hero-scroll{bottom:0.5rem}
+  .magazine-card{padding:0.85rem}
   .filter-bar{gap:0.4rem}
   .filter-btn{padding:0.4rem 0.8rem;font-size:0.7rem}
+  .about-stats{grid-template-columns:1fr}
 }
 
 /* ANIMATIONS */
@@ -297,10 +320,10 @@ footer{background:#070707;padding:4rem 4rem 2rem;border-top:1px solid rgba(255,2
     <img src="images/HERO.jpeg" alt="Wedding photography">
   </div>
   <div class="hero-content">
-    <span class="hero-badge">Matwise World Photography</span>
+    <span class="hero-badge">Matwise World</span>
     <p class="hero-tagline">Capture. Connect. Create. Get Wiser.</p>
     <h1 class="hero-title">Capturing Every<br><em>Moment</em> That Matters</h1>
-    <p class="hero-sub">From weddings and graduations to matric dances, sports, and events â€” we preserve the stories that deserve to be remembered forever.</p>
+    <p class="hero-sub">From weddings and graduations to matric dances, sports, and events, we preserve the stories that deserve to be remembered forever.</p>
     <div class="hero-btns">
       <a href="portfolio.html" class="btn-primary">View Portfolio</a>
       <a href="https://wa.me/27762349149?text=Hello%2C%20I%20would%20like%20to%20book%20a%20photoshoot." class="btn-outline" target="_blank">Book via WhatsApp</a>
@@ -331,16 +354,16 @@ footer{background:#070707;padding:4rem 4rem 2rem;border-top:1px solid rgba(255,2
       </div>
       <div class="vm-card">
         <h4>Our Mission</h4>
-        <p>To deliver exceptional photography experiences that honour every moment â€” creating images families treasure for generations.</p>
+        <p>To deliver exceptional photography experiences that honour every moment, creating images families treasure for generations.</p>
       </div>
     </div>
     <div class="about-stats">
       <div class="stat">
-        <div class="stat-num">500+</div>
+        <div class="stat-num">100+</div>
         <div class="stat-label">Sessions Completed</div>
       </div>
       <div class="stat">
-        <div class="stat-num">8+</div>
+        <div class="stat-num">2+</div>
         <div class="stat-label">Years Experience</div>
       </div>
       <div class="stat">
@@ -351,6 +374,34 @@ footer{background:#070707;padding:4rem 4rem 2rem;border-top:1px solid rgba(255,2
         <div class="stat-num">7</div>
         <div class="stat-label">Photography Categories</div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- MAGAZINE FEATURES -->
+<section id="magazine-features">
+  <div class="magazine-shell">
+    <div class="magazine-copy fade-in">
+      <span class="section-label">Printed Features</span>
+      <h2 class="section-title">Magazine <em>Features</em></h2>
+      <div class="section-line"></div>
+      <p>If you love this style, you can have your very own custom-made printed magazine created for your favourite moments, turning special memories into a beautiful keepsake you can share, display, and treasure for years to come.</p>
+    </div>
+    <div class="magazine-grid">
+      <article class="magazine-card fade-in">
+        <div class="magazine-image">
+          <img src="images/Magazine%20booklets/Cover.png" alt="Magazine Features printed cover">
+        </div>
+        <h3>Matric Dance</h3>
+        <p>A stylish printed feature that preserves the glamour, confidence, and unforgettable entrance moments of your matric dance in a magazine-inspired keepsake.</p>
+      </article>
+      <article class="magazine-card fade-in fade-in-delay-1">
+        <div class="magazine-image">
+          <img src="images/Magazine%20booklets/Rethabile%20Sekobile.png" alt="Magazine Features editorial booklet layout">
+        </div>
+        <h3>Graduation</h3>
+        <p>A polished graduation feature that highlights your achievement through refined portraits, proud celebration moments, and a print layout designed to feel timeless.</p>
+      </article>
     </div>
   </div>
 </section>
@@ -382,7 +433,7 @@ footer{background:#070707;padding:4rem 4rem 2rem;border-top:1px solid rgba(255,2
 <!-- LIGHTBOX -->
 <div class="lightbox" id="lightbox">
   <div class="lightbox-inner">
-    <button class="lightbox-close" id="lightboxClose">âœ•</button>
+    <button class="lightbox-close" id="lightboxClose">&times;</button>
     <img id="lightboxImg" src="" alt="Gallery image">
   </div>
 </div>
@@ -452,7 +503,7 @@ footer{background:#070707;padding:4rem 4rem 2rem;border-top:1px solid rgba(255,2
     </div>
   </div>
   <div class="deposit-note fade-in">
-    <p>ðŸ“‹ <strong>Booking Policy:</strong> A <strong>50% deposit is required upfront</strong> to confirm all bookings. The remaining balance is due on the day of the shoot. All deposits are non-refundable within 7 days of the event.</p>
+    <p><span style="display:inline-flex;vertical-align:-0.22em;margin-right:0.38rem;color:var(--accent)" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" style="stroke:currentColor;stroke-width:1.7;fill:none;stroke-linecap:round;stroke-linejoin:round"><path d="M9 3h6"/><path d="M10 17H8a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v3"/><path d="M8 9h8"/><path d="M16 16h6"/><path d="M19 13v6"/></svg></span><strong>Booking Policy:</strong> A <strong>50% deposit is required upfront</strong> to confirm all bookings. The remaining balance is due on the day of the shoot. All deposits are non-refundable within 7 days of the event.</p>
   </div>
 </section>
 
@@ -478,7 +529,7 @@ footer{background:#070707;padding:4rem 4rem 2rem;border-top:1px solid rgba(255,2
         <li><a href="https://wa.me/27762349149" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
         <li><a href="https://www.instagram.com/matwiseworld?igsh=MXVyZWg2dm54ZG0xbg==" target="_blank" rel="noopener noreferrer">Instagram</a></li>
         <li><a href="https://www.facebook.com/share/1J7bzkqypg/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">Facebook</a></li>
-        <li><a href="mailto:MATWISE@GMAIL.COM">Email Us</a></li>
+        <li><a href="mailto:MATWISEWORLD@GMAIL.COM">Email Us</a></li>
       </ul>
     </div>
   </div>
