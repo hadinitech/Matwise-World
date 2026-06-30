@@ -42,7 +42,7 @@ nav.scrolled{background:rgba(10,10,10,0.94);backdrop-filter:blur(14px);padding:1
 .mobile-menu.open{display:flex}
 .mobile-menu a{font-family:var(--font-display);font-size:2.2rem;color:var(--white);text-decoration:none;font-weight:300;letter-spacing:0.04em;transition:color 0.2s}
 .mobile-menu a:hover{color:var(--accent)}
-.hero{position:relative;min-height:100vh;padding:7.5rem 4rem 4rem;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(320px,0.9fr);gap:3rem;align-items:end;overflow:hidden;background:#0b0b0b}
+.hero{position:relative;min-height:78vh;padding:8.5rem 4rem 3.5rem;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(320px,0.9fr);gap:3rem;align-items:end;overflow:hidden;background:#0b0b0b}
 .hero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(100deg,rgba(6,6,6,0.94) 0%,rgba(6,6,6,0.78) 35%,rgba(6,6,6,0.32) 100%),url('images/Graduation Tour.jpg');background-size:cover;background-position:center}
 .hero::after{content:'';position:absolute;inset:0;background-image:radial-gradient(circle at top right,rgba(12,192,223,0.22),transparent 35%),repeating-linear-gradient(0deg,transparent,transparent 79px,rgba(255,255,255,0.025) 80px),repeating-linear-gradient(90deg,transparent,transparent 79px,rgba(255,255,255,0.025) 80px)}
 .hero>*{position:relative;z-index:1}
@@ -178,7 +178,7 @@ footer{background:#070707;padding:4rem 4rem 2rem;border-top:1px solid rgba(255,2
 @media(max-width:1024px){
   nav{padding:1.25rem 2rem}
   nav.scrolled{padding:1rem 2rem}
-  .hero{padding:7.5rem 2rem 3rem;grid-template-columns:1fr;min-height:auto}
+  .hero{padding:8rem 2rem 3rem;grid-template-columns:1fr;min-height:66vh}
   .hero-copy{width:100%}
   section{padding:5rem 2rem}
   .story-shell,.moments-shell{grid-template-columns:1fr}
@@ -196,7 +196,7 @@ footer{background:#070707;padding:4rem 4rem 2rem;border-top:1px solid rgba(255,2
   .brand-mark{padding:0.25rem 0.45rem}
   .brand-mark img{height:32px}
   .brand-copy strong{font-size:0.74rem}
-  .hero{padding:7rem 1.5rem 2.5rem}
+  .hero{padding:7.5rem 1.5rem 2.25rem;min-height:62vh}
   .hero-copy{width:100%}
   .hero-title{line-height:1.02}
   section{padding:4rem 1.5rem}
@@ -214,7 +214,7 @@ footer{background:#070707;padding:4rem 4rem 2rem;border-top:1px solid rgba(255,2
 }
 @media(max-width:480px){
   html{font-size:15px}
-  .hero{padding:6.6rem 1rem 2rem}
+  .hero{padding:7rem 1rem 2rem;min-height:58vh}
   .hero-copy{width:100%}
   section{padding:3.5rem 1rem}
   .hero-strip{gap:0.7rem}
@@ -254,8 +254,8 @@ footer{background:#070707;padding:4rem 4rem 2rem;border-top:1px solid rgba(255,2
 </div>
 <section class="hero">
   <div class="hero-copy fade-in">
-    <h1 class="hero-title">Packages built for milestone moments.</h1>
-    <p class="hero-sub">Explore our photography packages for graduation tours and matric dances, with options ranging from simple portrait coverage to full-day milestone experiences designed to feel polished, memorable, and worth the moment.</p>
+    <h1 class="hero-title">Choose Your Photography Experience</h1>
+    <p class="hero-sub">Explore packages tailored to your occasion, from graduation tours and matric dances to milestone celebrations and professional portraits.</p>
     <div class="hero-strip">
       <div class="hero-pill">Graduation Packages</div>
       <div class="hero-pill">Matric Dance Packages</div>

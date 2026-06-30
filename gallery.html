@@ -1,9 +1,9 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Portfolio | Matwise World</title>
+<title>Gallery | Matwise World</title>
 <link rel="icon" type="image/png" href="images/LOGO.png">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
@@ -31,47 +31,29 @@ nav.scrolled{background:rgba(10,10,10,0.94);backdrop-filter:blur(14px);padding:1
 .mobile-menu{display:none;position:fixed;inset:0;background:var(--black);z-index:99;flex-direction:column;align-items:center;justify-content:center;gap:2.5rem}
 .mobile-menu.open{display:flex}
 .mobile-menu a{font-family:var(--font-display);font-size:2.2rem;color:var(--white);text-decoration:none;font-weight:300}
-.page-hero{position:relative;min-height:78vh;padding:9.5rem 2rem 3.5rem;display:flex;align-items:flex-end;overflow:hidden;background:#0c0c0c}
-.page-hero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(90deg,rgba(0,0,0,0.82) 0%,rgba(0,0,0,0.58) 45%,rgba(0,0,0,0.34) 100%),url('images/Portfolio Hero.png');background-size:cover;background-position:center}
-.page-hero::after{content:'';position:absolute;inset:auto 0 0 0;height:62%;background:linear-gradient(to top,rgba(7,7,7,0.95),transparent)}
+.page-hero{position:relative;min-height:72vh;padding:9rem 2rem 3.5rem;display:flex;align-items:flex-end;overflow:hidden;background:#0c0c0c}
+.page-hero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(90deg,rgba(0,0,0,0.84) 0%,rgba(0,0,0,0.58) 45%,rgba(0,0,0,0.3) 100%),url('images/Portfolio Hero.png');background-size:cover;background-position:center}
+.page-hero::after{content:'';position:absolute;inset:auto 0 0 0;height:60%;background:linear-gradient(to top,rgba(7,7,7,0.95),transparent)}
 .page-hero>*{position:relative;z-index:1}
 .hero-shell{width:100%;max-width:1180px}
-.hero-footer{display:flex;flex-direction:column;align-items:flex-start;gap:2rem}
-.hero-copy{max-width:540px}
-.hero-copy .section-label{margin-bottom:1rem}
-.hero-copy .section-title{font-size:clamp(3.2rem,6vw,4.9rem);line-height:0.94}
-.hero-copy .section-title em{display:inline-block;margin-left:0.15rem}
-.hero-sub{max-width:430px;margin-top:1rem;color:rgba(255,255,255,0.76);font-size:1rem;line-height:1.75}
+.hero-copy{max-width:700px}
 section{padding:6rem 4rem}
 .section-label{font-size:0.72rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--accent);margin-bottom:0.75rem;display:block}
-.section-title{font-family:var(--font-display);font-size:clamp(2.2rem,4vw,3.5rem);font-weight:300;line-height:1.15}
+.section-title{font-family:var(--font-display);font-size:clamp(3rem,6vw,4.9rem);font-weight:300;line-height:0.96}
 .section-title em{font-style:italic;color:var(--accent)}
-.profile-spotlight{background:linear-gradient(180deg,#111 0%,#0c0c0c 100%)}
-.profile-shell{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(320px,0.9fr);gap:2rem;align-items:stretch}
-.profile-panel{padding:2.25rem;border:1px solid rgba(255,255,255,0.08);background:linear-gradient(180deg,rgba(255,255,255,0.04) 0%,rgba(255,255,255,0.02) 100%)}
-.profile-name{font-family:var(--font-display);font-size:clamp(2.5rem,5vw,4.2rem);font-weight:300;line-height:0.96;margin-bottom:1rem}
-.profile-role{font-size:1rem;color:rgba(255,255,255,0.78);line-height:1.8;max-width:720px}
-.profile-meta{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;margin:2rem 0}
-.meta-card{padding:1rem 1.1rem;border:1px solid rgba(255,255,255,0.08);background:rgba(255,255,255,0.02)}
-.meta-card strong{display:block;font-size:0.72rem;letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,255,255,0.44);margin-bottom:0.45rem}
-.meta-card span{display:block;font-size:1rem;color:var(--white);line-height:1.5}
-.profile-about{display:grid;gap:1rem}
-.profile-about p{color:rgba(255,255,255,0.66);font-size:0.98rem;line-height:1.95;max-width:760px}
-.profile-side{display:grid;gap:1rem;align-content:start}
-.profile-side .btn-primary{justify-self:start}
-.profile-card{padding:1.6rem;border:1px solid rgba(255,255,255,0.08);background:#101010}
-.profile-card h3{font-family:var(--font-display);font-size:1.7rem;font-weight:400;margin-bottom:1rem;color:var(--white)}
-.pill-grid{display:flex;flex-wrap:wrap;gap:0.75rem}
-.style-pill{padding:0.8rem 1rem;border:1px solid rgba(12,192,223,0.25);background:rgba(12,192,223,0.08);color:var(--white);font-size:0.8rem;letter-spacing:0.12em;text-transform:uppercase}
-.list-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.85rem 1rem}
-.list-item{padding:0.95rem 1rem;border-left:2px solid var(--accent);background:rgba(255,255,255,0.02);color:rgba(255,255,255,0.78);font-size:0.92rem;line-height:1.6}
+.hero-sub{max-width:600px;margin-top:1.25rem;color:rgba(255,255,255,0.76);font-size:1rem;line-height:1.8}
+#gallery-section{background:linear-gradient(180deg,#111 0%,#0b0b0b 100%)}
+.gallery-controls{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-bottom:2rem}
+.filter-bar{display:flex;flex-wrap:wrap;gap:0.7rem}
+.filter-btn{padding:0.85rem 1.1rem;border:1px solid rgba(255,255,255,0.12);background:rgba(255,255,255,0.02);color:rgba(255,255,255,0.72);font-size:0.76rem;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;transition:all 0.2s;border-radius:2px}
+.filter-btn:hover,.filter-btn.active{background:var(--accent);border-color:var(--accent);color:var(--black);font-weight:500}
 .gallery-grid{columns:4 220px;column-gap:6px}
 .gallery-item{overflow:hidden;position:relative;cursor:pointer;border-radius:1px;break-inside:avoid;margin-bottom:6px}
-.gallery-img{width:100%;height:auto;object-fit:contain;transition:opacity 0.4s,transform 0.4s}
+.gallery-item.hidden{display:none}
+.gallery-img{width:100%;height:auto;object-fit:contain;transition:opacity 0.35s,transform 0.35s}
 .gallery-label{position:absolute;left:1rem;bottom:1rem;font-size:0.72rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);opacity:0;transform:translateY(8px);transition:transform 0.3s,opacity 0.3s}
 .gallery-item:hover .gallery-img{opacity:0.92;transform:scale(1.01)}
 .gallery-item:hover .gallery-label{opacity:1;transform:translateY(0)}
-.gallery-item.hidden{display:none}
 .gallery-meta{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-top:2rem;padding:1.2rem 1.3rem;border:1px solid rgba(255,255,255,0.08);background:rgba(255,255,255,0.02)}
 .gallery-summary{font-size:0.84rem;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.52)}
 .pagination-panel{display:flex;align-items:center;gap:0.8rem;flex-wrap:wrap;justify-content:flex-end}
@@ -112,9 +94,8 @@ footer{background:#070707;padding:4rem 4rem 2rem;border-top:1px solid rgba(255,2
   nav.scrolled{padding:1rem 2rem}
   section{padding:5rem 2rem}
   .page-hero{padding:8.5rem 2rem 3rem;min-height:66vh}
-  .profile-shell{grid-template-columns:1fr}
-  .footer-grid{grid-template-columns:1fr 1fr}
   .gallery-grid{columns:3 200px}
+  .footer-grid{grid-template-columns:1fr 1fr}
 }
 @media(max-width:768px){
   .nav-links{display:none}
@@ -126,11 +107,9 @@ footer{background:#070707;padding:4rem 4rem 2rem;border-top:1px solid rgba(255,2
   .brand-copy strong{font-size:0.74rem}
   section{padding:4rem 1.5rem}
   .page-hero{padding:7.5rem 1.5rem 2.25rem;min-height:62vh}
-  .hero-footer{align-items:flex-start;gap:1.4rem}
-  .hero-copy{max-width:100%}
-  .hero-copy .section-title{font-size:clamp(2.9rem,12vw,4rem)}
+  .section-title{font-size:clamp(2.9rem,12vw,4rem)}
   .hero-sub{font-size:0.95rem;max-width:100%}
-  .profile-meta,.list-grid{grid-template-columns:1fr}
+  .gallery-controls{align-items:flex-start}
   .gallery-grid{columns:2 150px}
   .gallery-meta{align-items:flex-start}
   .pagination-panel{justify-content:flex-start}
@@ -141,6 +120,8 @@ footer{background:#070707;padding:4rem 4rem 2rem;border-top:1px solid rgba(255,2
   html{font-size:15px}
   .page-hero{padding:7rem 1rem 2rem;min-height:58vh}
   section{padding:3.5rem 1rem}
+  .filter-bar{gap:0.5rem}
+  .filter-btn{padding:0.75rem 0.9rem;font-size:0.7rem}
   .gallery-grid{columns:1 100%}
   .gallery-meta{padding:1rem}
   .gallery-summary{font-size:0.75rem;letter-spacing:0.06em}
@@ -163,7 +144,8 @@ footer{background:#070707;padding:4rem 4rem 2rem;border-top:1px solid rgba(255,2
     <li><a href="about.html">About</a></li>
     <li><a href="projects.html">Projects</a></li>
     <li><a href="packages.html">Packages</a></li>
-    <li><a href="portfolio.html" class="active">Portfolio</a></li>
+    <li><a href="portfolio.html">Portfolio</a></li>
+    <li><a href="gallery.html" class="active">Gallery</a></li>
     <li><a href="lensation-contact.html" class="nav-cta">Contact Us</a></li>
   </ul>
   <button class="hamburger" id="hamburger" aria-label="Menu">
@@ -176,103 +158,64 @@ footer{background:#070707;padding:4rem 4rem 2rem;border-top:1px solid rgba(255,2
   <a href="projects.html">Projects</a>
   <a href="packages.html">Packages</a>
   <a href="portfolio.html">Portfolio</a>
+  <a href="gallery.html" class="active">Gallery</a>
   <a href="lensation-contact.html">Contact Us</a>
 </div>
 
 <section class="page-hero">
   <div class="hero-shell fade-in">
-    <div class="hero-footer">
-      <div class="hero-copy">
-        <span class="section-label">Featured Work</span>
-        <h1 class="section-title">The <em>Photographer</em> Portfolio</h1>
-        <p class="hero-sub">Capturing genuine moments, real emotions and timeless memories that tell your story beautifully.</p>
-      </div>
+    <div class="hero-copy">
+      <span class="section-label">Gallery</span>
+      <h1 class="section-title">Moments Worth <em>Remembering</em></h1>
+      <p class="hero-sub">Every image tells a story. Browse our gallery by category and discover timeless memories from weddings, graduations, matric dances, professional shoots, and special occasions.</p>
     </div>
   </div>
 </section>
 
-<section class="profile-spotlight">
-  <div class="profile-shell fade-in">
-    <div class="profile-panel">
-      <span class="section-label">Photographer Profile</span>
-      <h2 class="profile-name">Mathalise Maipfi</h2>
-      <p class="profile-role">Photographer | Visual Storyteller | Documentary Photographer</p>
-      <div class="profile-meta">
-        <div class="meta-card">
-          <strong>Based In</strong>
-          <span>South Africa</span>
-        </div>
-        <div class="meta-card">
-          <strong>Availability</strong>
-          <span>Available Nationwide</span>
-        </div>
-        <div class="meta-card">
-          <strong>Experience</strong>
-          <span>5+ Years</span>
-        </div>
-      </div>
-      <div class="profile-about">
-        <span class="section-label">About Me</span>
-        <p>Passionate photographer and visual storyteller based in South Africa. My work blends honest storytelling, cinematic composition, and documentary photography to create images that feel alive long after the moment has passed.</p>
-        <p>I am drawn to the emotion between the big moments: the look before the celebration starts, the quiet confidence before the game, the laughter between poses, and the details people almost miss in real time. That is where I find the heart of the story.</p>
-        <p>Whether I am covering a sports fixture, a corporate event, a personal milestone, or a fast-moving live experience, I focus on creating photographs that feel intentional, powerful, and personal. I do not just shoot what happened. I shape a visual memory that lets people feel it again.</p>
-      </div>
-    </div>
-    <div class="profile-side">
-      <div class="profile-card">
-        <h3>My Photography Style</h3>
-        <div class="pill-grid">
-          <span class="style-pill">Storytelling</span>
-          <span class="style-pill">Cinematic</span>
-          <span class="style-pill">Documentary</span>
-          <span class="style-pill">Action Photos</span>
-        </div>
-      </div>
-      <div class="profile-card">
-        <h3>Services</h3>
-        <div class="list-grid">
-          <div class="list-item">Sports Photography</div>
-          <div class="list-item">Corporate Photography</div>
-          <div class="list-item">Event Photography</div>
-          <div class="list-item">Versatile Photography Coverage</div>
-        </div>
-      </div>
-      <div class="profile-card">
-        <h3>Why Clients Choose Me</h3>
-        <div class="list-grid">
-          <div class="list-item">5+ Years Experience</div>
-          <div class="list-item">Professional Storytelling</div>
-          <div class="list-item">Nationwide Availability</div>
-          <div class="list-item">Creative Vision</div>
-        </div>
-      </div>
-      <a href="#portfolio" class="btn-primary">View Gallery</a>
+<section id="gallery-section">
+  <div class="gallery-controls">
+    <div class="filter-bar" id="filterBar">
+      <button class="filter-btn active" type="button" data-filter="all">All</button>
+      <button class="filter-btn" type="button" data-filter="graduation-tour">Graduation Tour</button>
+      <button class="filter-btn" type="button" data-filter="matric-dance">Matric Dance</button>
+      <button class="filter-btn" type="button" data-filter="weddings">Weddings</button>
+      <button class="filter-btn" type="button" data-filter="professional-photoshoots">Professional Photoshoots</button>
+      <button class="filter-btn" type="button" data-filter="events-and-occasions">Events and Occasions</button>
     </div>
   </div>
-</section>
 
-<section id="portfolio">
   <div class="gallery-grid" id="galleryGrid">
-    <div class="gallery-item" data-cat="weddings"><img class="gallery-img" src="images/0.jpeg" alt="Wedding"><span class="gallery-label">Weddings</span></div>
-    <div class="gallery-item" data-cat="grad-birthday"><img class="gallery-img" src="images/1.jpeg" alt="Graduation celebration"><span class="gallery-label">Graduations & Birthdays</span></div>
-    <div class="gallery-item" data-cat="sports"><img class="gallery-img" src="images/2.jpeg" alt="Sport photography"><span class="gallery-label">Sport Photography</span></div>
-    <div class="gallery-item" data-cat="family-baby"><img class="gallery-img" src="images/3.jpeg" alt="Family shoot"><span class="gallery-label">Family & Baby Showers</span></div>
-    <div class="gallery-item" data-cat="matric"><img class="gallery-img" src="images/4.jpeg" alt="Matric Dance"><span class="gallery-label">Matric Dance</span></div>
-    <div class="gallery-item" data-cat="sports"><img class="gallery-img" src="images/5.jpeg" alt="Sport photography"><span class="gallery-label">Sport Photography</span></div>
-    <div class="gallery-item" data-cat="weddings"><img class="gallery-img" src="images/6.jpeg" alt="Wedding"><span class="gallery-label">Weddings</span></div>
-    <div class="gallery-item" data-cat="grad-birthday"><img class="gallery-img" src="images/7.jpeg" alt="Graduation portrait"><span class="gallery-label">Graduations & Birthdays</span></div>
-    <div class="gallery-item" data-cat="matric"><img class="gallery-img" src="images/8.jpeg" alt="Matric Dance"><span class="gallery-label">Matric Dance</span></div>
-    <div class="gallery-item" data-cat="family-baby"><img class="gallery-img" src="images/9.jpeg" alt="Baby shower event"><span class="gallery-label">Family & Baby Showers</span></div>
-    <div class="gallery-item" data-cat="weddings"><img class="gallery-img" src="images/1%20(2).jpeg" alt="Wedding"><span class="gallery-label">Weddings</span></div>
-    <div class="gallery-item" data-cat="grad-birthday"><img class="gallery-img" src="images/1%20(3).jpeg" alt="Birthday dinner portrait"><span class="gallery-label">Graduations & Birthdays</span></div>
-    <div class="gallery-item" data-cat="matric"><img class="gallery-img" src="images/1%20(4).jpeg" alt="Matric Dance"><span class="gallery-label">Matric Dance</span></div>
-    <div class="gallery-item" data-cat="family-baby"><img class="gallery-img" src="images/11.jpeg" alt="Family celebration"><span class="gallery-label">Family & Baby Showers</span></div>
-    <div class="gallery-item" data-cat="sports"><img class="gallery-img" src="images/11%20(2).jpeg" alt="Sport photography"><span class="gallery-label">Sport Photography</span></div>
-    <div class="gallery-item" data-cat="magazine-features"><img class="gallery-img" src="images/Magazine%20booklets/Cover.png" alt="Magazine Features cover"><span class="gallery-label">Magazine Features</span></div>
-    <div class="gallery-item" data-cat="magazine-features"><img class="gallery-img" src="images/Magazine%20booklets/Rethabile%20Sekobile.png" alt="Magazine Features booklet spread"><span class="gallery-label">Magazine Features</span></div>
+    <div class="gallery-item" data-cat="weddings"><img class="gallery-img" src="images/0.jpeg" alt="Wedding couple"><span class="gallery-label">Weddings</span></div>
+    <div class="gallery-item" data-cat="graduation-tour"><img class="gallery-img" src="images/1.jpeg" alt="Graduation celebration"><span class="gallery-label">Graduation Tour</span></div>
+    <div class="gallery-item" data-cat="professional-photoshoots"><img class="gallery-img" src="images/2.jpeg" alt="Professional photoshoot"><span class="gallery-label">Professional Photoshoots</span></div>
+    <div class="gallery-item" data-cat="events-and-occasions"><img class="gallery-img" src="images/3.jpeg" alt="Event celebration"><span class="gallery-label">Events and Occasions</span></div>
+    <div class="gallery-item" data-cat="matric-dance"><img class="gallery-img" src="images/4.jpeg" alt="Matric dance"><span class="gallery-label">Matric Dance</span></div>
+    <div class="gallery-item" data-cat="professional-photoshoots"><img class="gallery-img" src="images/5.jpeg" alt="Professional portrait action"><span class="gallery-label">Professional Photoshoots</span></div>
+    <div class="gallery-item" data-cat="weddings"><img class="gallery-img" src="images/6.jpeg" alt="Wedding portrait"><span class="gallery-label">Weddings</span></div>
+    <div class="gallery-item" data-cat="graduation-tour"><img class="gallery-img" src="images/7.jpeg" alt="Graduation portrait"><span class="gallery-label">Graduation Tour</span></div>
+    <div class="gallery-item" data-cat="matric-dance"><img class="gallery-img" src="images/8.jpeg" alt="Matric dance portraits"><span class="gallery-label">Matric Dance</span></div>
+    <div class="gallery-item" data-cat="events-and-occasions"><img class="gallery-img" src="images/11.jpeg" alt="Celebration gathering"><span class="gallery-label">Events and Occasions</span></div>
+    <div class="gallery-item" data-cat="weddings"><img class="gallery-img" src="images/1%20(2).jpeg" alt="Wedding moment"><span class="gallery-label">Weddings</span></div>
+    <div class="gallery-item" data-cat="events-and-occasions"><img class="gallery-img" src="images/1%20(3).jpeg" alt="Occasion portrait"><span class="gallery-label">Events and Occasions</span></div>
+    <div class="gallery-item" data-cat="matric-dance"><img class="gallery-img" src="images/1%20(4).jpeg" alt="Matric dance session"><span class="gallery-label">Matric Dance</span></div>
+    <div class="gallery-item" data-cat="professional-photoshoots"><img class="gallery-img" src="images/11%20(2).jpeg" alt="Professional athlete shoot"><span class="gallery-label">Professional Photoshoots</span></div>
+    <div class="gallery-item" data-cat="graduation-tour"><img class="gallery-img" src="images/Tour%20Photo.png" alt="Graduation tour image"><span class="gallery-label">Graduation Tour</span></div>
+    <div class="gallery-item" data-cat="weddings"><img class="gallery-img" src="images/HERO.jpeg" alt="Wedding coverage"><span class="gallery-label">Weddings</span></div>
+    <div class="gallery-item" data-cat="events-and-occasions"><img class="gallery-img" src="images/Portfolio%20Hero.png" alt="Event gallery image"><span class="gallery-label">Events and Occasions</span></div>
+    <div class="gallery-item" data-cat="professional-photoshoots"><img class="gallery-img" src="images/ABOUT.png" alt="Professional portrait composition"><span class="gallery-label">Professional Photoshoots</span></div>
+    <div class="gallery-item" data-cat="graduation-tour"><img class="gallery-img" src="images/Graduation%20Tour.jpg" alt="Graduation tour banner"><span class="gallery-label">Graduation Tour</span></div>
+    <div class="gallery-item" data-cat="events-and-occasions"><img class="gallery-img" src="images/Projects%20Hero%20BG.jpeg" alt="Event setup image"><span class="gallery-label">Events and Occasions</span></div>
+    <div class="gallery-item" data-cat="weddings"><img class="gallery-img" src="images/Lensation%20BG.jpg" alt="Wedding atmosphere"><span class="gallery-label">Weddings</span></div>
+    <div class="gallery-item" data-cat="matric-dance"><img class="gallery-img" src="images/4.jpeg" alt="Matric dance portrait repeat"><span class="gallery-label">Matric Dance</span></div>
+    <div class="gallery-item" data-cat="professional-photoshoots"><img class="gallery-img" src="images/5.jpeg" alt="Professional shoot repeat"><span class="gallery-label">Professional Photoshoots</span></div>
+    <div class="gallery-item" data-cat="events-and-occasions"><img class="gallery-img" src="images/3.jpeg" alt="Events and occasions repeat"><span class="gallery-label">Events and Occasions</span></div>
+    <div class="gallery-item" data-cat="graduation-tour"><img class="gallery-img" src="images/7.jpeg" alt="Graduation tour repeat"><span class="gallery-label">Graduation Tour</span></div>
+    <div class="gallery-item" data-cat="weddings"><img class="gallery-img" src="images/6.jpeg" alt="Wedding repeat"><span class="gallery-label">Weddings</span></div>
+    <div class="gallery-item" data-cat="events-and-occasions"><img class="gallery-img" src="images/1%20(3).jpeg" alt="Occasion dinner portrait repeat"><span class="gallery-label">Events and Occasions</span></div>
   </div>
+
   <div class="gallery-meta">
-    <div class="gallery-summary" id="gallerySummary">Showing 1-17 of 17 images</div>
+    <div class="gallery-summary" id="gallerySummary">Showing 1-25 of 27 images</div>
     <div class="pagination-panel">
       <button class="page-btn" id="prevPage" type="button" aria-label="Previous gallery page">Prev</button>
       <div id="pageNumbers"></div>
@@ -291,9 +234,9 @@ footer{background:#070707;padding:4rem 4rem 2rem;border-top:1px solid rgba(255,2
 
 <section class="cta-band">
   <span class="section-label">Ready To Book</span>
-  <h2 class="section-title">Love What You <em>See?</em></h2>
+  <h2 class="section-title">Found A Style You <em>Like?</em></h2>
   <div class="section-line"></div>
-  <p>Reach out for availability, custom coverage, or a package that matches your event.</p>
+  <p>Tell us the kind of session or event you want and we’ll help you book the right package.</p>
   <a href="lensation-contact.html" class="btn-primary">Contact Us</a>
 </section>
 
@@ -311,6 +254,7 @@ footer{background:#070707;padding:4rem 4rem 2rem;border-top:1px solid rgba(255,2
         <li><a href="projects.html">Projects</a></li>
         <li><a href="packages.html">Packages</a></li>
         <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
         <li><a href="lensation-contact.html">Contact</a></li>
       </ul>
     </div>
@@ -325,12 +269,12 @@ footer{background:#070707;padding:4rem 4rem 2rem;border-top:1px solid rgba(255,2
     </div>
   </div>
   <div class="footer-bottom">
-    <p>© 2025 Matwise World. All rights reserved.</p>
+    <p>&copy; 2025 Matwise World. All rights reserved.</p>
     <p>Designed and developed by <a href="https://hadiniholdings.co.za" target="_blank" rel="noopener noreferrer">Hadini Holdings</a>.</p>
   </div>
 </footer>
 
-<a href="https://wa.me/27762349149?text=Hello%2C%20I%20would%20like%20to%20book%20a%20photoshoot." class="wa-float" target="_blank" title="Chat on WhatsApp">
+<a href="https://wa.me/27762349149?text=Hello%2C%20I%20would%20like%20to%20view%20or%20book%20from%20the%20gallery." class="wa-float" target="_blank" title="Chat on WhatsApp">
   <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
 </a>
 
@@ -344,18 +288,32 @@ hamburger.addEventListener('click',()=>{
   mobileMenu.classList.toggle('open');
   document.body.style.overflow=mobileMenu.classList.contains('open')?'hidden':'';
 });
+mobileMenu.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>{
+  hamburger.classList.remove('open');
+  mobileMenu.classList.remove('open');
+  document.body.style.overflow='';
+}));
 const observer=new IntersectionObserver((entries)=>{
   entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')});
 },{threshold:0.1,rootMargin:'0px 0px -50px 0px'});
 document.querySelectorAll('.fade-in').forEach(el=>observer.observe(el));
+
 const galleryItems=[...document.querySelectorAll('.gallery-item')];
+const filterButtons=[...document.querySelectorAll('.filter-btn')];
 const pageNumbers=document.getElementById('pageNumbers');
 const gallerySummary=document.getElementById('gallerySummary');
 const pageNote=document.getElementById('pageNote');
 const prevPage=document.getElementById('prevPage');
 const nextPage=document.getElementById('nextPage');
-const pageSize=20;
+const pageSize=25;
 let currentPage=1;
+let currentFilter='all';
+
+function getFilteredItems(){
+  return currentFilter==='all'
+    ? galleryItems
+    : galleryItems.filter(item=>item.dataset.cat===currentFilter);
+}
 
 function renderPagination(totalPages){
   pageNumbers.innerHTML='';
@@ -373,22 +331,38 @@ function renderPagination(totalPages){
   }
   prevPage.disabled=currentPage===1;
   nextPage.disabled=currentPage===totalPages;
-  const extraPages=Math.max(0,totalPages-currentPage);
-  pageNote.textContent=`${extraPages} more showcase page${extraPages===1?'':'s'}`;
+  pageNote.textContent=totalPages>1?`Page ${currentPage} of ${totalPages}`:'Single Page';
 }
 
 function renderGallery(){
-  const totalItems=galleryItems.length;
+  const visibleItems=getFilteredItems();
+  const totalItems=visibleItems.length;
   const totalPages=Math.max(1,Math.ceil(totalItems/pageSize));
-  if(currentPage>totalPages) currentPage=totalPages;
+  if(currentPage>totalPages) currentPage=1;
   const startIndex=(currentPage-1)*pageSize;
   const endIndex=Math.min(startIndex+pageSize,totalItems);
 
   galleryItems.forEach(item=>item.classList.add('hidden'));
-  galleryItems.slice(startIndex,endIndex).forEach(item=>item.classList.remove('hidden'));
-  gallerySummary.textContent=`Showing ${startIndex+1}-${endIndex} of ${totalItems} images`;
+  visibleItems.slice(startIndex,endIndex).forEach(item=>item.classList.remove('hidden'));
+
+  if(totalItems===0){
+    gallerySummary.textContent='Showing 0 of 0 images';
+  }else{
+    gallerySummary.textContent=`Showing ${startIndex+1}-${endIndex} of ${totalItems} images`;
+  }
+
   renderPagination(totalPages);
 }
+
+filterButtons.forEach(button=>{
+  button.addEventListener('click',()=>{
+    filterButtons.forEach(btn=>btn.classList.remove('active'));
+    button.classList.add('active');
+    currentFilter=button.dataset.filter;
+    currentPage=1;
+    renderGallery();
+  });
+});
 
 prevPage.addEventListener('click',()=>{
   if(currentPage>1){
@@ -398,7 +372,7 @@ prevPage.addEventListener('click',()=>{
 });
 
 nextPage.addEventListener('click',()=>{
-  const totalPages=Math.max(1,Math.ceil(galleryItems.length/pageSize));
+  const totalPages=Math.max(1,Math.ceil(getFilteredItems().length/pageSize));
   if(currentPage<totalPages){
     currentPage+=1;
     renderGallery();
@@ -422,6 +396,7 @@ function closeLightbox(){
   lightbox.classList.remove('open');
   document.body.style.overflow='';
 }
+
 renderGallery();
 </script>
 </body>
