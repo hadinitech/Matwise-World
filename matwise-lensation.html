@@ -1,0 +1,440 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Matwise Lensation | Matwise World</title>
+<link rel="icon" type="image/png" href="images/LOGO.png">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --accent:#0CC0DF;
+  --accent-dark:#0aa3bf;
+  --black:#0a0a0a;
+  --white:#fafafa;
+  --gray-100:#f4f4f4;
+  --gray-200:#e8e8e8;
+  --gray-400:#999;
+  --gray-600:#555;
+  --gray-800:#222;
+  --font-display:'Cormorant Garamond',serif;
+  --font-body:'DM Sans',sans-serif;
+  --ease-out:cubic-bezier(0.16,1,0.3,1);
+}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:var(--font-body);background:var(--black);color:var(--white);overflow-x:hidden;font-weight:300;line-height:1.6}
+img{display:block;width:100%;height:100%;object-fit:cover}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.35rem 2rem;display:flex;align-items:flex-start;justify-content:space-between;transition:background 0.4s,padding 0.4s;background:rgba(8,8,8,0.18);backdrop-filter:blur(8px)}
+nav.scrolled{background:rgba(10,10,10,0.94);backdrop-filter:blur(14px);padding:1rem 2rem;border-bottom:1px solid rgba(255,255,255,0.06)}
+.nav-brand{display:inline-flex;align-items:center;gap:0.85rem;color:var(--white);text-decoration:none}
+.brand-mark{background:var(--accent);padding:0.35rem 0.55rem;border-radius:4px;display:flex;align-items:center;justify-content:center;box-shadow:0 12px 28px rgba(12,192,223,0.18)}
+.brand-mark img{width:auto;height:44px;object-fit:contain;display:block}
+.brand-copy{display:flex;flex-direction:column;justify-content:center}
+.brand-copy strong{font-size:0.88rem;letter-spacing:0.1em;text-transform:uppercase;font-weight:500;color:var(--white);line-height:1.1}
+.footer-brand .footer-logo{display:inline-flex;align-items:center;justify-content:center;background:var(--accent);padding:0.45rem 0.7rem;border-radius:4px;box-shadow:0 12px 28px rgba(12,192,223,0.18)}
+.footer-brand .footer-logo img{width:auto;height:52px;object-fit:contain;display:block}
+.nav-links{display:flex;gap:2rem;list-style:none;align-items:center;padding-top:0.7rem}
+.nav-links a{font-size:0.74rem;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.68);text-decoration:none;transition:color 0.2s;font-weight:500}
+.nav-links a:hover{color:var(--accent)}
+.nav-cta{background:var(--accent);color:var(--black)!important;padding:0.85rem 1.45rem;border-radius:2px;font-weight:500!important;transition:background 0.2s,transform 0.2s!important}
+.nav-cta:hover{background:var(--accent-dark);color:var(--black)!important;transform:translateY(-1px)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;z-index:200;background:none;border:none}
+.hamburger span{width:24px;height:1.5px;background:var(--white);transition:all 0.3s;display:block}
+.hamburger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+.mobile-menu{display:none;position:fixed;inset:0;background:var(--black);z-index:99;flex-direction:column;align-items:center;justify-content:center;gap:2.5rem}
+.mobile-menu.open{display:flex}
+.mobile-menu a{font-family:var(--font-display);font-size:2.2rem;color:var(--white);text-decoration:none;font-weight:300;letter-spacing:0.04em;transition:color 0.2s}
+.mobile-menu a:hover{color:var(--accent)}
+
+/* HERO */
+#hero{position:relative;height:100vh;min-height:600px;display:grid;grid-template-columns:minmax(0,48%) minmax(0,52%);align-items:center;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:linear-gradient(135deg,#0a0a0a 0%,#1a1a1a 50%,#0a0a0a 100%)}
+.hero-grid{position:absolute;inset:0;background-image:repeating-linear-gradient(0deg,transparent,transparent 79px,rgba(255,255,255,0.025) 80px),repeating-linear-gradient(90deg,transparent,transparent 79px,rgba(255,255,255,0.025) 80px)}
+.hero-image{position:relative;z-index:1;grid-column:1;width:100%;height:100%;overflow:hidden;align-self:stretch}
+.hero-image img{width:100%;height:100%;object-fit:cover;transition:transform 0.6s var(--ease-out)}
+.hero-image:hover img{transform:scale(1.03)}
+.hero-content{position:relative;z-index:2;grid-column:2;max-width:700px;padding:0 4rem;justify-self:start}
+.hero-badge{display:inline-block;font-size:0.72rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);margin-bottom:1.5rem;border:1px solid rgba(12,192,223,0.3);padding:0.4rem 1rem;border-radius:2px}
+.hero-tagline{font-size:0.86rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.72);margin:-0.5rem 0 1.35rem}
+.hero-title{font-family:var(--font-display);font-size:clamp(3rem,6vw,5.5rem);font-weight:300;line-height:1.1;margin-bottom:1.5rem;letter-spacing:-0.01em}
+.hero-title em{font-style:italic;color:var(--accent)}
+.hero-sub{font-size:1rem;color:rgba(255,255,255,0.6);max-width:420px;margin-bottom:3rem;line-height:1.7;font-weight:300}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap}
+.btn-primary{background:var(--accent);color:var(--black);padding:0.9rem 2rem;text-decoration:none;font-size:0.82rem;letter-spacing:0.1em;text-transform:uppercase;font-weight:500;border-radius:2px;transition:all 0.25s var(--ease-out);border:2px solid var(--accent)}
+.btn-primary:hover{background:transparent;color:var(--accent);transform:translateY(-2px)}
+.btn-outline{background:transparent;color:var(--white);padding:0.9rem 2rem;text-decoration:none;font-size:0.82rem;letter-spacing:0.1em;text-transform:uppercase;font-weight:400;border:1px solid rgba(255,255,255,0.3);border-radius:2px;transition:all 0.25s var(--ease-out)}
+.btn-outline:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px)}
+.hero-scroll{position:absolute;bottom:0.1rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:0.5rem;color:rgba(255,255,255,0.4);font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase}
+.scroll-line{width:1px;height:50px;background:linear-gradient(to bottom,var(--accent),transparent);animation:scrollPulse 2s ease-in-out infinite}
+@keyframes scrollPulse{0%,100%{opacity:0.3;transform:scaleY(0.8)}50%{opacity:1;transform:scaleY(1)}}
+
+/* SECTION COMMONS */
+section{padding:7rem 4rem}
+.section-label{font-size:0.72rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--accent);margin-bottom:0.75rem;display:block}
+.section-title{font-family:var(--font-display);font-size:clamp(2.2rem,4vw,3.5rem);font-weight:300;line-height:1.15;letter-spacing:-0.01em}
+.section-title em{font-style:italic;color:var(--accent)}
+.section-line{width:48px;height:1px;background:var(--accent);margin:1.5rem 0 2rem}
+
+/* ABOUT */
+#about{background:#111;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+.about-img-wrap{position:relative;aspect-ratio:3/4;overflow:hidden;border-radius:2px}
+.about-img-wrap::before{content:'';position:absolute;top:-20px;left:-20px;right:20px;bottom:20px;border:1px solid rgba(12,192,223,0.2);border-radius:2px;z-index:0}
+.about-img-inner{position:relative;z-index:1;width:100%;height:100%;overflow:hidden}
+.about-img-inner img{transition:transform 0.6s}
+.about-img-inner:hover img{transform:scale(1.03)}
+.about-text p{color:rgba(255,255,255,0.65);line-height:1.9;margin-bottom:1.5rem;font-size:0.97rem}
+.about-stats{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:2.5rem}
+.stat{border-left:2px solid var(--accent);padding-left:1rem}
+.stat-num{font-family:var(--font-display);font-size:2.5rem;font-weight:300;color:var(--white);line-height:1}
+.stat-label{font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--gray-400);margin-top:0.3rem}
+.vm-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:2rem}
+.vm-card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);padding:1.5rem;border-radius:2px}
+.vm-card h4{font-family:var(--font-display);font-size:1.2rem;font-weight:400;color:var(--accent);margin-bottom:0.6rem;font-style:italic}
+.vm-card p{font-size:0.9rem;color:rgba(255,255,255,0.55);line-height:1.7}
+
+/* PHOTOGRAPHY SERVICES */
+#services{background:var(--black);text-align:center}
+.services-header{max-width:680px;margin:0 auto 4rem}
+.services-header p{color:rgba(255,255,255,0.56);line-height:1.85}
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.5px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.06)}
+.service-card{background:#0d0d0d;padding:2.4rem 2rem;text-align:left;position:relative;overflow:hidden;transition:background 0.3s}
+.service-card::before{content:'';position:absolute;bottom:0;left:0;height:2px;width:0;background:var(--accent);transition:width 0.4s var(--ease-out)}
+.service-card:hover{background:#111}
+.service-card:hover::before{width:100%}
+.service-card h3{font-family:var(--font-display);font-size:1.4rem;font-weight:400;margin-bottom:0.7rem;color:var(--white)}
+.service-card p{font-size:0.88rem;color:rgba(255,255,255,0.5);line-height:1.75}
+.service-card-link{display:inline-block;margin-top:1rem;color:var(--accent);text-decoration:none;font-size:0.76rem;letter-spacing:0.12em;text-transform:uppercase}
+.service-card-link:hover{color:var(--white)}
+
+/* SERVICES */
+#services{background:var(--black);text-align:center}
+.services-header{max-width:600px;margin:0 auto 4rem}
+.services-categories{display:grid;gap:2rem}
+.service-category{border:1px solid rgba(255,255,255,0.08);background:#0d0d0d;padding:2rem}
+.service-category-head{display:flex;align-items:flex-end;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-bottom:1.5rem;padding-bottom:1rem;border-bottom:1px solid rgba(255,255,255,0.08)}
+.service-category-head h3{font-family:var(--font-display);font-size:2rem;font-weight:300;color:var(--white)}
+.service-category-head p{max-width:520px;font-size:0.9rem;color:rgba(255,255,255,0.5);text-align:left}
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.5px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.06)}
+.service-card{background:var(--black);padding:2.5rem 2rem;text-align:left;position:relative;overflow:hidden;cursor:default;transition:background 0.3s}
+.service-card::before{content:'';position:absolute;bottom:0;left:0;height:2px;width:0;background:var(--accent);transition:width 0.4s var(--ease-out)}
+.service-card:hover{background:#0f0f0f}
+.service-card:hover::before{width:100%}
+.service-icon{font-size:1.8rem;margin-bottom:1.2rem;opacity:0.7;transition:opacity 0.3s;line-height:1}
+.service-card:hover .service-icon{opacity:1}
+.service-card h3{font-family:var(--font-display);font-size:1.25rem;font-weight:400;margin-bottom:0.5rem;color:var(--white);letter-spacing:0.01em}
+.service-card p{font-size:0.83rem;color:rgba(255,255,255,0.45);line-height:1.6}
+
+/* MAGAZINE FEATURES */
+#magazine-features{background:#101010}
+.magazine-shell{display:grid;grid-template-columns:minmax(280px,0.95fr) minmax(0,1.05fr);gap:3rem;align-items:start}
+.magazine-copy p{max-width:480px;color:rgba(255,255,255,0.58);font-size:0.96rem;line-height:1.85}
+.magazine-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
+.magazine-card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);padding:1rem}
+.magazine-image{aspect-ratio:4/5;overflow:hidden;background:#0a0a0a}
+.magazine-image img{width:100%;height:100%;object-fit:cover;transition:transform 0.45s var(--ease-out)}
+.magazine-card:hover .magazine-image img{transform:scale(1.02)}
+.magazine-card h3{font-family:var(--font-display);font-size:1.35rem;font-weight:400;margin-top:1rem;color:var(--white)}
+.magazine-card p{margin-top:0.45rem;color:rgba(255,255,255,0.5);font-size:0.86rem;line-height:1.7}
+
+/* CONTACT */
+#contact{background:#0d0d0d;display:grid;grid-template-columns:1fr 1.4fr;gap:5rem;align-items:start}
+.contact-info .section-label{display:block}
+.contact-info p{color:rgba(255,255,255,0.55);font-size:0.95rem;line-height:1.8;margin-bottom:2.5rem}
+.contact-detail{display:flex;align-items:center;gap:1rem;margin-bottom:1.2rem}
+.contact-icon{width:40px;height:40px;border:1px solid rgba(255,255,255,0.1);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--accent);flex-shrink:0}
+.contact-icon svg,.social-link svg{width:18px;height:18px;stroke:currentColor;stroke-width:1.7;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.contact-detail-text small{font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--gray-400);display:block;margin-bottom:0.15rem}
+.contact-detail-text a,.contact-detail-text span{color:var(--white);text-decoration:none;font-size:0.9rem;transition:color 0.2s}
+.contact-detail-text a:hover{color:var(--accent)}
+.social-row{display:flex;gap:1rem;margin-top:2.5rem}
+.social-link{width:38px;height:38px;border:1px solid rgba(255,255,255,0.12);border-radius:2px;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.5);text-decoration:none;transition:all 0.2s}
+.social-link:hover{border-color:var(--accent);color:var(--accent)}
+.booking-form{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);padding:2.5rem;border-radius:2px}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.form-group{margin-bottom:1rem}
+.form-group.full{grid-column:1/-1}
+.form-group label{display:block;font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.45);margin-bottom:0.5rem}
+.form-group input,.form-group select,.form-group textarea{width:100%;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:2px;padding:0.8rem 1rem;color:var(--white);font-family:var(--font-body);font-size:0.9rem;transition:border-color 0.2s;outline:none;font-weight:300}
+.form-group select{cursor:pointer}
+.form-group select option{background:#111;color:var(--white)}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--accent)}
+.form-group textarea{resize:vertical;min-height:100px}
+.form-submit{width:100%;background:var(--accent);color:var(--black);border:none;padding:1rem;font-size:0.82rem;letter-spacing:0.12em;text-transform:uppercase;font-weight:500;cursor:pointer;border-radius:2px;font-family:var(--font-body);transition:all 0.25s;margin-top:0.5rem}
+.form-submit:hover{background:var(--accent-dark);transform:translateY(-1px)}
+
+/* FOOTER */
+footer{background:#070707;padding:4rem 4rem 2rem;border-top:1px solid rgba(255,255,255,0.06)}
+.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:3rem;margin-bottom:3rem}
+.footer-brand p{font-size:0.87rem;color:rgba(255,255,255,0.4);line-height:1.7;margin-top:1rem;max-width:260px}
+.footer-heading{font-size:0.7rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-bottom:1.2rem}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:0.7rem}
+.footer-links a{font-size:0.88rem;color:rgba(255,255,255,0.5);text-decoration:none;transition:color 0.2s}
+.footer-links a:hover{color:var(--accent)}
+.footer-bottom{display:flex;align-items:center;justify-content:space-between;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.05);flex-wrap:wrap;gap:1rem}
+.footer-bottom p{font-size:0.8rem;color:rgba(255,255,255,0.25)}
+.footer-bottom a{color:var(--accent);text-decoration:none}
+.footer-brand p,.footer-bottom p{overflow-wrap:anywhere}
+
+/* FLOATING WA */
+.wa-float{position:fixed;bottom:2rem;right:2rem;z-index:98;width:54px;height:54px;background:#25d366;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;box-shadow:0 4px 20px rgba(37,211,102,0.35);transition:transform 0.3s,box-shadow 0.3s;animation:waPulse 3s ease-in-out infinite}
+.wa-float:hover{transform:scale(1.1);box-shadow:0 6px 28px rgba(37,211,102,0.5);animation:none}
+@keyframes waPulse{0%,100%{box-shadow:0 4px 20px rgba(37,211,102,0.35)}50%{box-shadow:0 4px 32px rgba(37,211,102,0.6),0 0 0 8px rgba(37,211,102,0.1)}}
+.wa-float svg{width:28px;height:28px;fill:#fff}
+
+/* RESPONSIVE */
+@media(max-width:1024px){
+  nav{padding:1.25rem 2rem}
+  nav.scrolled{padding:1rem 2rem}
+  section{padding:5rem 2rem}
+  #about{grid-template-columns:1fr;gap:3rem}
+  .about-img-wrap{max-height:400px}
+  .magazine-shell{grid-template-columns:1fr;gap:2rem}
+  .magazine-copy p{max-width:100%}
+  #contact{grid-template-columns:1fr;gap:3rem}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:2rem}
+}
+@media(max-width:768px){
+  .nav-links{display:none}
+  .hamburger{display:flex}
+  nav{padding:0.8rem 1.25rem}
+  nav.scrolled{padding:0.7rem 1.25rem}
+  .brand-mark{padding:0.25rem 0.45rem}
+  .brand-mark img{height:32px}
+  .brand-copy strong{font-size:0.74rem}
+  #hero{height:auto;min-height:100vh;grid-template-columns:1fr;grid-template-rows:minmax(320px,45vh) auto;padding-bottom:5rem}
+  .hero-image{grid-column:1;grid-row:1}
+  .hero-content{grid-column:1;grid-row:2;padding:3rem 1.5rem 0;text-align:center;max-width:100%;justify-self:center}
+  .hero-sub{margin:0 auto 2.5rem}
+  .hero-btns{justify-content:center}
+  section{padding:4rem 1.5rem}
+  .services-header{text-align:center}
+  .magazine-grid{grid-template-columns:1fr}
+  .magazine-copy{text-align:center}
+  .magazine-copy .section-line{margin-left:auto;margin-right:auto}
+  .form-grid{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr}
+  .footer-bottom{flex-direction:column;text-align:center}
+  .vm-grid{grid-template-columns:1fr}
+  .about-stats{grid-template-columns:1fr 1fr}
+  #contact{padding:4rem 1.5rem}
+  .service-category{padding:1.5rem}
+  .service-category-head h3{font-size:1.7rem}
+}
+@media(max-width:480px){
+  html{font-size:15px}
+  .hero-btns{flex-direction:column;width:100%}
+  .btn-primary,.btn-outline{text-align:center}
+  .hero-content{padding:2.5rem 1rem 0}
+  .hero-scroll{bottom:0.15rem}
+  .magazine-card{padding:0.85rem}
+  .about-stats{grid-template-columns:1fr}
+}
+
+/* ANIMATIONS */
+.fade-in{opacity:0;transform:translateY(30px);transition:opacity 0.7s var(--ease-out),transform 0.7s var(--ease-out)}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+.fade-in-delay-1{transition-delay:0.1s}
+.fade-in-delay-2{transition-delay:0.2s}
+.fade-in-delay-3{transition-delay:0.3s}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="index.html" class="nav-brand" aria-label="Matwise World home">
+    <span class="brand-mark"><img src="images/LOGO.png" alt="Matwise World"></span>
+    <span class="brand-copy">
+      <strong>MATWISE LENSATION</strong>
+    </span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="matwise-lensation.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="packages.html">Packages</a></li>
+    <li><a href="portfolio.html">Portfolio</a></li>
+    <li><a href="lensation-contact.html" class="nav-cta">Contact Us</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="matwise-lensation.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="projects.html">Projects</a>
+  <a href="packages.html">Packages</a>
+  <a href="portfolio.html">Portfolio</a>
+  <a href="lensation-contact.html">Contact Us</a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-image">
+    <img src="images/HERO.jpeg" alt="Wedding photography">
+  </div>
+  <div class="hero-content">
+    <span class="hero-badge">Matwise Lensation</span>
+    <h1 class="hero-title">Capturing Every<br><em>Moment</em> That Matters</h1>
+    <p class="hero-sub">From weddings and graduations to matric dances, sports, and events, we preserve the stories that deserve to be remembered forever.</p>
+    <div class="hero-btns">
+      <a href="portfolio.html" class="btn-primary">View Portfolio</a>
+      <a href="https://wa.me/27762349149?text=Hello%2C%20I%20would%20like%20to%20book%20a%20photoshoot." class="btn-outline" target="_blank">Book via WhatsApp</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="services-header fade-in">
+    <span class="section-label">Photography Services</span>
+    <h2 class="section-title">Coverage With Style, Story, and <em>Emotion</em></h2>
+    <div class="section-line" style="margin-left:auto;margin-right:auto"></div>
+    <p>From milestone celebrations to fast-moving live moments, Matwise Lensation offers photography shaped around people, atmosphere, and visual storytelling.</p>
+  </div>
+  <div class="services-grid">
+    <article class="service-card fade-in">
+      <h3>Weddings</h3>
+      <p>Elegant wedding coverage focused on emotion, atmosphere, detail, and the meaningful moments that define the day.</p>
+    </article>
+    <article class="service-card fade-in fade-in-delay-1">
+      <h3>Graduations</h3>
+      <p>Confident, polished portraits and celebration coverage that honour academic milestones and personal achievement.</p>
+      <a href="packages.html" class="service-card-link">View Packages</a>
+    </article>
+    <article class="service-card fade-in fade-in-delay-2">
+      <h3>Matric Dance</h3>
+      <p>Fashion-forward photography that captures confidence, styling, and the excitement of a standout evening.</p>
+    </article>
+    <article class="service-card fade-in">
+      <h3>Sports Photography</h3>
+      <p>Action-driven coverage that freezes energy, movement, teamwork, and defining moments on and off the field.</p>
+    </article>
+    <article class="service-card fade-in fade-in-delay-1">
+      <h3>Family & Events</h3>
+      <p>Natural, heartfelt photography for family gatherings, baby showers, birthdays, and special celebrations.</p>
+    </article>
+    <article class="service-card fade-in fade-in-delay-2">
+      <h3>Action Photos</h3>
+      <p>Fast, expressive imagery built for high-energy scenes where timing, motion, and presence matter most.</p>
+    </article>
+  </div>
+</section>
+
+<!-- MAGAZINE FEATURES -->
+<section id="magazine-features">
+  <div class="magazine-shell">
+    <div class="magazine-copy fade-in">
+      <span class="section-label">Printed Features</span>
+      <h2 class="section-title">Magazine <em>Features</em></h2>
+      <div class="section-line"></div>
+      <p>Bring your photographs to life with a custom-designed printed magazine. 
+        <br><br>
+        Using the images from your photoshoot, we create a professionally designed publication that highlights your story through stunning layouts, magazine-style covers, and premium printing. It's a unique way to preserve and showcase life's biggest milestones in a format that's both memorable and shareable.</p>
+    </div>
+    <div class="magazine-grid">
+      <article class="magazine-card fade-in">
+        <div class="magazine-image">
+          <img src="images/Magazine%20booklets/Cover.png" alt="Magazine Features printed cover">
+        </div>
+        <h3>Matric Dance</h3>
+        <p>A custom-designed magazine created for a matric dance, transforming the portraits and special moments into a beautiful editorial-style keepsake.</p>
+      </article>
+      <article class="magazine-card fade-in fade-in-delay-1">
+        <div class="magazine-image">
+          <img src="images/Magazine%20booklets/Rethabile%20Sekobile.png" alt="Magazine Features editorial booklet layout">
+        </div>
+        <h3>Graduation</h3>
+        <p>A personalised graduation magazine that showcases achievements through professional photography, elegant design, and premium-quality print.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="index.html" class="footer-logo" aria-label="Matwise World home"><img src="images/LOGO.png" alt="Matwise World"></a>
+      <p>Matwise Lensation captures weddings, graduations, matric dances, sports, and milestone events with professional photography rooted in story and style.</p>
+    </div>
+    <div>
+      <div class="footer-heading">Navigation</div>
+      <ul class="footer-links">
+        <li><a href="matwise-lensation.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="packages.html">Packages</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="lensation-contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-heading">Connect</div>
+      <ul class="footer-links">
+        <li><a href="https://wa.me/27762349149" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
+        <li><a href="https://www.instagram.com/matwiseworld?igsh=MXVyZWg2dm54ZG0xbg==" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+        <li><a href="https://www.facebook.com/share/1J7bzkqypg/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+        <li><a href="mailto:MATWISEWORLD@GMAIL.COM">Email Us</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2025 Matwise World. All rights reserved.</p>
+    <p>Designed and developed by <a href="https://hadiniholdings.co.za" target="_blank" rel="noopener noreferrer">Hadini Holdings</a>.</p>
+  </div>
+</footer>
+
+<!-- FLOATING WHATSAPP -->
+<a href="https://wa.me/27762349149?text=Hello%2C%20I%20would%20like%20to%20enquire%20about%20a%20photoshoot." class="wa-float" target="_blank" title="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+// NAV SCROLL
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>{
+  nav.classList.toggle('scrolled',window.scrollY>60);
+});
+
+// HAMBURGER
+const hamburger=document.getElementById('hamburger');
+const mobileMenu=document.getElementById('mobileMenu');
+hamburger.addEventListener('click',()=>{
+  hamburger.classList.toggle('open');
+  mobileMenu.classList.toggle('open');
+  document.body.style.overflow=mobileMenu.classList.contains('open')?'hidden':'';
+});
+function closeMobile(){
+  hamburger.classList.remove('open');
+  mobileMenu.classList.remove('open');
+  document.body.style.overflow='';
+}
+
+// INTERSECTION OBSERVER
+const observer=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')});
+},{threshold:0.1,rootMargin:'0px 0px -50px 0px'});
+document.querySelectorAll('.fade-in').forEach(el=>observer.observe(el));
+
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMobile()});
+</script>
+</body>
+</html>
+
+
+
+

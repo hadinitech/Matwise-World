@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projects | Matwise World</title>
+<link rel="icon" type="image/png" href="images/LOGO.png">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --accent:#0CC0DF;
+  --accent-dark:#0aa3bf;
+  --black:#0a0a0a;
+  --white:#fafafa;
+  --font-display:'Cormorant Garamond',serif;
+  --font-body:'DM Sans',sans-serif;
+  --ease-out:cubic-bezier(0.16,1,0.3,1);
+}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:var(--font-body);background:var(--black);color:var(--white);overflow-x:hidden;font-weight:300;line-height:1.6}
+img{display:block;width:100%;height:100%;object-fit:cover}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.35rem 2rem;display:flex;align-items:flex-start;justify-content:space-between;transition:background 0.4s,padding 0.4s;background:rgba(8,8,8,0.18);backdrop-filter:blur(8px)}
+nav.scrolled{background:rgba(10,10,10,0.94);backdrop-filter:blur(14px);padding:1rem 2rem;border-bottom:1px solid rgba(255,255,255,0.06)}
+.nav-brand{display:inline-flex;align-items:center;gap:0.85rem;color:var(--white);text-decoration:none}
+.brand-mark{background:var(--accent);padding:0.35rem 0.55rem;border-radius:4px;display:flex;align-items:center;justify-content:center;box-shadow:0 12px 28px rgba(12,192,223,0.18)}
+.brand-mark img{width:auto;height:44px;object-fit:contain;display:block}
+.brand-copy{display:flex;flex-direction:column;justify-content:center}
+.brand-copy strong{font-size:0.88rem;letter-spacing:0.1em;text-transform:uppercase;font-weight:500;color:var(--white);line-height:1.1}
+.nav-links{display:flex;gap:2rem;list-style:none;align-items:center;padding-top:0.7rem}
+.nav-links a{font-size:0.74rem;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.68);text-decoration:none;transition:color 0.2s;font-weight:500}
+.nav-links a:hover,.nav-links a.active{color:var(--accent)}
+.nav-cta{background:var(--accent);color:var(--black)!important;padding:0.85rem 1.45rem;border-radius:2px;font-weight:500!important;transition:background 0.2s,transform 0.2s!important}
+.nav-cta:hover{background:var(--accent-dark);color:var(--black)!important;transform:translateY(-1px)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;z-index:200;background:none;border:none}
+.hamburger span{width:24px;height:1.5px;background:var(--white);transition:all 0.3s;display:block}
+.hamburger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+.mobile-menu{display:none;position:fixed;inset:0;background:var(--black);z-index:99;flex-direction:column;align-items:center;justify-content:center;gap:2.5rem}
+.mobile-menu.open{display:flex}
+.mobile-menu a{font-family:var(--font-display);font-size:2.2rem;color:var(--white);text-decoration:none;font-weight:300;letter-spacing:0.04em;transition:color 0.2s}
+.mobile-menu a:hover{color:var(--accent)}
+.page-hero{position:relative;min-height:72vh;padding:9rem 4rem 4rem;display:flex;align-items:flex-end;overflow:hidden;background:#0b0b0b}
+.page-hero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(100deg,rgba(6,6,6,0.94) 0%,rgba(6,6,6,0.78) 38%,rgba(6,6,6,0.4) 100%),url('images/Projects%20Hero%20BG.jpeg');background-size:cover;background-position:center}
+.page-hero::after{content:'';position:absolute;inset:0;background-image:repeating-linear-gradient(0deg,transparent,transparent 79px,rgba(255,255,255,0.025) 80px),repeating-linear-gradient(90deg,transparent,transparent 79px,rgba(255,255,255,0.025) 80px)}
+.page-hero>*{position:relative;z-index:1}
+.hero-copy{max-width:700px}
+.hero-badge{display:inline-block;font-size:0.72rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);margin-bottom:1.25rem;border:1px solid rgba(12,192,223,0.3);padding:0.4rem 1rem;border-radius:2px}
+.hero-title{font-family:var(--font-display);font-size:clamp(3rem,6vw,5.2rem);font-weight:300;line-height:1;margin-bottom:1rem}
+.hero-title em{font-style:italic;color:var(--accent)}
+.hero-sub{max-width:540px;color:rgba(255,255,255,0.72);font-size:1rem;line-height:1.9}
+section{padding:6rem 4rem}
+.section-label{font-size:0.72rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--accent);margin-bottom:0.75rem;display:block}
+.section-title{font-family:var(--font-display);font-size:clamp(2.2rem,4vw,3.6rem);font-weight:300;line-height:1.12;letter-spacing:-0.01em}
+.section-title em{font-style:italic;color:var(--accent)}
+.section-line{width:48px;height:1px;background:var(--accent);margin:1.5rem 0 2rem}
+#projects{background:linear-gradient(180deg,#101010 0%,#0a0a0a 100%)}
+.projects-intro{max-width:720px;margin-bottom:3rem}
+.projects-intro p{color:rgba(255,255,255,0.58);line-height:1.9}
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.25rem}
+.project-card{position:relative;padding:2rem;border:1px solid rgba(255,255,255,0.08);background:rgba(255,255,255,0.03);overflow:hidden}
+.project-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--accent)}
+.project-card h3{font-family:var(--font-display);font-size:1.8rem;font-weight:400;line-height:1.1;margin-bottom:0.5rem}
+.project-role{font-size:0.82rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem}
+.project-points{display:grid;gap:0.75rem}
+.project-points div{padding-top:0.75rem;border-top:1px solid rgba(255,255,255,0.08);color:rgba(255,255,255,0.7);font-size:0.92rem;line-height:1.7}
+.cta-band{background:#0d0d0d;border-top:1px solid rgba(255,255,255,0.06);border-bottom:1px solid rgba(255,255,255,0.06);text-align:center}
+.cta-band p{max-width:620px;margin:0 auto 1.5rem;color:rgba(255,255,255,0.56);line-height:1.8}
+.btn-primary{display:inline-block;background:var(--accent);color:var(--black);padding:0.9rem 2rem;text-decoration:none;font-size:0.82rem;letter-spacing:0.1em;text-transform:uppercase;font-weight:500;border-radius:2px;transition:all 0.25s var(--ease-out)}
+.btn-primary:hover{background:var(--accent-dark);transform:translateY(-1px)}
+footer{background:#070707;padding:4rem 4rem 2rem;border-top:1px solid rgba(255,255,255,0.06)}
+.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:3rem;margin-bottom:3rem}
+.footer-brand p{font-size:0.87rem;color:rgba(255,255,255,0.4);line-height:1.7;margin-top:1rem;max-width:260px}
+.footer-brand .footer-logo{display:inline-flex;align-items:center;justify-content:center;background:var(--accent);padding:0.45rem 0.7rem;border-radius:4px;box-shadow:0 12px 28px rgba(12,192,223,0.18)}
+.footer-brand .footer-logo img{width:auto;height:52px;object-fit:contain;display:block}
+.footer-heading{font-size:0.7rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-bottom:1.2rem}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:0.7rem}
+.footer-links a{font-size:0.88rem;color:rgba(255,255,255,0.5);text-decoration:none;transition:color 0.2s}
+.footer-links a:hover{color:var(--accent)}
+.footer-bottom{display:flex;align-items:center;justify-content:space-between;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.05);flex-wrap:wrap;gap:1rem}
+.footer-bottom p{font-size:0.8rem;color:rgba(255,255,255,0.25)}
+.footer-bottom a{color:var(--accent);text-decoration:none}
+.footer-brand p,.footer-bottom p{overflow-wrap:anywhere}
+.wa-float{position:fixed;bottom:2rem;right:2rem;z-index:98;width:54px;height:54px;background:#25d366;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;box-shadow:0 4px 20px rgba(37,211,102,0.35)}
+.wa-float svg{width:28px;height:28px;fill:#fff}
+.fade-in{opacity:0;transform:translateY(30px);transition:opacity 0.7s var(--ease-out),transform 0.7s var(--ease-out)}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+.fade-in-delay-1{transition-delay:0.1s}
+.fade-in-delay-2{transition-delay:0.2s}
+@media(max-width:1024px){
+  nav{padding:1.25rem 2rem}
+  nav.scrolled{padding:1rem 2rem}
+  .page-hero{padding:8.5rem 2rem 3rem}
+  section{padding:5rem 2rem}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:2rem}
+}
+@media(max-width:768px){
+  .nav-links{display:none}
+  .hamburger{display:flex}
+  nav{padding:0.8rem 1.25rem}
+  nav.scrolled{padding:0.7rem 1.25rem}
+  .brand-mark{padding:0.25rem 0.45rem}
+  .brand-mark img{height:32px}
+  .brand-copy strong{font-size:0.74rem}
+  .page-hero{padding:7.5rem 1.5rem 2.5rem;min-height:62vh}
+  section{padding:4rem 1.5rem}
+  .footer-grid{grid-template-columns:1fr}
+  .footer-bottom{flex-direction:column;text-align:center}
+}
+@media(max-width:480px){
+  html{font-size:15px}
+  .page-hero{padding:7rem 1rem 2rem}
+  section{padding:3.5rem 1rem}
+}
+</style>
+</head>
+<body>
+<nav id="nav">
+  <a href="index.html" class="nav-brand" aria-label="Matwise World home">
+    <span class="brand-mark"><img src="images/LOGO.png" alt="Matwise World"></span>
+    <span class="brand-copy">
+      <strong>MATWISE LENSATION</strong>
+    </span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="matwise-lensation.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="projects.html" class="active">Projects</a></li>
+    <li><a href="packages.html">Packages</a></li>
+    <li><a href="portfolio.html">Portfolio</a></li>
+    <li><a href="lensation-contact.html" class="nav-cta">Contact Us</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="matwise-lensation.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="projects.html" class="active">Projects</a>
+  <a href="packages.html">Packages</a>
+  <a href="portfolio.html">Portfolio</a>
+  <a href="lensation-contact.html">Contact Us</a>
+</div>
+
+<section class="page-hero">
+  <div class="hero-copy fade-in">
+    <span class="hero-badge">Matwise Lensation Projects</span>
+    <h1 class="hero-title">Work that moves with <em>people</em>, teams, and moments.</h1>
+    <p class="hero-sub">A growing body of sports, tournament, and campus photography projects built around energy, story, and presence on the ground.</p>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="projects-intro fade-in">
+    <span class="section-label">Selected Projects</span>
+    <h2 class="section-title">Official coverage across tournaments, clubs, and university <em>sport</em>.</h2>
+    <div class="section-line"></div>
+    <p>These projects reflect Matwise Lensation's role in documenting competition, community, team identity, and milestone sporting moments with consistency and professional visual storytelling.</p>
+  </div>
+  <div class="projects-grid">
+    <article class="project-card fade-in">
+      <h3>Nozulu Youth Legacy Cup</h3>
+      <div class="project-role">Official Tournament Photographer</div>
+      <div class="project-points">
+        <div>2025 & 2026 Editions</div>
+        <div>Tournament Coverage and Launch Dinner</div>
+      </div>
+    </article>
+    <article class="project-card fade-in fade-in-delay-1">
+      <h3>WSU Football Club</h3>
+      <div class="project-role">Official Team Photographer - 2025</div>
+      <div class="project-points">
+        <div>Butterworth Campus</div>
+      </div>
+    </article>
+    <article class="project-card fade-in fade-in-delay-2">
+      <h3>WSU Ladies Football Club</h3>
+      <div class="project-role">Inter-Varsity Games Photographer - 2025</div>
+      <div class="project-points">
+        <div>Tournament and team coverage</div>
+      </div>
+    </article>
+    <article class="project-card fade-in">
+      <h3>WSU Rugby Team</h3>
+      <div class="project-role">Official Team Photographer - 2025</div>
+      <div class="project-points">
+        <div>Matchday and team visual coverage</div>
+      </div>
+    </article>
+    <article class="project-card fade-in fade-in-delay-1">
+      <h3>WSU Volleyball Tournament</h3>
+      <div class="project-role">Tournament Photographer - 2025 Inter Varsity Games</div>
+      <div class="project-points">
+        <div>Fast-action tournament storytelling</div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="cta-band">
+  <span class="section-label">Need Coverage?</span>
+  <h2 class="section-title">Planning a wedding, graduation, event, or branded <em>shoot</em>?</h2>
+  <div class="section-line" style="margin-left:auto;margin-right:auto"></div>
+  <p>Book professional photography coverage for celebrations, portraits, sports, institutions, and events that deserve strong visual storytelling.</p>
+  <a href="lensation-contact.html" class="btn-primary">Book Photography</a>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="index.html" class="footer-logo" aria-label="Matwise World home"><img src="images/LOGO.png" alt="Matwise World"></a>
+      <p>Matwise Lensation captures weddings, graduations, matric dances, sports, and milestone events with professional photography rooted in story and style.</p>
+    </div>
+    <div>
+      <div class="footer-heading">Navigation</div>
+      <ul class="footer-links">
+        <li><a href="matwise-lensation.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="packages.html">Packages</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="lensation-contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-heading">Connect</div>
+      <ul class="footer-links">
+        <li><a href="https://wa.me/27762349149" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
+        <li><a href="https://www.instagram.com/matwiseworld?igsh=MXVyZWg2dm54ZG0xbg==" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+        <li><a href="https://www.facebook.com/share/1J7bzkqypg/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+        <li><a href="mailto:MATWISEWORLD@GMAIL.COM">Email Us</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2025 Matwise World. All rights reserved.</p>
+    <p>Designed and developed by <a href="https://hadiniholdings.co.za" target="_blank" rel="noopener noreferrer">Hadini Holdings</a>.</p>
+  </div>
+</footer>
+
+<a href="https://wa.me/27762349149?text=Hello%2C%20I%20would%20like%20to%20enquire%20about%20photography%20projects." class="wa-float" target="_blank" title="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>60);});
+const hamburger=document.getElementById('hamburger');
+const mobileMenu=document.getElementById('mobileMenu');
+hamburger.addEventListener('click',()=>{
+  hamburger.classList.toggle('open');
+  mobileMenu.classList.toggle('open');
+  document.body.style.overflow=mobileMenu.classList.contains('open')?'hidden':'';
+});
+function closeMobile(){
+  hamburger.classList.remove('open');
+  mobileMenu.classList.remove('open');
+  document.body.style.overflow='';
+}
+mobileMenu.querySelectorAll('a').forEach(link=>link.addEventListener('click',closeMobile));
+const observer=new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{if(entry.isIntersecting)entry.target.classList.add('visible');});
+},{threshold:0.1,rootMargin:'0px 0px -50px 0px'});
+document.querySelectorAll('.fade-in').forEach(el=>observer.observe(el));
+</script>
+</body>
+</html>

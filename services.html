@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Services | Matwise World</title>
+<title>Matwise Clicklink | Matwise World</title>
 <link rel="icon" type="image/png" href="images/LOGO.png">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
@@ -28,7 +28,6 @@ nav.scrolled{background:rgba(10,10,10,0.94);backdrop-filter:blur(14px);padding:1
 .brand-mark img{width:auto;height:44px;object-fit:contain;display:block}
 .brand-copy{display:flex;flex-direction:column;justify-content:center}
 .brand-copy strong{font-size:0.88rem;letter-spacing:0.1em;text-transform:uppercase;font-weight:500;color:var(--white);line-height:1.1}
-.brand-copy span{font-size:0.48rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.48);margin-top:0.35rem;line-height:1.4}
 .nav-links{display:flex;gap:2rem;list-style:none;align-items:center;padding-top:0.7rem}
 .nav-links a{font-size:0.74rem;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.68);text-decoration:none;transition:color 0.2s;font-weight:500}
 .nav-links a:hover,.nav-links a.active{color:var(--accent)}
@@ -44,7 +43,7 @@ nav.scrolled{background:rgba(10,10,10,0.94);backdrop-filter:blur(14px);padding:1
 .mobile-menu a{font-family:var(--font-display);font-size:2.2rem;color:var(--white);text-decoration:none;font-weight:300;letter-spacing:0.04em;transition:color 0.2s}
 .mobile-menu a:hover{color:var(--accent)}
 .page-hero{position:relative;min-height:72vh;padding:10rem 4rem 5rem;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(320px,0.95fr);gap:3rem;align-items:end;background:#0b0b0b;overflow:hidden}
-.page-hero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(90deg,rgba(0,0,0,0.84) 0%,rgba(0,0,0,0.62) 48%,rgba(0,0,0,0.42) 100%),url('images/6.jpeg');background-size:cover;background-position:center}
+.page-hero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(90deg,rgba(0,0,0,0.84) 0%,rgba(0,0,0,0.62) 48%,rgba(0,0,0,0.42) 100%),url('images/Clicklink%20Hero%20BG.png');background-size:cover;background-position:center}
 .page-hero::after{content:'';position:absolute;inset:0;background-image:repeating-linear-gradient(0deg,transparent,transparent 79px,rgba(255,255,255,0.025) 80px),repeating-linear-gradient(90deg,transparent,transparent 79px,rgba(255,255,255,0.025) 80px);opacity:0.45}
 .page-hero>*{position:relative;z-index:1}
 .hero-copy{max-width:680px}
@@ -61,6 +60,12 @@ section{padding:6rem 4rem}
 .section-title{font-family:var(--font-display);font-size:clamp(2.2rem,4vw,3.5rem);font-weight:300;line-height:1.15;letter-spacing:-0.01em}
 .section-title em{font-style:italic;color:var(--accent)}
 .section-line{width:48px;height:1px;background:var(--accent);margin:1.5rem 0 2rem}
+#about{background:#101010}
+.about-shell{display:grid;grid-template-columns:minmax(280px,0.95fr) minmax(0,1.05fr);gap:3rem;align-items:start}
+.about-panel{padding:2.2rem;border:1px solid rgba(255,255,255,0.08);background:linear-gradient(180deg,rgba(255,255,255,0.04) 0%,rgba(255,255,255,0.02) 100%)}
+.about-panel p{color:rgba(255,255,255,0.6);line-height:1.9;margin-bottom:1.25rem}
+.about-points{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1.5rem}
+.about-point{padding:1rem 1.1rem;border-left:2px solid var(--accent);background:rgba(255,255,255,0.02);color:rgba(255,255,255,0.78);font-size:0.9rem;line-height:1.7}
 #services{background:var(--black)}
 .services-header{max-width:680px;margin:0 auto 4rem;text-align:center}
 .services-categories{display:grid;gap:2rem}
@@ -104,6 +109,7 @@ footer{background:#070707;padding:4rem 4rem 2rem;border-top:1px solid rgba(255,2
   nav{padding:1.25rem 2rem}
   nav.scrolled{padding:1rem 2rem}
   section{padding:5rem 2rem}
+  .about-shell{grid-template-columns:1fr}
   .page-hero{padding:9rem 2rem 4rem;grid-template-columns:1fr}
   .footer-grid{grid-template-columns:1fr 1fr;gap:2rem}
 }
@@ -115,8 +121,8 @@ footer{background:#070707;padding:4rem 4rem 2rem;border-top:1px solid rgba(255,2
   .brand-mark{padding:0.25rem 0.45rem}
   .brand-mark img{height:32px}
   .brand-copy strong{font-size:0.74rem}
-  .brand-copy span{font-size:0.42rem}
   section{padding:4rem 1.5rem}
+  .about-points{grid-template-columns:1fr}
   .page-hero{padding:8rem 1.5rem 3.5rem}
   .service-category{padding:1.5rem}
   .service-category-head h3{font-size:1.7rem}
@@ -138,15 +144,13 @@ footer{background:#070707;padding:4rem 4rem 2rem;border-top:1px solid rgba(255,2
   <a href="index.html" class="nav-brand" aria-label="Matwise World home">
     <span class="brand-mark"><img src="images/LOGO.png" alt="Matwise World"></span>
     <span class="brand-copy">
-      <strong>Mat Wise World</strong>
-      <span>Capture. Connect. Create. Get Wiser.</span>
+      <strong>MATWISE CLICKLINK</strong>
     </span>
   </a>
   <ul class="nav-links">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="services.html" class="active">Services</a></li>
-    <li><a href="portfolio.html">Portfolio</a></li>
-    <li><a href="contact.html" class="nav-cta">Contact Us</a></li>
+    <li><a href="services.html" class="active">Home</a></li>
+    <li><a href="clicklink-about.html">About</a></li>
+    <li><a href="clicklink-contact.html" class="nav-cta">Contact Us</a></li>
   </ul>
   <button class="hamburger" id="hamburger" aria-label="Menu">
     <span></span><span></span><span></span>
@@ -154,35 +158,56 @@ footer{background:#070707;padding:4rem 4rem 2rem;border-top:1px solid rgba(255,2
 </nav>
 
 <div class="mobile-menu" id="mobileMenu">
-  <a href="index.html">Home</a>
-  <a href="services.html">Services</a>
-  <a href="portfolio.html">Portfolio</a>
-  <a href="contact.html">Contact Us</a>
+  <a href="services.html">Home</a>
+  <a href="#services">Services</a>
+  <a href="clicklink-contact.html">Contact Us</a>
 </div>
 
 <section class="page-hero">
   <div class="hero-copy fade-in">
-    <span class="hero-badge">Our Services</span>
-    <h1 class="hero-title">Solutions Through<br><em>Service</em> and Storytelling</h1>
-    <p class="hero-sub">Mat Wise brings together practical digital support and memorable event photography, giving clients one trusted brand for both everyday needs and major life moments.</p>
+    <span class="hero-badge">Matwise Clicklink</span>
+    <h1 class="hero-title">Digital Support That Keeps You Moving <em>Forward</em></h1>
+    <p class="hero-sub">Matwise Clicklink delivers practical digital, academic, and administrative solutions for students, professionals, and growing businesses.</p>
   </div>
   <div class="hero-panel fade-in fade-in-delay-1">
-    <h2>Need a custom quote?</h2>
-    <p>Whether you need admin support, a new website, or full event coverage, we can tailor the service around your goals.</p>
-    <a href="contact.html">Start Your Enquiry</a>
+    <h2>Need a custom solution?</h2>
+    <p>Whether you need business registration, a polished brand profile, academic support, or a website, we can tailor the work around your goals.</p>
+    <a href="clicklink-contact.html">Start Your Enquiry</a>
+  </div>
+</section>
+
+<section id="about">
+  <div class="about-shell">
+    <div class="about-panel fade-in">
+      <span class="section-label">About Clicklink</span>
+      <h2 class="section-title">Smart help for real-world digital <em>needs</em>.</h2>
+      <div class="section-line"></div>
+      <p>Matwise Clicklink exists to make digital and administrative work easier, clearer, and more accessible. We support people who need practical help getting things done properly and professionally.</p>
+      <p>From students needing academic assistance to entrepreneurs launching businesses and clients needing websites, branding, or online applications, our goal is to remove friction and create progress.</p>
+    </div>
+    <div class="about-panel fade-in fade-in-delay-1">
+      <span class="section-label">Why Clicklink</span>
+      <div class="about-points">
+        <div class="about-point">Reliable support for students, individuals, and small businesses.</div>
+        <div class="about-point">Professional execution that keeps your documents, design, and digital presence polished.</div>
+        <div class="about-point">Flexible services tailored to both one-off tasks and longer support needs.</div>
+        <div class="about-point">A practical, people-first approach focused on helping you move forward faster.</div>
+      </div>
+    </div>
   </div>
 </section>
 
 <section id="services">
   <div class="services-header fade-in">
     <span class="section-label">What We Offer</span>
-    <h2 class="section-title">Two Service <em>Categories</em></h2>
+    <h2 class="section-title">Digital Services Built Around <em>Progress</em></h2>
     <div class="section-line" style="margin-left:auto;margin-right:auto"></div>
+    <p>Practical solutions that help you register, apply, design, learn, print, and show up more professionally online.</p>
   </div>
   <div class="services-categories">
     <div class="service-category fade-in">
       <div class="service-category-head">
-        <h3>Mat Wise Click Link</h3>
+        <h3>Matwise Clicklink</h3>
         <p>Administrative, academic, and digital support services that help individuals, students, and businesses move forward with confidence.</p>
       </div>
       <div class="services-grid">
@@ -213,39 +238,6 @@ footer{background:#070707;padding:4rem 4rem 2rem;border-top:1px solid rgba(255,2
         </div>
       </div>
     </div>
-    <div class="service-category fade-in fade-in-delay-1">
-      <div class="service-category-head">
-        <h3>Mat Wise Lensation</h3>
-        <p>Creative photography services for life&apos;s celebrations, family memories, and standout events, captured with care and style.</p>
-      </div>
-      <div class="services-grid">
-        <div class="service-card fade-in">
-          <div class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m2 10 10-5 10 5-10 5-10-5Z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/><path d="M22 10v6"/></svg></div>
-          <h4>Graduations & Birthday Celebrations</h4>
-          <p>We preserve milestone achievements and joyful birthday moments with vibrant photography that tells the full story.</p>
-        </div>
-        <div class="service-card fade-in fade-in-delay-1">
-          <div class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 10a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"/><path d="M15 10a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"/><path d="M12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"/><path d="M5 20v-1a3 3 0 0 1 3-3h2"/><path d="M14 16h2a3 3 0 0 1 3 3v1"/><path d="M9 20v-1a3 3 0 0 1 3-3 3 3 0 0 1 3 3v1"/></svg></div>
-          <h4>Family Shoots & Baby Showers</h4>
-          <p>Warm, natural photography that captures family connection, happy gatherings, and the beauty of growing families.</p>
-        </div>
-        <div class="service-card fade-in fade-in-delay-2">
-          <div class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m12 7 2 1.5-.8 2.5h-2.4L10 8.5 12 7Z"/><path d="m9.2 11 1.8 1.5-.6 2.5H8l-1.5-2 2.7-2Z"/><path d="m14.8 11 2.7 2-1.5 2h-2.4l-.6-2.5 1.8-1.5Z"/><path d="m10.4 15 1.6 1.4 1.6-1.4"/></svg></div>
-          <h4>Sport Photography</h4>
-          <p>Dynamic sports coverage that freezes the action and highlights the energy, teamwork, and passion of the game.</p>
-        </div>
-        <div class="service-card fade-in">
-          <div class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m12 3 1.6 4.4L18 9l-4.4 1.6L12 15l-1.6-4.4L6 9l4.4-1.6L12 3Z"/><path d="m18 15 .8 2.2L21 18l-2.2.8L18 21l-.8-2.2L15 18l2.2-.8L18 15Z"/><path d="m6 14 .6 1.6L8 16l-1.4.4L6 18l-.6-1.6L4 16l1.4-.4L6 14Z"/></svg></div>
-          <h4>Matric Dance</h4>
-          <p>Stylish matric dance photography focused on confidence, fashion, and every memorable detail of the occasion.</p>
-        </div>
-        <div class="service-card fade-in fade-in-delay-1">
-          <div class="service-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 7h12"/><path d="M7 7v5a5 5 0 0 0 10 0V7"/><path d="M12 17v4"/><path d="M9 21h6"/><path d="M9 7V5a3 3 0 0 1 6 0v2"/></svg></div>
-          <h4>Weddings</h4>
-          <p>Elegant wedding coverage that documents the emotion, atmosphere, and unforgettable moments of your special day.</p>
-        </div>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -254,7 +246,7 @@ footer{background:#070707;padding:4rem 4rem 2rem;border-top:1px solid rgba(255,2
   <h2 class="section-title">Ready To Work <em>Together?</em></h2>
   <div class="section-line" style="margin-left:auto;margin-right:auto"></div>
   <p>Tell us which service you need and we will help you with the right package, timeline, or custom quotation.</p>
-  <a href="contact.html" class="btn-primary">Contact Us</a>
+  <a href="clicklink-contact.html" class="btn-primary">Contact Us</a>
 </section>
 
 <footer>
@@ -266,10 +258,9 @@ footer{background:#070707;padding:4rem 4rem 2rem;border-top:1px solid rgba(255,2
     <div>
       <div class="footer-heading">Navigation</div>
       <ul class="footer-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="portfolio.html">Portfolio</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li><a href="services.html">Home</a></li>
+        <li><a href="clicklink-about.html">About</a></li>
+        <li><a href="clicklink-contact.html">Contact</a></li>
       </ul>
     </div>
     <div>
@@ -309,7 +300,6 @@ document.querySelectorAll('.fade-in').forEach(el=>observer.observe(el));
 </script>
 </body>
 </html>
-
 
 
 

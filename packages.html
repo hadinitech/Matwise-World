@@ -1,0 +1,527 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Packages | Matwise World</title>
+<link rel="icon" type="image/png" href="images/LOGO.png">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --accent:#0CC0DF;
+  --accent-dark:#0aa3bf;
+  --black:#0a0a0a;
+  --white:#fafafa;
+  --gray-400:#999;
+  --font-display:'Cormorant Garamond',serif;
+  --font-body:'DM Sans',sans-serif;
+  --ease-out:cubic-bezier(0.16,1,0.3,1);
+}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:var(--font-body);background:var(--black);color:var(--white);overflow-x:hidden;font-weight:300;line-height:1.6}
+img{display:block;width:100%;height:100%;object-fit:cover}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.35rem 2rem;display:flex;align-items:flex-start;justify-content:space-between;transition:background 0.4s,padding 0.4s;background:rgba(8,8,8,0.18);backdrop-filter:blur(8px)}
+nav.scrolled{background:rgba(10,10,10,0.94);backdrop-filter:blur(14px);padding:1rem 2rem;border-bottom:1px solid rgba(255,255,255,0.06)}
+.nav-brand{display:inline-flex;align-items:center;gap:0.85rem;color:var(--white);text-decoration:none}
+.brand-mark{background:var(--accent);padding:0.35rem 0.55rem;border-radius:4px;display:flex;align-items:center;justify-content:center;box-shadow:0 12px 28px rgba(12,192,223,0.18)}
+.brand-mark img{width:auto;height:44px;object-fit:contain;display:block}
+.brand-copy{display:flex;flex-direction:column;justify-content:center}
+.brand-copy strong{font-size:0.88rem;letter-spacing:0.1em;text-transform:uppercase;font-weight:500;color:var(--white);line-height:1.1}
+.nav-links{display:flex;gap:2rem;list-style:none;align-items:center;padding-top:0.7rem}
+.nav-links a{font-size:0.74rem;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.68);text-decoration:none;transition:color 0.2s;font-weight:500}
+.nav-links a:hover,.nav-links a.active{color:var(--accent)}
+.nav-cta{background:var(--accent);color:var(--black)!important;padding:0.85rem 1.45rem;border-radius:2px;font-weight:500!important;transition:background 0.2s,transform 0.2s!important}
+.nav-cta:hover{background:var(--accent-dark);color:var(--black)!important;transform:translateY(-1px)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;z-index:200;background:none;border:none}
+.hamburger span{width:24px;height:1.5px;background:var(--white);transition:all 0.3s;display:block}
+.hamburger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+.mobile-menu{display:none;position:fixed;inset:0;background:var(--black);z-index:99;flex-direction:column;align-items:center;justify-content:center;gap:2.5rem}
+.mobile-menu.open{display:flex}
+.mobile-menu a{font-family:var(--font-display);font-size:2.2rem;color:var(--white);text-decoration:none;font-weight:300;letter-spacing:0.04em;transition:color 0.2s}
+.mobile-menu a:hover{color:var(--accent)}
+.hero{position:relative;min-height:100vh;padding:7.5rem 4rem 4rem;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(320px,0.9fr);gap:3rem;align-items:end;overflow:hidden;background:#0b0b0b}
+.hero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(100deg,rgba(6,6,6,0.94) 0%,rgba(6,6,6,0.78) 35%,rgba(6,6,6,0.32) 100%),url('images/Graduation Tour.jpg');background-size:cover;background-position:center}
+.hero::after{content:'';position:absolute;inset:0;background-image:radial-gradient(circle at top right,rgba(12,192,223,0.22),transparent 35%),repeating-linear-gradient(0deg,transparent,transparent 79px,rgba(255,255,255,0.025) 80px),repeating-linear-gradient(90deg,transparent,transparent 79px,rgba(255,255,255,0.025) 80px)}
+.hero>*{position:relative;z-index:1}
+.hero-copy{width:min(70vw,1120px);max-width:none}
+.hero-badge{display:inline-block;font-size:0.72rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);margin-bottom:1.5rem;border:1px solid rgba(12,192,223,0.3);padding:0.4rem 1rem;border-radius:2px}
+.hero-title{font-family:var(--font-display);font-size:clamp(3.1rem,7vw,6rem);font-weight:300;line-height:0.98;margin-bottom:1.25rem;letter-spacing:-0.01em}
+.hero-title em{font-style:italic;color:var(--accent)}
+.hero-sub{max-width:860px;color:rgba(255,255,255,0.7);font-size:1rem;line-height:1.9;margin-bottom:2rem}
+.hero-strip{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:2rem}
+.hero-pill{padding:0.65rem 1rem;border:1px solid rgba(255,255,255,0.14);background:rgba(255,255,255,0.03);font-size:0.73rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.72)}
+.hero-actions{display:flex;gap:1rem;flex-wrap:wrap}
+.btn-primary,.btn-outline{display:inline-block;text-decoration:none;padding:0.92rem 1.9rem;font-size:0.8rem;letter-spacing:0.12em;text-transform:uppercase;border-radius:2px;transition:all 0.25s var(--ease-out)}
+.btn-primary{background:var(--accent);border:2px solid var(--accent);color:var(--black);font-weight:500}
+.btn-primary:hover{background:transparent;color:var(--accent);transform:translateY(-2px)}
+.btn-outline{border:1px solid rgba(255,255,255,0.26);color:var(--white)}
+.btn-outline:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px)}
+section{padding:6rem 4rem}
+.section-label{font-size:0.72rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--accent);margin-bottom:0.75rem;display:block}
+.section-title{font-family:var(--font-display);font-size:clamp(2.2rem,4vw,3.8rem);font-weight:300;line-height:1.12;letter-spacing:-0.01em}
+.section-title em{font-style:italic;color:var(--accent)}
+.section-line{width:48px;height:1px;background:var(--accent);margin:1.5rem 0 2rem}
+#story{background:#101010}
+.story-shell{display:grid;grid-template-columns:minmax(260px,0.8fr) minmax(0,1.2fr);gap:3rem;align-items:start}
+.story-intro p{max-width:420px;color:rgba(255,255,255,0.58);line-height:1.9}
+.story-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.5rem}
+.story-card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);padding:1.7rem;position:relative;overflow:hidden}
+.story-card::before{content:attr(data-step);position:absolute;top:1rem;right:1rem;font-family:var(--font-display);font-size:3rem;line-height:1;color:rgba(12,192,223,0.16)}
+.story-card h3{font-family:var(--font-display);font-size:1.5rem;font-weight:400;margin-bottom:0.75rem;color:var(--white)}
+.story-card p{font-size:0.88rem;color:rgba(255,255,255,0.56);line-height:1.8}
+#moments{background:#0c0c0c}
+.moments-shell{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(300px,0.95fr);gap:3rem;align-items:stretch}
+.moments-visual{position:relative;min-height:540px;overflow:hidden}
+.moments-visual img{height:100%;filter:saturate(1.03)}
+.moments-panel{position:absolute;left:1.25rem;bottom:1.25rem;right:1.25rem;background:rgba(5,5,5,0.78);border:1px solid rgba(255,255,255,0.08);padding:1.35rem;backdrop-filter:blur(10px)}
+.moments-panel strong{display:block;font-size:0.76rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--accent);margin-bottom:0.6rem}
+.moments-panel p{font-size:0.88rem;color:rgba(255,255,255,0.62);line-height:1.75}
+.moments-copy{display:grid;gap:1rem}
+.moments-copy p{color:rgba(255,255,255,0.6);line-height:1.85}
+.moment-list{display:grid;gap:1rem;margin-top:0.5rem}
+.moment-item{display:grid;grid-template-columns:auto 1fr;gap:1rem;padding:1rem 0;border-bottom:1px solid rgba(255,255,255,0.08)}
+.moment-item:last-child{border-bottom:none}
+.moment-mark{font-family:var(--font-display);font-size:2rem;line-height:1;color:var(--accent)}
+.moment-item h4{font-family:var(--font-display);font-size:1.3rem;font-weight:400;color:var(--white)}
+.moment-item p{font-size:0.88rem;color:rgba(255,255,255,0.52);line-height:1.7}
+#package{background:linear-gradient(180deg,#111 0%,#090909 100%)}
+.package-layout{display:grid;gap:3rem}
+.package-group{display:grid;gap:1.4rem}
+.package-group.wedding-group{padding:1.75rem;border:1px solid rgba(255,255,255,0.08);background:#111;box-shadow:0 18px 40px rgba(0,0,0,0.22)}
+.package-group.wedding-group .section-label{color:#cfcfcf}
+.package-group.wedding-group .section-line{background:#cfcfcf}
+.package-group.wedding-group .package-card{background:rgba(255,255,255,0.03);border-color:rgba(255,255,255,0.08)}
+.package-group.wedding-group .package-card.featured{background:linear-gradient(180deg,rgba(255,255,255,0.08) 0%,rgba(255,255,255,0.03) 100%);border-color:rgba(255,255,255,0.16)}
+.package-group.wedding-group .package-kicker{color:#d8d8d8}
+.package-group.wedding-group .package-features li::before{border-color:#d8d8d8;background:radial-gradient(circle at 40% 40%,#d8d8d8 0%,transparent 60%)}
+.package-group.photoshoot-group{padding:1.75rem;border:1px solid rgba(255,255,255,0.08);background:#0a0a0a;box-shadow:0 18px 40px rgba(0,0,0,0.24)}
+.package-group.photoshoot-group .section-label{color:#9fd4ff}
+.package-group.photoshoot-group .section-line{background:#9fd4ff}
+.package-group.photoshoot-group .package-card{background:rgba(255,255,255,0.03);border-color:rgba(255,255,255,0.08)}
+.package-group.photoshoot-group .package-card.featured{background:linear-gradient(180deg,rgba(96,177,255,0.18) 0%,rgba(255,255,255,0.04) 100%);border-color:rgba(159,212,255,0.24)}
+.package-group.photoshoot-group .package-kicker{color:#a9d7ff}
+.package-group.photoshoot-group .package-features li::before{border-color:#9fd4ff;background:radial-gradient(circle at 40% 40%,#9fd4ff 0%,transparent 60%)}
+.package-group.events-group{padding:1.75rem;border:1px solid rgba(94,180,255,0.28);background:linear-gradient(180deg,rgba(8,8,8,0.96) 0%,rgba(12,12,12,0.98) 100%);box-shadow:0 18px 40px rgba(0,0,0,0.26)}
+.package-group.events-group .section-label{color:#8ecbff}
+.package-group.events-group .section-line{background:#8ecbff}
+.package-group.events-group .package-card{background:rgba(255,255,255,0.03);border-color:rgba(142,203,255,0.22)}
+.package-group.events-group .package-card.featured{background:linear-gradient(180deg,rgba(94,180,255,0.12) 0%,rgba(255,255,255,0.03) 100%);border-color:rgba(94,180,255,0.36)}
+.package-group.events-group .package-kicker{color:#9fd4ff}
+.package-group.events-group .package-features li::before{border-color:#8ecbff;background:radial-gradient(circle at 40% 40%,#8ecbff 0%,transparent 60%)}
+.events-shell{display:grid;gap:1.5rem}
+.events-types{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
+.events-types ul{list-style:none;display:grid;gap:0.55rem;padding:1rem 1.1rem;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.07)}
+.events-types li{color:rgba(255,255,255,0.78);font-size:0.92rem;line-height:1.5}
+.events-types li::before{content:'• ';color:#8ecbff}
+.events-divider-note{text-align:center;color:rgba(255,255,255,0.82);font-weight:500;padding:0.5rem 0 0.2rem}
+.events-pricing{display:grid;gap:1rem}
+.events-rate-list{display:grid;gap:0.85rem}
+.events-rate{display:grid;grid-template-columns:1fr auto;gap:1rem;padding-bottom:0.85rem;border-bottom:1px solid rgba(255,255,255,0.08);color:rgba(255,255,255,0.82)}
+.events-rate:last-child{border-bottom:none;padding-bottom:0}
+.events-rate span:last-child{color:#9fd4ff}
+.events-note{text-align:center;color:rgba(255,255,255,0.62);font-size:0.9rem;line-height:1.7}
+.events-benefit{text-align:center;color:rgba(255,255,255,0.86);font-weight:600}
+.photoshoot-shell{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(320px,0.9fr);gap:1.5rem;align-items:stretch}
+.photoshoot-visual{position:relative;overflow:hidden;min-height:100%;border:1px solid rgba(255,255,255,0.08);background:#050505}
+.photoshoot-visual img{width:100%;height:100%;min-height:100%;object-fit:cover;filter:brightness(0.7)}
+.photoshoot-overlay{position:absolute;inset:auto 1.2rem 1.2rem 1.2rem;background:rgba(103,181,255,0.78);color:#fff;padding:1.2rem;border:1px solid rgba(255,255,255,0.18);backdrop-filter:blur(6px)}
+.photoshoot-overlay strong{display:block;font-size:0.78rem;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:0.6rem}
+.photoshoot-overlay p{font-size:0.95rem;line-height:1.7}
+.wedding-shell{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(280px,0.95fr);gap:1.5rem;align-items:stretch}
+.wedding-visual{position:relative;min-height:100%;overflow:hidden;border:1px solid rgba(255,255,255,0.08);background:#0d0d0d}
+.wedding-visual img{width:100%;height:100%;min-height:100%;object-fit:cover;filter:saturate(0.95) contrast(1.02)}
+.wedding-overlay{position:absolute;left:1rem;right:1rem;bottom:1rem;background:rgba(10,10,10,0.74);border:1px solid rgba(255,255,255,0.08);padding:1rem;backdrop-filter:blur(8px)}
+.wedding-overlay strong{display:block;font-size:0.72rem;letter-spacing:0.18em;text-transform:uppercase;color:#f0f0f0;margin-bottom:0.45rem}
+.wedding-overlay p{font-size:0.86rem;color:rgba(255,255,255,0.7);line-height:1.7}
+.package-group-header{max-width:700px}
+.package-group-header h3{font-family:var(--font-display);font-size:clamp(2rem,4vw,3rem);font-weight:300;line-height:1.05;margin-bottom:0.8rem}
+.package-group-header p{color:rgba(255,255,255,0.58);line-height:1.8}
+.package-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.25rem}
+.package-card{border:1px solid rgba(255,255,255,0.08);background:rgba(255,255,255,0.03);padding:1.6rem;display:grid;gap:1rem}
+.package-card.featured{background:linear-gradient(180deg,rgba(12,192,223,0.14) 0%,rgba(255,255,255,0.04) 100%);border-color:rgba(12,192,223,0.35)}
+.package-kicker{font-size:0.72rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent)}
+.package-card h4{font-family:var(--font-display);font-size:2rem;font-weight:300;line-height:1}
+.package-tagline{color:rgba(255,255,255,0.7);font-size:0.95rem;line-height:1.6;min-height:3rem}
+.package-price{font-family:var(--font-display);font-size:3rem;line-height:0.95;color:var(--white)}
+.package-meta{font-size:0.82rem;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.46)}
+.package-features{list-style:none;display:grid;gap:0.75rem}
+.package-features li{display:flex;gap:0.7rem;align-items:flex-start;color:rgba(255,255,255,0.72);font-size:0.9rem;line-height:1.6}
+.package-features li::before{content:'';width:15px;height:15px;border-radius:50%;border:1px solid var(--accent);flex-shrink:0;margin-top:0.22rem;background:radial-gradient(circle at 40% 40%,var(--accent) 0%,transparent 60%)}
+.package-note{font-size:0.85rem;color:rgba(255,255,255,0.5);line-height:1.7}
+.package-cta{margin-top:0.4rem}
+.pricing-note{padding-top:0.5rem;font-size:0.95rem;color:rgba(255,255,255,0.55);font-style:italic}
+.cta-band{background:#0d0d0d;text-align:center;border-top:1px solid rgba(255,255,255,0.06);border-bottom:1px solid rgba(255,255,255,0.06)}
+.cta-band p{max-width:640px;margin:0 auto 1.5rem;color:rgba(255,255,255,0.56);line-height:1.8}
+footer{background:#070707;padding:4rem 4rem 2rem;border-top:1px solid rgba(255,255,255,0.06)}
+.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:3rem;margin-bottom:3rem}
+.footer-brand p{font-size:0.87rem;color:rgba(255,255,255,0.4);line-height:1.7;margin-top:1rem;max-width:260px}
+.footer-brand .footer-logo{display:inline-flex;align-items:center;justify-content:center;background:var(--accent);padding:0.45rem 0.7rem;border-radius:4px;box-shadow:0 12px 28px rgba(12,192,223,0.18)}
+.footer-brand .footer-logo img{width:auto;height:52px;object-fit:contain;display:block}
+.footer-heading{font-size:0.7rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-bottom:1.2rem}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:0.7rem}
+.footer-links a{font-size:0.88rem;color:rgba(255,255,255,0.5);text-decoration:none;transition:color 0.2s}
+.footer-links a:hover{color:var(--accent)}
+.footer-bottom{display:flex;align-items:center;justify-content:space-between;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.05);flex-wrap:wrap;gap:1rem}
+.footer-bottom p{font-size:0.8rem;color:rgba(255,255,255,0.25)}
+.footer-bottom a{color:var(--accent);text-decoration:none}
+.footer-brand p,.footer-bottom p{overflow-wrap:anywhere}
+.wa-float{position:fixed;bottom:2rem;right:2rem;z-index:98;width:54px;height:54px;background:#25d366;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;box-shadow:0 4px 20px rgba(37,211,102,0.35);transition:transform 0.3s,box-shadow 0.3s}
+.wa-float:hover{transform:scale(1.1);box-shadow:0 6px 28px rgba(37,211,102,0.5)}
+.wa-float svg{width:28px;height:28px;fill:#fff}
+.fade-in{opacity:0;transform:translateY(30px);transition:opacity 0.7s var(--ease-out),transform 0.7s var(--ease-out)}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+.fade-in-delay-1{transition-delay:0.1s}
+.fade-in-delay-2{transition-delay:0.2s}
+@media(max-width:1024px){
+  nav{padding:1.25rem 2rem}
+  nav.scrolled{padding:1rem 2rem}
+  .hero{padding:7.5rem 2rem 3rem;grid-template-columns:1fr;min-height:auto}
+  .hero-copy{width:100%}
+  section{padding:5rem 2rem}
+  .story-shell,.moments-shell{grid-template-columns:1fr}
+  .story-grid,.package-grid{grid-template-columns:1fr}
+  .events-types,
+  .photoshoot-shell,
+  .wedding-shell{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:2rem}
+}
+@media(max-width:768px){
+  .nav-links{display:none}
+  .hamburger{display:flex}
+  nav{padding:0.8rem 1.25rem}
+  nav.scrolled{padding:0.7rem 1.25rem}
+  .brand-mark{padding:0.25rem 0.45rem}
+  .brand-mark img{height:32px}
+  .brand-copy strong{font-size:0.74rem}
+  .hero{padding:7rem 1.5rem 2.5rem}
+  .hero-copy{width:100%}
+  .hero-title{line-height:1.02}
+  section{padding:4rem 1.5rem}
+  .hero-copy,.story-intro,.moments-copy{text-align:center}
+  .hero-sub,.story-intro p{max-width:100%;margin-left:auto;margin-right:auto}
+  .hero-actions{justify-content:center}
+  .story-grid,.package-grid{grid-template-columns:1fr}
+  .package-card{padding:1.7rem}
+  .photoshoot-visual,
+  .wedding-visual{min-height:360px}
+  .moments-visual{min-height:400px}
+  .story-intro .section-line,.moments-copy .section-line{margin-left:auto;margin-right:auto}
+  .footer-grid{grid-template-columns:1fr}
+  .footer-bottom{flex-direction:column;text-align:center}
+}
+@media(max-width:480px){
+  html{font-size:15px}
+  .hero{padding:6.6rem 1rem 2rem}
+  .hero-copy{width:100%}
+  section{padding:3.5rem 1rem}
+  .hero-strip{gap:0.7rem}
+  .hero-pill{width:100%;text-align:center}
+  .hero-actions{flex-direction:column}
+  .btn-primary,.btn-outline{text-align:center}
+}
+</style>
+</head>
+<body>
+<nav id="nav">
+  <a href="index.html" class="nav-brand" aria-label="Matwise World home">
+    <span class="brand-mark"><img src="images/LOGO.png" alt="Matwise World"></span>
+    <span class="brand-copy">
+      <strong>MATWISE LENSATION</strong>
+    </span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="matwise-lensation.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="packages.html" class="active">Packages</a></li>
+    <li><a href="portfolio.html">Portfolio</a></li>
+    <li><a href="lensation-contact.html" class="nav-cta">Contact Us</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="matwise-lensation.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="projects.html">Projects</a>
+  <a href="packages.html" class="active">Packages</a>
+  <a href="portfolio.html">Portfolio</a>
+  <a href="lensation-contact.html">Contact Us</a>
+</div>
+<section class="hero">
+  <div class="hero-copy fade-in">
+    <h1 class="hero-title">Packages built for milestone moments.</h1>
+    <p class="hero-sub">Explore our photography packages for graduation tours and matric dances, with options ranging from simple portrait coverage to full-day milestone experiences designed to feel polished, memorable, and worth the moment.</p>
+    <div class="hero-strip">
+      <div class="hero-pill">Graduation Packages</div>
+      <div class="hero-pill">Matric Dance Packages</div>
+      <div class="hero-pill">Milestone Coverage</div>
+    </div>
+    <div class="hero-actions">
+      <a href="#package" class="btn-primary">See Packages</a>
+      <a href="lensation-contact.html?package=Packages" class="btn-outline">Reserve Your Date</a>
+    </div>
+  </div>
+</section>
+<section id="package">
+  <div class="package-layout">
+    <div class="package-group fade-in fade-in-delay-1">
+      <div class="package-group-header">
+        <span class="section-label">Graduation Packages</span>
+        <h3>Choose the package that fits your moment.</h3>
+        <p>Updated graduation packages from the latest price list, from quick milestone portraits to the full premium experience.</p>
+      </div>
+      <div class="package-grid">
+        <article class="package-card">
+          <div class="package-kicker">20 Pictures</div>
+          <h4>R600</h4>
+          <p class="package-tagline">The MWT Beginning</p>
+          <div class="package-meta">Starter graduation package</div>
+          <a href="lensation-contact.html?package=Graduation%20Tour%20-%2020%20Pictures" class="btn-outline package-cta">Book This Package</a>
+        </article>
+        <article class="package-card">
+          <div class="package-kicker">30 Pictures</div>
+          <h4>R800</h4>
+          <p class="package-tagline">Glimpse of Art</p>
+          <div class="package-meta">Expanded portrait selection</div>
+          <a href="lensation-contact.html?package=Graduation%20Tour%20-%2030%20Pictures" class="btn-outline package-cta">Book This Package</a>
+        </article>
+        <article class="package-card">
+          <div class="package-kicker">40 Pictures</div>
+          <h4>R1 000</h4>
+          <p class="package-tagline">Graduation package</p>
+          <div class="package-meta">More coverage for your day</div>
+          <a href="lensation-contact.html?package=Graduation%20Tour%20-%2040%20Pictures" class="btn-outline package-cta">Book This Package</a>
+        </article>
+        <article class="package-card">
+          <div class="package-kicker">40 Pictures + Free</div>
+          <h4>R1 500</h4>
+          <p class="package-tagline">Lensation Experience</p>
+          <div class="package-meta">Elevated graduation experience</div>
+          <a href="lensation-contact.html?package=Graduation%20Tour%20-%20Lensation%20Experience" class="btn-outline package-cta">Book This Package</a>
+        </article>
+        <article class="package-card featured">
+          <div class="package-kicker">50 Pictures + Free Photobook</div>
+          <h4>R1 800</h4>
+          <p class="package-tagline">The Wise Choice</p>
+          <div class="package-meta">Premium graduation package</div>
+          <a href="lensation-contact.html?package=Graduation%20Tour%20-%20The%20Wise%20Choice" class="btn-primary package-cta">Book This Package</a>
+        </article>
+      </div>
+    </div>
+
+    <div class="package-group fade-in">
+      <div class="package-group-header">
+        <span class="section-label">Matric Dance</span>
+        <h3>Packages for the full matric dance experience.</h3>
+        <p>Two options are currently available depending on how much coverage you want on the day.</p>
+      </div>
+      <div class="package-grid">
+        <article class="package-card featured">
+          <div class="package-kicker">Premium Coverage</div>
+          <h4 class="package-price">R2 500</h4>
+          <p class="package-tagline">The Wise Choice</p>
+          <ul class="package-features">
+            <li>Unlimited pictures</li>
+            <li>Free photobook</li>
+            <li>Coverage from make-up, hotel, dress-up, and venue</li>
+            <li>Built for the whole matric dance experience</li>
+          </ul>
+          <a href="lensation-contact.html?package=Matric%20Dance%20-%20The%20Wise%20Choice" class="btn-primary package-cta">Book This Package</a>
+        </article>
+        <article class="package-card">
+          <div class="package-kicker">Essential Coverage</div>
+          <h4 class="package-price">R1 500</h4>
+          <p class="package-tagline">Lensation Experience</p>
+          <ul class="package-features">
+            <li>Unlimited pictures</li>
+          </ul>
+          <a href="lensation-contact.html?package=Matric%20Dance%20-%20Lensation%20Experience" class="btn-outline package-cta">Book This Package</a>
+        </article>
+      </div>
+    </div>
+
+    <div class="package-group wedding-group fade-in">
+      <div class="package-group-header">
+        <span class="section-label">Weddings</span>
+        <h3>Wedding coverage shaped around your needs.</h3>
+        <div class="section-line"></div>
+        <p>Wedding pricing starts from R5 000 and can change depending on the client's needs, coverage scope, and event timeline.</p>
+      </div>
+      <div class="wedding-shell">
+        <article class="package-card featured">
+          <div class="package-kicker">Prices From</div>
+          <h4 class="package-price">R5 000</h4>
+          <p class="package-tagline">Wedding package pricing varies according to your event needs.</p>
+          <ul class="package-features">
+            <li>Photography with unlimited pictures</li>
+            <li>Videography</li>
+            <li>Reels</li>
+            <li>Photobooks</li>
+            <li>Frames</li>
+          </ul>
+          <p class="package-note">Prices may slightly change due to distance.</p>
+          <p class="package-note">For weddings that run for more than one day or finish late, accommodation must be provided or covered by the client.</p>
+          <a href="lensation-contact.html?package=Wedding%20Package" class="btn-primary package-cta">Enquire About Weddings</a>
+        </article>
+        <div class="wedding-visual">
+          <img src="images/HERO.jpeg" alt="Wedding package preview">
+          <div class="wedding-overlay">
+            <strong>Wedding Storytelling</strong>
+            <p>Elegant coverage for the full celebration, from intimate moments to the big highlights of the day.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="package-group photoshoot-group fade-in">
+      <div class="package-group-header">
+        <span class="section-label">Personal and Professional Photoshoots</span>
+        <h3>Personal and professional photoshoots.</h3>
+        <div class="section-line"></div>
+        <p>A flexible package for personal celebrations, professional portraits, and lifestyle image-making.</p>
+      </div>
+      <div class="photoshoot-shell">
+        <article class="package-card featured">
+          <div class="package-kicker">Benefits</div>
+          <h4 class="package-price">R1 500</h4>
+          <p class="package-tagline">35 to 50 pictures, a short reel, and free photobook design.</p>
+          <ul class="package-features">
+            <li>Birthday photoshoots</li>
+            <li>Graduation photoshoots</li>
+            <li>Family photoshoots</li>
+            <li>Pregnancy and maternity shoots</li>
+            <li>Court admission</li>
+            <li>Couple shoots</li>
+            <li>Studio or office shoots</li>
+            <li>Professional athletes shoots</li>
+            <li>A 1 to 2 minute reel</li>
+            <li>Free photobook design</li>
+          </ul>
+          <p class="package-note">You can print the album design yourself, or we can print it for you at an additional cost.</p>
+          <a href="lensation-contact.html?package=Personal%20and%20Professional%20Photoshoots" class="btn-primary package-cta">Book This Package</a>
+        </article>
+        <div class="photoshoot-visual">
+          <img src="images/HERO.jpeg" alt="Personal and professional photoshoots package preview">
+          <div class="photoshoot-overlay">
+            <strong>Included</strong>
+            <p>35 to 50 pictures, a 1 to 2 minute reel, and free photobook design.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="package-group events-group fade-in">
+      <div class="package-group-header">
+        <span class="section-label">Events and Occasions</span>
+        <h3>Coverage for celebrations, gatherings, and formal occasions.</h3>
+        <div class="section-line"></div>
+        <p>Built for both private and public occasions, with flexible pricing based on how long the event runs.</p>
+      </div>
+      <div class="events-shell">
+        <div class="events-types">
+          <ul>
+            <li>Birthdays</li>
+            <li>Lobola negotiations</li>
+            <li>Funerals</li>
+            <li>Engagement parties</li>
+          </ul>
+          <ul>
+            <li>Baby showers</li>
+            <li>Vow renewals</li>
+            <li>Graduations</li>
+          </ul>
+          <ul>
+            <li>Conferences</li>
+            <li>Launches</li>
+            <li>Mgidi</li>
+            <li>Beauty pageant</li>
+          </ul>
+        </div>
+        <p class="events-divider-note">And any other events of similar calibre</p>
+        <article class="package-card featured events-pricing">
+          <div class="package-kicker">Rates</div>
+          <div class="events-rate-list">
+            <div class="events-rate"><span>6 Hours</span><span>R2 500</span></div>
+            <div class="events-rate"><span>8 Hours</span><span>R3 000</span></div>
+            <div class="events-rate"><span>1 Full Day</span><span>R4 000</span></div>
+            <div class="events-rate"><span>1 to 2 Days</span><span>R6 000</span></div>
+            <div class="events-rate"><span>1 to 4 Days</span><span>R8 000</span></div>
+          </div>
+          <p class="events-note">Please note: accommodation and meals must be provided.</p>
+          <p class="events-benefit">Benefit: free photobook</p>
+          <a href="lensation-contact.html?package=Events%20and%20Occasions" class="btn-primary package-cta">Book This Package</a>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="cta-band">
+  <span class="section-label">Ready To Book?</span>
+  <h2 class="section-title">Let's find the package that fits your <em>moment</em>.</h2>
+  <div class="section-line" style="margin-left:auto;margin-right:auto"></div>
+  <p>Tell us which package you want, your date, and your venue, and we'll help you lock in the right option quickly.</p>
+  <a href="lensation-contact.html?package=Packages" class="btn-primary">Start Booking</a>
+</section>
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="index.html" class="footer-logo" aria-label="Matwise World home"><img src="images/LOGO.png" alt="Matwise World"></a>
+      <p>Matwise Lensation captures weddings, graduations, matric dances, sports, and milestone events with professional photography rooted in story and style.</p>
+    </div>
+    <div>
+      <div class="footer-heading">Navigation</div>
+      <ul class="footer-links">
+        <li><a href="matwise-lensation.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="packages.html">Packages</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="lensation-contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-heading">Connect</div>
+      <ul class="footer-links">
+        <li><a href="https://wa.me/27762349149" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
+        <li><a href="https://www.instagram.com/matwiseworld?igsh=MXVyZWg2dm54ZG0xbg==" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+        <li><a href="https://www.facebook.com/share/1J7bzkqypg/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+        <li><a href="mailto:MATWISEWORLD@GMAIL.COM">Email Us</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2025 Matwise World. All rights reserved.</p>
+    <p>Designed and developed by <a href="https://hadiniholdings.co.za" target="_blank" rel="noopener noreferrer">Hadini Holdings</a>.</p>
+  </div>
+</footer>
+<a href="https://wa.me/27762349149?text=Hello%2C%20I%20would%20like%20to%20book%20one%20of%20the%20Matwise%20packages." class="wa-float" target="_blank" title="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+<script>
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>60);});
+const hamburger=document.getElementById('hamburger');
+const mobileMenu=document.getElementById('mobileMenu');
+hamburger.addEventListener('click',()=>{
+  hamburger.classList.toggle('open');
+  mobileMenu.classList.toggle('open');
+  document.body.style.overflow=mobileMenu.classList.contains('open')?'hidden':'';
+});
+function closeMobile(){
+  hamburger.classList.remove('open');
+  mobileMenu.classList.remove('open');
+  document.body.style.overflow='';
+}
+mobileMenu.querySelectorAll('a').forEach(link=>link.addEventListener('click',closeMobile));
+const observer=new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{if(entry.isIntersecting)entry.target.classList.add('visible');});
+},{threshold:0.1,rootMargin:'0px 0px -50px 0px'});
+document.querySelectorAll('.fade-in').forEach(el=>observer.observe(el));
+</script>
+</body>
+</html>
