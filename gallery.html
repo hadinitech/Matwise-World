@@ -50,6 +50,8 @@ section{padding:6rem 4rem}
 .gallery-grid{columns:4 220px;column-gap:6px}
 .gallery-item{overflow:hidden;position:relative;cursor:pointer;border-radius:1px;break-inside:avoid;margin-bottom:6px}
 .gallery-item.hidden{display:none}
+.gallery-empty{display:none;padding:2rem 0;color:rgba(255,255,255,0.56);font-size:1rem;line-height:1.8}
+.gallery-empty.visible{display:block}
 .gallery-img{width:100%;height:auto;object-fit:contain;transition:opacity 0.35s,transform 0.35s}
 .gallery-label{position:absolute;left:1rem;bottom:1rem;font-size:0.72rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);opacity:0;transform:translateY(8px);transition:transform 0.3s,opacity 0.3s}
 .gallery-item:hover .gallery-img{opacity:0.92;transform:scale(1.01)}
@@ -185,34 +187,36 @@ footer{background:#070707;padding:4rem 4rem 2rem;border-top:1px solid rgba(255,2
   </div>
 
   <div class="gallery-grid" id="galleryGrid">
-    <div class="gallery-item" data-cat="weddings"><img class="gallery-img" src="images/0.jpeg" alt="Wedding couple"><span class="gallery-label">Weddings</span></div>
-    <div class="gallery-item" data-cat="graduation-tour"><img class="gallery-img" src="images/1.jpeg" alt="Graduation celebration"><span class="gallery-label">Graduation Tour</span></div>
-    <div class="gallery-item" data-cat="professional-photoshoots"><img class="gallery-img" src="images/2.jpeg" alt="Professional photoshoot"><span class="gallery-label">Professional Photoshoots</span></div>
-    <div class="gallery-item" data-cat="events-and-occasions"><img class="gallery-img" src="images/3.jpeg" alt="Event celebration"><span class="gallery-label">Events and Occasions</span></div>
-    <div class="gallery-item" data-cat="matric-dance"><img class="gallery-img" src="images/4.jpeg" alt="Matric dance"><span class="gallery-label">Matric Dance</span></div>
-    <div class="gallery-item" data-cat="professional-photoshoots"><img class="gallery-img" src="images/5.jpeg" alt="Professional portrait action"><span class="gallery-label">Professional Photoshoots</span></div>
-    <div class="gallery-item" data-cat="weddings"><img class="gallery-img" src="images/6.jpeg" alt="Wedding portrait"><span class="gallery-label">Weddings</span></div>
-    <div class="gallery-item" data-cat="graduation-tour"><img class="gallery-img" src="images/7.jpeg" alt="Graduation portrait"><span class="gallery-label">Graduation Tour</span></div>
-    <div class="gallery-item" data-cat="matric-dance"><img class="gallery-img" src="images/8.jpeg" alt="Matric dance portraits"><span class="gallery-label">Matric Dance</span></div>
-    <div class="gallery-item" data-cat="events-and-occasions"><img class="gallery-img" src="images/11.jpeg" alt="Celebration gathering"><span class="gallery-label">Events and Occasions</span></div>
-    <div class="gallery-item" data-cat="weddings"><img class="gallery-img" src="images/1%20(2).jpeg" alt="Wedding moment"><span class="gallery-label">Weddings</span></div>
-    <div class="gallery-item" data-cat="events-and-occasions"><img class="gallery-img" src="images/1%20(3).jpeg" alt="Occasion portrait"><span class="gallery-label">Events and Occasions</span></div>
-    <div class="gallery-item" data-cat="matric-dance"><img class="gallery-img" src="images/1%20(4).jpeg" alt="Matric dance session"><span class="gallery-label">Matric Dance</span></div>
-    <div class="gallery-item" data-cat="professional-photoshoots"><img class="gallery-img" src="images/11%20(2).jpeg" alt="Professional athlete shoot"><span class="gallery-label">Professional Photoshoots</span></div>
-    <div class="gallery-item" data-cat="graduation-tour"><img class="gallery-img" src="images/Tour%20Photo.png" alt="Graduation tour image"><span class="gallery-label">Graduation Tour</span></div>
-    <div class="gallery-item" data-cat="weddings"><img class="gallery-img" src="images/HERO.jpeg" alt="Wedding coverage"><span class="gallery-label">Weddings</span></div>
-    <div class="gallery-item" data-cat="events-and-occasions"><img class="gallery-img" src="images/Portfolio%20Hero.png" alt="Event gallery image"><span class="gallery-label">Events and Occasions</span></div>
-    <div class="gallery-item" data-cat="professional-photoshoots"><img class="gallery-img" src="images/ABOUT.png" alt="Professional portrait composition"><span class="gallery-label">Professional Photoshoots</span></div>
-    <div class="gallery-item" data-cat="graduation-tour"><img class="gallery-img" src="images/Graduation%20Tour.jpg" alt="Graduation tour banner"><span class="gallery-label">Graduation Tour</span></div>
-    <div class="gallery-item" data-cat="events-and-occasions"><img class="gallery-img" src="images/Projects%20Hero%20BG.jpeg" alt="Event setup image"><span class="gallery-label">Events and Occasions</span></div>
-    <div class="gallery-item" data-cat="weddings"><img class="gallery-img" src="images/Lensation%20BG.jpg" alt="Wedding atmosphere"><span class="gallery-label">Weddings</span></div>
-    <div class="gallery-item" data-cat="matric-dance"><img class="gallery-img" src="images/4.jpeg" alt="Matric dance portrait repeat"><span class="gallery-label">Matric Dance</span></div>
-    <div class="gallery-item" data-cat="professional-photoshoots"><img class="gallery-img" src="images/5.jpeg" alt="Professional shoot repeat"><span class="gallery-label">Professional Photoshoots</span></div>
-    <div class="gallery-item" data-cat="events-and-occasions"><img class="gallery-img" src="images/3.jpeg" alt="Events and occasions repeat"><span class="gallery-label">Events and Occasions</span></div>
-    <div class="gallery-item" data-cat="graduation-tour"><img class="gallery-img" src="images/7.jpeg" alt="Graduation tour repeat"><span class="gallery-label">Graduation Tour</span></div>
-    <div class="gallery-item" data-cat="weddings"><img class="gallery-img" src="images/6.jpeg" alt="Wedding repeat"><span class="gallery-label">Weddings</span></div>
-    <div class="gallery-item" data-cat="events-and-occasions"><img class="gallery-img" src="images/1%20(3).jpeg" alt="Occasion dinner portrait repeat"><span class="gallery-label">Events and Occasions</span></div>
+    <div class="gallery-item" data-cat="professional-photoshoots"><img class="gallery-img" src="images/professional-photoshoots/IMG_0018.JPG" alt="Professional photoshoot 3"><span class="gallery-label">Professional Photoshoots</span></div>
+    <div class="gallery-item" data-cat="professional-photoshoots"><img class="gallery-img" src="images/professional-photoshoots/IMG_9825.JPG" alt="Professional photoshoot 4"><span class="gallery-label">Professional Photoshoots</span></div>
+    <div class="gallery-item" data-cat="professional-photoshoots"><img class="gallery-img" src="images/professional-photoshoots/IMG_9894.JPG" alt="Professional photoshoot 5"><span class="gallery-label">Professional Photoshoots</span></div>
+    <div class="gallery-item" data-cat="graduation-tour"><img class="gallery-img" src="images/graduation-tour/WhatsApp%20Image%202026-06-30%20at%206.06.54%20PM.jpeg" alt="Graduation tour image 1"><span class="gallery-label">Graduation Tour</span></div>
+    <div class="gallery-item" data-cat="graduation-tour"><img class="gallery-img" src="images/graduation-tour/WhatsApp%20Image%202026-06-30%20at%206.06.55%20PM%20(1).jpeg" alt="Graduation tour image 2"><span class="gallery-label">Graduation Tour</span></div>
+    <div class="gallery-item" data-cat="graduation-tour"><img class="gallery-img" src="images/graduation-tour/WhatsApp%20Image%202026-06-30%20at%206.06.55%20PM.jpeg" alt="Graduation tour image 3"><span class="gallery-label">Graduation Tour</span></div>
+    <div class="gallery-item" data-cat="graduation-tour"><img class="gallery-img" src="images/graduation-tour/WhatsApp%20Image%202026-06-30%20at%206.06.56%20PM.jpeg" alt="Graduation tour image 4"><span class="gallery-label">Graduation Tour</span></div>
+    <div class="gallery-item" data-cat="graduation-tour"><img class="gallery-img" src="images/graduation-tour/WhatsApp%20Image%202026-06-30%20at%206.07.00%20PM.jpeg" alt="Graduation tour image 10"><span class="gallery-label">Graduation Tour</span></div>
+    <div class="gallery-item" data-cat="graduation-tour"><img class="gallery-img" src="images/graduation-tour/WhatsApp%20Image%202026-06-30%20at%206.07.01%20PM.jpeg" alt="Graduation tour image 11"><span class="gallery-label">Graduation Tour</span></div>
+    <div class="gallery-item" data-cat="graduation-tour"><img class="gallery-img" src="images/graduation-tour/WhatsApp%20Image%202026-06-30%20at%206.07.02%20PM.jpeg" alt="Graduation tour image 12"><span class="gallery-label">Graduation Tour</span></div>
+    <div class="gallery-item" data-cat="graduation-tour"><img class="gallery-img" src="images/graduation-tour/WhatsApp%20Image%202026-06-30%20at%206.07.03%20PM.jpeg" alt="Graduation tour image 13"><span class="gallery-label">Graduation Tour</span></div>
+    <div class="gallery-item" data-cat="graduation-tour"><img class="gallery-img" src="images/graduation-tour/WhatsApp%20Image%202026-06-30%20at%206.07.04%20PM%20(1).jpeg" alt="Graduation tour image 14"><span class="gallery-label">Graduation Tour</span></div>
+    <div class="gallery-item" data-cat="graduation-tour"><img class="gallery-img" src="images/graduation-tour/WhatsApp%20Image%202026-06-30%20at%206.07.04%20PM%20(2).jpeg" alt="Graduation tour image 15"><span class="gallery-label">Graduation Tour</span></div>
+    <div class="gallery-item" data-cat="graduation-tour"><img class="gallery-img" src="images/graduation-tour/WhatsApp%20Image%202026-06-30%20at%206.07.04%20PM.jpeg" alt="Graduation tour image 16"><span class="gallery-label">Graduation Tour</span></div>
+    <div class="gallery-item" data-cat="graduation-tour"><img class="gallery-img" src="images/graduation-tour/WhatsApp%20Image%202026-06-30%20at%206.07.05%20PM.jpeg" alt="Graduation tour image 17"><span class="gallery-label">Graduation Tour</span></div>
+    <div class="gallery-item" data-cat="professional-photoshoots"><img class="gallery-img" src="images/professional-photoshoots/IMG_0006.JPG" alt="Professional photoshoot 1"><span class="gallery-label">Professional Photoshoots</span></div>
+    <div class="gallery-item" data-cat="professional-photoshoots"><img class="gallery-img" src="images/professional-photoshoots/IMG_0008.JPG" alt="Professional photoshoot 2"><span class="gallery-label">Professional Photoshoots</span></div>
+    <div class="gallery-item" data-cat="professional-photoshoots"><img class="gallery-img" src="images/professional-photoshoots/IMG_9941.JPG" alt="Professional photoshoot 6"><span class="gallery-label">Professional Photoshoots</span></div>
+    <div class="gallery-item" data-cat="professional-photoshoots"><img class="gallery-img" src="images/professional-photoshoots/IMG_9964.JPG" alt="Professional photoshoot 7"><span class="gallery-label">Professional Photoshoots</span></div>
+    <div class="gallery-item" data-cat="professional-photoshoots"><img class="gallery-img" src="images/professional-photoshoots/IMG_9985.JPG" alt="Professional photoshoot 8"><span class="gallery-label">Professional Photoshoots</span></div>
+    <div class="gallery-item" data-cat="professional-photoshoots"><img class="gallery-img" src="images/professional-photoshoots/IMG_9989.JPG" alt="Professional photoshoot 9"><span class="gallery-label">Professional Photoshoots</span></div>
+    <div class="gallery-item" data-cat="professional-photoshoots"><img class="gallery-img" src="images/professional-photoshoots/IMG_9995.JPG" alt="Professional photoshoot 10"><span class="gallery-label">Professional Photoshoots</span></div>
+   <div class="gallery-item" data-cat="graduation-tour"><img class="gallery-img" src="images/graduation-tour/WhatsApp%20Image%202026-06-30%20at%206.06.57%20PM.jpeg" alt="Graduation tour image 5"><span class="gallery-label">Graduation Tour</span></div>
+    <div class="gallery-item" data-cat="graduation-tour"><img class="gallery-img" src="images/graduation-tour/WhatsApp%20Image%202026-06-30%20at%206.06.58%20PM%20(1).jpeg" alt="Graduation tour image 6"><span class="gallery-label">Graduation Tour</span></div>
+    <div class="gallery-item" data-cat="graduation-tour"><img class="gallery-img" src="images/graduation-tour/WhatsApp%20Image%202026-06-30%20at%206.06.58%20PM.jpeg" alt="Graduation tour image 7"><span class="gallery-label">Graduation Tour</span></div>
+    <div class="gallery-item" data-cat="graduation-tour"><img class="gallery-img" src="images/graduation-tour/WhatsApp%20Image%202026-06-30%20at%206.06.59%20PM.jpeg" alt="Graduation tour image 8"><span class="gallery-label">Graduation Tour</span></div>
+    <div class="gallery-item" data-cat="graduation-tour"><img class="gallery-img" src="images/graduation-tour/WhatsApp%20Image%202026-06-30%20at%206.07.00%20PM%20(1).jpeg" alt="Graduation tour image 9"><span class="gallery-label">Graduation Tour</span></div>
+    
   </div>
+  <div class="gallery-empty" id="galleryEmpty">No images in this folder yet.</div>
 
   <div class="gallery-meta">
     <div class="gallery-summary" id="gallerySummary">Showing 1-25 of 27 images</div>
@@ -303,6 +307,7 @@ const filterButtons=[...document.querySelectorAll('.filter-btn')];
 const pageNumbers=document.getElementById('pageNumbers');
 const gallerySummary=document.getElementById('gallerySummary');
 const pageNote=document.getElementById('pageNote');
+const galleryEmpty=document.getElementById('galleryEmpty');
 const prevPage=document.getElementById('prevPage');
 const nextPage=document.getElementById('nextPage');
 const pageSize=25;
@@ -347,11 +352,16 @@ function renderGallery(){
 
   if(totalItems===0){
     gallerySummary.textContent='Showing 0 of 0 images';
+    galleryEmpty.classList.add('visible');
+    prevPage.disabled=true;
+    nextPage.disabled=true;
+    pageNumbers.innerHTML='';
+    pageNote.textContent='Empty Folder';
   }else{
     gallerySummary.textContent=`Showing ${startIndex+1}-${endIndex} of ${totalItems} images`;
+    galleryEmpty.classList.remove('visible');
+    renderPagination(totalPages);
   }
-
-  renderPagination(totalPages);
 }
 
 filterButtons.forEach(button=>{

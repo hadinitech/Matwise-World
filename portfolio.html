@@ -46,6 +46,8 @@ section{padding:6rem 4rem}
 .section-label{font-size:0.72rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--accent);margin-bottom:0.75rem;display:block}
 .section-title{font-family:var(--font-display);font-size:clamp(2.2rem,4vw,3.5rem);font-weight:300;line-height:1.15}
 .section-title em{font-style:italic;color:var(--accent)}
+.portfolio-gallery-intro{margin-bottom:2rem;max-width:720px}
+.portfolio-gallery-intro p{color:rgba(255,255,255,0.6);line-height:1.8}
 .profile-spotlight{background:linear-gradient(180deg,#111 0%,#0c0c0c 100%)}
 .profile-shell{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(320px,0.9fr);gap:2rem;align-items:stretch}
 .profile-panel{padding:2.25rem;border:1px solid rgba(255,255,255,0.08);background:linear-gradient(180deg,rgba(255,255,255,0.04) 0%,rgba(255,255,255,0.02) 100%)}
@@ -164,6 +166,7 @@ footer{background:#070707;padding:4rem 4rem 2rem;border-top:1px solid rgba(255,2
     <li><a href="projects.html">Projects</a></li>
     <li><a href="packages.html">Packages</a></li>
     <li><a href="portfolio.html" class="active">Portfolio</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
     <li><a href="lensation-contact.html" class="nav-cta">Contact Us</a></li>
   </ul>
   <button class="hamburger" id="hamburger" aria-label="Menu">
@@ -176,6 +179,7 @@ footer{background:#070707;padding:4rem 4rem 2rem;border-top:1px solid rgba(255,2
   <a href="projects.html">Projects</a>
   <a href="packages.html">Packages</a>
   <a href="portfolio.html">Portfolio</a>
+  <a href="gallery.html">Gallery</a>
   <a href="lensation-contact.html">Contact Us</a>
 </div>
 
@@ -252,27 +256,24 @@ footer{background:#070707;padding:4rem 4rem 2rem;border-top:1px solid rgba(255,2
 </section>
 
 <section id="portfolio">
+  <div class="portfolio-gallery-intro fade-in">
+    <span class="section-label">Sport Photography Gallery</span>
+    <h2 class="section-title">Sport photography <em>gallery</em>.</h2>
+  </div>
   <div class="gallery-grid" id="galleryGrid">
-    <div class="gallery-item" data-cat="weddings"><img class="gallery-img" src="images/0.jpeg" alt="Wedding"><span class="gallery-label">Weddings</span></div>
-    <div class="gallery-item" data-cat="grad-birthday"><img class="gallery-img" src="images/1.jpeg" alt="Graduation celebration"><span class="gallery-label">Graduations & Birthdays</span></div>
     <div class="gallery-item" data-cat="sports"><img class="gallery-img" src="images/2.jpeg" alt="Sport photography"><span class="gallery-label">Sport Photography</span></div>
-    <div class="gallery-item" data-cat="family-baby"><img class="gallery-img" src="images/3.jpeg" alt="Family shoot"><span class="gallery-label">Family & Baby Showers</span></div>
-    <div class="gallery-item" data-cat="matric"><img class="gallery-img" src="images/4.jpeg" alt="Matric Dance"><span class="gallery-label">Matric Dance</span></div>
     <div class="gallery-item" data-cat="sports"><img class="gallery-img" src="images/5.jpeg" alt="Sport photography"><span class="gallery-label">Sport Photography</span></div>
-    <div class="gallery-item" data-cat="weddings"><img class="gallery-img" src="images/6.jpeg" alt="Wedding"><span class="gallery-label">Weddings</span></div>
-    <div class="gallery-item" data-cat="grad-birthday"><img class="gallery-img" src="images/7.jpeg" alt="Graduation portrait"><span class="gallery-label">Graduations & Birthdays</span></div>
-    <div class="gallery-item" data-cat="matric"><img class="gallery-img" src="images/8.jpeg" alt="Matric Dance"><span class="gallery-label">Matric Dance</span></div>
-    <div class="gallery-item" data-cat="family-baby"><img class="gallery-img" src="images/9.jpeg" alt="Baby shower event"><span class="gallery-label">Family & Baby Showers</span></div>
-    <div class="gallery-item" data-cat="weddings"><img class="gallery-img" src="images/1%20(2).jpeg" alt="Wedding"><span class="gallery-label">Weddings</span></div>
-    <div class="gallery-item" data-cat="grad-birthday"><img class="gallery-img" src="images/1%20(3).jpeg" alt="Birthday dinner portrait"><span class="gallery-label">Graduations & Birthdays</span></div>
-    <div class="gallery-item" data-cat="matric"><img class="gallery-img" src="images/1%20(4).jpeg" alt="Matric Dance"><span class="gallery-label">Matric Dance</span></div>
-    <div class="gallery-item" data-cat="family-baby"><img class="gallery-img" src="images/11.jpeg" alt="Family celebration"><span class="gallery-label">Family & Baby Showers</span></div>
     <div class="gallery-item" data-cat="sports"><img class="gallery-img" src="images/11%20(2).jpeg" alt="Sport photography"><span class="gallery-label">Sport Photography</span></div>
-    <div class="gallery-item" data-cat="magazine-features"><img class="gallery-img" src="images/Magazine%20booklets/Cover.png" alt="Magazine Features cover"><span class="gallery-label">Magazine Features</span></div>
-    <div class="gallery-item" data-cat="magazine-features"><img class="gallery-img" src="images/Magazine%20booklets/Rethabile%20Sekobile.png" alt="Magazine Features booklet spread"><span class="gallery-label">Magazine Features</span></div>
+    <div class="gallery-item" data-cat="sports"><img class="gallery-img" src="images/2.jpeg" alt="Sport photography action"><span class="gallery-label">Sport Photography</span></div>
+    <div class="gallery-item" data-cat="sports"><img class="gallery-img" src="images/5.jpeg" alt="Sport photography sideline"><span class="gallery-label">Sport Photography</span></div>
+    <div class="gallery-item" data-cat="sports"><img class="gallery-img" src="images/11%20(2).jpeg" alt="Sport photography athlete"><span class="gallery-label">Sport Photography</span></div>
+    <div class="gallery-item" data-cat="sports"><img class="gallery-img" src="images/2.jpeg" alt="Sport photography coverage"><span class="gallery-label">Sport Photography</span></div>
+    <div class="gallery-item" data-cat="sports"><img class="gallery-img" src="images/5.jpeg" alt="Sport photography moment"><span class="gallery-label">Sport Photography</span></div>
+    <div class="gallery-item" data-cat="sports"><img class="gallery-img" src="images/11%20(2).jpeg" alt="Sport photography tournament"><span class="gallery-label">Sport Photography</span></div>
+    <div class="gallery-item" data-cat="sports"><img class="gallery-img" src="images/2.jpeg" alt="Sport photography energy"><span class="gallery-label">Sport Photography</span></div>
   </div>
   <div class="gallery-meta">
-    <div class="gallery-summary" id="gallerySummary">Showing 1-17 of 17 images</div>
+    <div class="gallery-summary" id="gallerySummary">Showing 1-10 of 10 images</div>
     <div class="pagination-panel">
       <button class="page-btn" id="prevPage" type="button" aria-label="Previous gallery page">Prev</button>
       <div id="pageNumbers"></div>
@@ -354,7 +355,7 @@ const gallerySummary=document.getElementById('gallerySummary');
 const pageNote=document.getElementById('pageNote');
 const prevPage=document.getElementById('prevPage');
 const nextPage=document.getElementById('nextPage');
-const pageSize=20;
+const pageSize=10;
 let currentPage=1;
 
 function renderPagination(totalPages){
