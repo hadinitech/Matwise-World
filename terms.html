@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>About Us | Matwise World</title>
+<title>Terms and Conditions | Matwise World</title>
 <link rel="icon" type="image/png" href="images/LOGO.png">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
@@ -41,37 +41,28 @@ nav.scrolled{background:rgba(10,10,10,0.94);backdrop-filter:blur(14px);padding:1
 .mobile-menu.open{display:flex}
 .mobile-menu a{font-family:var(--font-display);font-size:2.2rem;color:var(--white);text-decoration:none;font-weight:300;letter-spacing:0.04em;transition:color 0.2s}
 .mobile-menu a:hover{color:var(--accent)}
-.page-hero{position:relative;min-height:72vh;padding:9rem 4rem 4rem;display:flex;align-items:flex-end;overflow:hidden;background:#0b0b0b}
-.page-hero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(100deg,rgba(6,6,6,0.94) 0%,rgba(6,6,6,0.8) 38%,rgba(6,6,6,0.42) 100%),url('images/Lensation%20About.png');background-size:cover;background-position:center}
+.page-hero{position:relative;min-height:62vh;padding:9rem 4rem 4rem;display:flex;align-items:flex-end;overflow:hidden;background:#0b0b0b}
 .page-hero::after{content:'';position:absolute;inset:0;background-image:repeating-linear-gradient(0deg,transparent,transparent 79px,rgba(255,255,255,0.025) 80px),repeating-linear-gradient(90deg,transparent,transparent 79px,rgba(255,255,255,0.025) 80px)}
 .page-hero>*{position:relative;z-index:1}
 .hero-copy{max-width:760px}
 .hero-badge{display:inline-block;font-size:0.72rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);margin-bottom:1.25rem;border:1px solid rgba(12,192,223,0.3);padding:0.4rem 1rem;border-radius:2px}
-.hero-title{font-family:var(--font-display);font-size:clamp(3rem,6vw,5.3rem);font-weight:300;line-height:1;margin-bottom:1rem}
+.hero-title{font-family:var(--font-display);font-size:clamp(3rem,6vw,5.1rem);font-weight:300;line-height:1;margin-bottom:1rem}
 .hero-title em{font-style:italic;color:var(--accent)}
 .hero-sub{max-width:560px;color:rgba(255,255,255,0.74);font-size:1rem;line-height:1.9}
 section{padding:6rem 4rem}
 .section-label{font-size:0.72rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--accent);margin-bottom:0.75rem;display:block}
-.section-title{font-family:var(--font-display);font-size:clamp(2.2rem,4vw,3.6rem);font-weight:300;line-height:1.12;letter-spacing:-0.01em}
+.section-title{font-family:var(--font-display);font-size:clamp(2.2rem,4vw,3.5rem);font-weight:300;line-height:1.12}
 .section-title em{font-style:italic;color:var(--accent)}
 .section-line{width:48px;height:1px;background:var(--accent);margin:1.5rem 0 2rem}
-#story{background:#101010}
-.story-shell{display:grid;grid-template-columns:minmax(300px,0.9fr) minmax(0,1.1fr);gap:3rem;align-items:start}
-.story-panel p{color:rgba(255,255,255,0.62);font-size:0.97rem;line-height:1.95;margin-bottom:1.25rem}
-.story-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
-.story-card{padding:1.6rem;border:1px solid rgba(255,255,255,0.08);background:rgba(255,255,255,0.03)}
-.story-card h3{font-family:var(--font-display);font-size:1.55rem;font-weight:400;margin-bottom:0.65rem}
-.story-card p{color:rgba(255,255,255,0.56);font-size:0.9rem;line-height:1.75}
-#values{background:#0c0c0c}
-.values-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
-.value-card{padding:1.8rem;border:1px solid rgba(255,255,255,0.08);background:linear-gradient(180deg,rgba(255,255,255,0.04) 0%,rgba(255,255,255,0.02) 100%)}
-.value-card h3{font-family:var(--font-display);font-size:1.6rem;font-weight:400;margin-bottom:0.75rem}
-.value-card p{color:rgba(255,255,255,0.58);font-size:0.92rem;line-height:1.8}
-#stats{background:#111}
-.stats-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem}
-.stat-card{padding:1.5rem;border-left:2px solid var(--accent);background:rgba(255,255,255,0.03)}
-.stat-card strong{display:block;font-family:var(--font-display);font-size:2.6rem;font-weight:300;line-height:1}
-.stat-card span{display:block;margin-top:0.4rem;font-size:0.78rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.44)}
+#terms{background:linear-gradient(180deg,#101010 0%,#0b0b0b 100%)}
+.terms-shell{display:grid;gap:1.5rem}
+.terms-card{padding:2rem;border:1px solid rgba(255,255,255,0.08);background:rgba(255,255,255,0.03)}
+.terms-card h3{font-family:var(--font-display);font-size:2rem;font-weight:400;margin-bottom:0.75rem}
+.terms-card p{color:rgba(255,255,255,0.6);font-size:0.95rem;line-height:1.85;margin-bottom:1rem;max-width:900px}
+.terms-list{display:grid;gap:0.9rem}
+.terms-item{padding:1rem 1.1rem;border-left:2px solid var(--accent);background:rgba(255,255,255,0.02)}
+.terms-item strong{display:block;font-size:0.88rem;color:var(--white);margin-bottom:0.3rem}
+.terms-item span{display:block;color:rgba(255,255,255,0.65);font-size:0.92rem;line-height:1.8}
 .cta-band{background:#0d0d0d;border-top:1px solid rgba(255,255,255,0.06);border-bottom:1px solid rgba(255,255,255,0.06);text-align:center}
 .cta-band p{max-width:640px;margin:0 auto 1.5rem;color:rgba(255,255,255,0.56);line-height:1.8}
 .btn-primary{display:inline-block;background:var(--accent);color:var(--black);padding:0.9rem 2rem;text-decoration:none;font-size:0.82rem;letter-spacing:0.1em;text-transform:uppercase;font-weight:500;border-radius:2px;transition:all 0.25s var(--ease-out)}
@@ -93,13 +84,11 @@ footer{background:#070707;padding:4rem 4rem 2rem;border-top:1px solid rgba(255,2
 .fade-in{opacity:0;transform:translateY(30px);transition:opacity 0.7s var(--ease-out),transform 0.7s var(--ease-out)}
 .fade-in.visible{opacity:1;transform:translateY(0)}
 .fade-in-delay-1{transition-delay:0.1s}
-.fade-in-delay-2{transition-delay:0.2s}
 @media(max-width:1024px){
   nav{padding:1.25rem 2rem}
   nav.scrolled{padding:1rem 2rem}
   .page-hero{padding:8.5rem 2rem 3rem}
   section{padding:5rem 2rem}
-  .story-shell,.values-grid,.stats-grid{grid-template-columns:1fr}
   .footer-grid{grid-template-columns:1fr 1fr;gap:2rem}
 }
 @media(max-width:768px){
@@ -110,9 +99,8 @@ footer{background:#070707;padding:4rem 4rem 2rem;border-top:1px solid rgba(255,2
   .brand-mark{padding:0.25rem 0.45rem}
   .brand-mark img{height:32px}
   .brand-copy strong{font-size:0.74rem}
-  .page-hero{padding:7.5rem 1.5rem 2.5rem;min-height:62vh}
+  .page-hero{padding:7.5rem 1.5rem 2.5rem;min-height:58vh}
   section{padding:4rem 1.5rem}
-  .story-grid{grid-template-columns:1fr}
   .footer-grid{grid-template-columns:1fr}
   .footer-bottom{flex-direction:column;text-align:center}
 }
@@ -120,6 +108,7 @@ footer{background:#070707;padding:4rem 4rem 2rem;border-top:1px solid rgba(255,2
   html{font-size:15px}
   .page-hero{padding:7rem 1rem 2rem}
   section{padding:3.5rem 1rem}
+  .terms-card{padding:1.4rem}
 }
 </style>
 </head>
@@ -133,7 +122,7 @@ footer{background:#070707;padding:4rem 4rem 2rem;border-top:1px solid rgba(255,2
   </a>
   <ul class="nav-links">
     <li><a href="matwise-lensation.html">Home</a></li>
-    <li><a href="about.html" class="active">About</a></li>
+    <li><a href="about.html">About</a></li>
     <li><a href="projects.html">Projects</a></li>
     <li><a href="packages.html">Packages</a></li>
     <li><a href="portfolio.html">Portfolio</a></li>
@@ -146,7 +135,7 @@ footer{background:#070707;padding:4rem 4rem 2rem;border-top:1px solid rgba(255,2
 </nav>
 <div class="mobile-menu" id="mobileMenu">
   <a href="matwise-lensation.html">Home</a>
-  <a href="about.html" class="active">About</a>
+  <a href="about.html">About</a>
   <a href="projects.html">Projects</a>
   <a href="packages.html">Packages</a>
   <a href="portfolio.html">Portfolio</a>
@@ -156,93 +145,101 @@ footer{background:#070707;padding:4rem 4rem 2rem;border-top:1px solid rgba(255,2
 
 <section class="page-hero">
   <div class="hero-copy fade-in">
-    <span class="hero-badge">About Matwise Lensation</span>
-    <h1 class="hero-title">Photography shaped by story, presence, and <em>feeling</em>.</h1>
-    <p class="hero-sub">Matwise Lensation is created to document people, milestones, and moments with style that feels personal and imagery that lasts beyond the day itself.</p>
+    <span class="hero-badge">Terms and Conditions</span>
+    <h1 class="hero-title">Clear terms for a smooth and respectful <em>experience</em>.</h1>
+    <p class="hero-sub">These terms help every booking run with clarity, fairness, and good communication from the first deposit to final delivery.</p>
   </div>
 </section>
 
-<section id="story">
-  <div class="story-shell">
-    <div class="story-panel fade-in">
-      <span class="section-label">Who We Are</span>
-      <h2 class="section-title">More than a camera team. We build visual <em>memory</em>.</h2>
-      <div class="section-line"></div>
-      <p>Matwise Lensation exists to tell stories through photographs that feel alive, elegant, and emotionally honest. From weddings and graduations to matric dances, sports coverage, portraits, and events, our work is grounded in both visual quality and real human presence.</p>
-      <p>We are drawn to the moments that people feel most deeply: the confidence before the celebration starts, the laughter between poses, the focus before kick-off, the pride of achievement, and the quiet details that complete the day. Those moments are where the story truly lives.</p>
-      <p>Our approach blends creative direction with documentary awareness. That means we know when to guide, when to step back, and how to create imagery that feels polished without losing authenticity.</p>
+<section id="terms">
+  <div class="terms-shell">
+    <div class="terms-card fade-in">
+      <span class="section-label">Graduation Terms</span>
+      <h3>Graduation Terms and Conditions</h3>
+      <p>These terms apply specifically to graduation bookings and are read together with our general terms and conditions below.</p>
+      <div class="terms-list">
+        <div class="terms-item">
+          <strong>Separate Graduation Terms</strong>
+          <span>These terms apply specifically to graduation bookings and are read together with our general terms and conditions.</span>
+        </div>
+        <div class="terms-item">
+          <strong>Multiple Clients and Booking Order</strong>
+          <span>You are not the only client. Shoots are done in the order of confirmed bookings and deposits. All sessions take place at a set location, one graduate or group at a time.</span>
+        </div>
+        <div class="terms-item">
+          <strong>Be Ready on Time</strong>
+          <span>Please arrive ready and organized. If you are not ready when it is your turn, we will move to the next client and attend to you after that.</span>
+        </div>
+        <div class="terms-item">
+          <strong>No Rushing</strong>
+          <span>Please plan your transport and time properly. We do not accommodate rushed sessions. We aim for a calm, enjoyable experience that allows us to deliver quality photos.</span>
+        </div>
+        <div class="terms-item">
+          <strong>Communication Only with Client</strong>
+          <span>We communicate only with the graduate who made the booking. Please brief your family beforehand. We do not handle questions or complaints from family members.</span>
+        </div>
+        <div class="terms-item">
+          <strong>Patience During Sessions</strong>
+          <span>Each graduate and their family will have their own time. Please be patient and allow the process to run smoothly.</span>
+        </div>
+        <div class="terms-item">
+          <strong>Editing and Delivery</strong>
+          <span>Please allow time for editing after the shoot. We will deliver within the agreed timeframe. If there are delays, clear communication will be provided.</span>
+        </div>
+      </div>
     </div>
-    <div class="story-grid">
-      <article class="story-card fade-in">
-        <h3>Our Vision</h3>
-        <p>To be one of South Africa's most trusted photography brands for milestone, editorial, and event storytelling.</p>
-      </article>
-      <article class="story-card fade-in fade-in-delay-1">
-        <h3>Our Mission</h3>
-        <p>To create striking, story-led photography experiences that help people relive what mattered most.</p>
-      </article>
-      <article class="story-card fade-in fade-in-delay-1">
-        <h3>Our Style</h3>
-        <p>Cinematic, documentary, expressive, and intentional, with space for both elegance and energy.</p>
-      </article>
-      <article class="story-card fade-in fade-in-delay-2">
-        <h3>Our Promise</h3>
-        <p>Professional guidance, strong visual storytelling, and coverage that treats every moment with care.</p>
-      </article>
-    </div>
-  </div>
-</section>
 
-<section id="values">
-  <span class="section-label">What Matters To Us</span>
-  <h2 class="section-title">The way we work is just as important as the final <em>gallery</em>.</h2>
-  <div class="section-line"></div>
-  <div class="values-grid">
-    <article class="value-card fade-in">
-      <h3>Story First</h3>
-      <p>We do not just collect nice images. We build a sequence of photographs that reflects the atmosphere, people, and emotion of the day.</p>
-    </article>
-    <article class="value-card fade-in fade-in-delay-1">
-      <h3>Professional Presence</h3>
-      <p>Whether we are on a sports field, at a formal event, or in a private family celebration, we show up prepared, composed, and intentional.</p>
-    </article>
-    <article class="value-card fade-in fade-in-delay-2">
-      <h3>Creative Direction</h3>
-      <p>We guide when guidance is needed and step back when the moment is already speaking for itself, creating balance between polish and honesty.</p>
-    </article>
-  </div>
-</section>
-
-<section id="stats">
-  <span class="section-label">At A Glance</span>
-  <h2 class="section-title">Built for people, events, and moments that deserve stronger <em>imagery</em>.</h2>
-  <div class="section-line"></div>
-  <div class="stats-grid">
-    <div class="stat-card fade-in">
-      <strong>100+</strong>
-      <span>Sessions Completed</span>
-    </div>
-    <div class="stat-card fade-in fade-in-delay-1">
-      <strong>5+</strong>
-      <span>Years Experience</span>
-    </div>
-    <div class="stat-card fade-in fade-in-delay-1">
-      <strong>100%</strong>
-      <span>Client Satisfaction</span>
-    </div>
-    <div class="stat-card fade-in fade-in-delay-2">
-      <strong>7</strong>
-      <span>Photography Categories</span>
+    <div class="terms-card fade-in fade-in-delay-1">
+      <span class="section-label">General Terms</span>
+      <h3>General Terms and Conditions</h3>
+      <div class="terms-list">
+        <div class="terms-item">
+          <strong>Quotation Validity</strong>
+          <span>All rates quoted are valid for 15 days from the date of issue.</span>
+        </div>
+        <div class="terms-item">
+          <strong>Deposit and Balance</strong>
+          <span>A 50% deposit is required to secure the booking. The remaining balance is payable immediately upon delivery.</span>
+        </div>
+        <div class="terms-item">
+          <strong>Scope of Service</strong>
+          <span>Services are limited to what is stated in the quotation. Any additional requests or extended service time will attract additional charges.</span>
+        </div>
+        <div class="terms-item">
+          <strong>Client Expectations</strong>
+          <span>The client must clearly inform us of their expectations and requirements prior to the service to avoid misunderstandings.</span>
+        </div>
+        <div class="terms-item">
+          <strong>Edited Images Only</strong>
+          <span>All images are delivered edited only. Raw or unedited images will not be released.</span>
+        </div>
+        <div class="terms-item">
+          <strong>Editing Time</strong>
+          <span>Editing time is required. However, delivery will be done promptly.</span>
+        </div>
+        <div class="terms-item">
+          <strong>Transport and Entry Fees</strong>
+          <span>Prices exclude transportation to distant locations and entry fees to restricted or reserved areas.</span>
+        </div>
+        <div class="terms-item">
+          <strong>Refunds</strong>
+          <span>All payments are non-refundable, except in the event of our failure to appear. In unavoidable circumstances beyond both parties' control, a 25% refund may be considered.</span>
+        </div>
+        <div class="terms-item">
+          <strong>Acceptance of Terms</strong>
+          <span>Payment of the deposit constitutes acceptance and agreement to these Terms and Conditions.</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
 <section class="cta-band">
-  <span class="section-label">Let's Work</span>
-  <h2 class="section-title">Ready for photography that feels personal and <em>powerful</em>?</h2>
+  <span class="section-label">Need Help?</span>
+  <h2 class="section-title">Ready to book with full <em>clarity</em>?</h2>
   <div class="section-line" style="margin-left:auto;margin-right:auto"></div>
-  <p>Tell us what you are planning, and we will help you shape coverage that fits the mood, story, and energy of your moment.</p>
-  <a href="lensation-contact.html" class="btn-primary">Book With Us</a>
+  <p>If you have questions about these terms before booking, reach out and we will gladly explain anything you need.</p>
+  <a href="lensation-contact.html" class="btn-primary">Contact Us</a>
 </section>
 
 <footer>
@@ -259,16 +256,15 @@ footer{background:#070707;padding:4rem 4rem 2rem;border-top:1px solid rgba(255,2
         <li><a href="projects.html">Projects</a></li>
         <li><a href="packages.html">Packages</a></li>
         <li><a href="portfolio.html">Portfolio</a></li>
-        <li><a href="lensation-contact.html">Contact</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
       </ul>
     </div>
     <div>
       <div class="footer-heading">Connect</div>
       <ul class="footer-links">
+        <li><a href="lensation-contact.html">Contact Us</a></li>
+        <li><a href="mailto:MATWISEWORLD@GMAIL.COM">MATWISEWORLD@GMAIL.COM</a></li>
         <li><a href="https://wa.me/27762349149" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
-        <li><a href="https://www.instagram.com/matwiseworld?igsh=MXVyZWg2dm54ZG0xbg==" target="_blank" rel="noopener noreferrer">Instagram</a></li>
-        <li><a href="https://www.facebook.com/share/1J7bzkqypg/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">Facebook</a></li>
-        <li><a href="mailto:MATWISEWORLD@GMAIL.COM">Email Us</a></li>
         <li><a href="terms.html">Terms and Conditions</a></li>
       </ul>
     </div>
@@ -279,7 +275,7 @@ footer{background:#070707;padding:4rem 4rem 2rem;border-top:1px solid rgba(255,2
   </div>
 </footer>
 
-<a href="https://wa.me/27762349149?text=Hello%2C%20I%20would%20like%20to%20enquire%20about%20Matwise%20Lensation." class="wa-float" target="_blank" title="Chat on WhatsApp">
+<a href="https://wa.me/27762349149?text=Hello%2C%20I%20have%20a%20question%20about%20your%20terms%20and%20conditions." class="wa-float" target="_blank" title="Chat on WhatsApp">
   <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
 </a>
 
@@ -293,14 +289,10 @@ hamburger.addEventListener('click',()=>{
   mobileMenu.classList.toggle('open');
   document.body.style.overflow=mobileMenu.classList.contains('open')?'hidden':'';
 });
-function closeMobile(){
-  hamburger.classList.remove('open');
-  mobileMenu.classList.remove('open');
-  document.body.style.overflow='';
-}
-mobileMenu.querySelectorAll('a').forEach(link=>link.addEventListener('click',closeMobile));
 const observer=new IntersectionObserver((entries)=>{
-  entries.forEach(entry=>{if(entry.isIntersecting)entry.target.classList.add('visible');});
+  entries.forEach(entry=>{
+    if(entry.isIntersecting) entry.target.classList.add('visible');
+  });
 },{threshold:0.1,rootMargin:'0px 0px -50px 0px'});
 document.querySelectorAll('.fade-in').forEach(el=>observer.observe(el));
 </script>
